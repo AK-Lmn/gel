@@ -120,6 +120,15 @@ Per guard: runs, fail rate, precision from your labels (`[{guard, file, line, ve
 
 Every false alarm is listed as a hard case to add to the guard's `cases.json`. Overall it reports first-pass share, blocked runs and p50/p95 time. GEL only advises: a person edits `gel.json`, and that edit is lane C.
 
+### Fix PRs
+
+```bash
+node bin/gel.mjs fix pinned-actions --root path/to/repo   # pins what the guard reports, then re-scores
+node scripts/flywheel.mjs --max 5 [--dry-run]             # the nightly loop over the repos Cilytics lists
+```
+
+`gel fix` edits only the lines the guard reports, then runs every guard again over the whole tree. It exits 0 only when the target guard dropped, no other guard rose, and only workflow or action files changed. `.github/workflows/flywheel.yml` runs the loop each night and opens at most 5 PRs (branch `gel/fix-pinned-actions`). It needs the secret `GEL_FLYWHEEL_TOKEN` (contents and pull requests: write on the org's repos); without it the run is a dry run.
+
 ## Nightly meta-eval
 
 `.github/workflows/meta-eval.yml` runs every night: the selftest (recall and precision per guard), then the bench, then `bench/check.mjs`, which fails if any guard catches fewer planted defects or raises more findings on clean repos than `bench/baseline.json`. Changing the baseline is lane C.
