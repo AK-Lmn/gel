@@ -1,0 +1,12 @@
+{
+  "name": "@flisk-sh/gel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "GEL: Guard, Eval, Loop. One reusable CI workflow for every flisk-sh repo.",
+  "scripts": {
+    "selftest": "node bin/gel.mjs selftest",
+    "test": "node bin/gel.mjs selftest && node --test tests/*.test.mjs"
+  },
+  "license": "MIT"
+}

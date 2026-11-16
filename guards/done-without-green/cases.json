@@ -1,0 +1,7 @@
+[
+  {"name": "says all green, one check failed", "label": "bad", "files": {}, "ctx": {"claim": "Fixed. All checks green, ready.", "checkRuns": [{"name": "test", "conclusion": "failure"}, {"name": "lint", "conclusion": "success"}]}},
+  {"name": "verdict pass, run cancelled", "label": "bad", "files": {}, "ctx": {"claim": "Verdict: PASS", "checkRuns": [{"name": "e2e", "conclusion": "cancelled"}]}},
+  {"name": "says green and is green", "label": "good", "files": {}, "ctx": {"claim": "All checks pass.", "checkRuns": [{"name": "test", "conclusion": "success"}]}},
+  {"name": "no claim, red check", "label": "good", "files": {}, "ctx": {"claim": "WIP, see failing test", "checkRuns": [{"name": "test", "conclusion": "failure"}]}},
+  {"name": "skipped is not red", "label": "good", "files": {}, "ctx": {"claim": "all good", "checkRuns": [{"name": "e2e", "conclusion": "skipped"}]}}
+]

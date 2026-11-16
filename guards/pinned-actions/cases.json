@@ -1,0 +1,9 @@
+[
+  {"name": "tag pin", "label": "bad", "files": {".github/workflows/ci.yml": "jobs:\n  a:\n    steps:\n      - uses: actions/checkout@v4\n"}},
+  {"name": "branch pin", "label": "bad", "files": {".github/workflows/ci.yml": "steps:\n  - uses: some/action@main\n"}},
+  {"name": "composite action unpinned", "label": "bad", "files": {"action.yml": "runs:\n  using: composite\n  steps:\n    - uses: actions/setup-node@v4\n"}},
+  {"name": "sha pin", "label": "good", "files": {".github/workflows/ci.yml": "steps:\n  - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7\n"}},
+  {"name": "own reusable workflow by tag", "label": "good", "files": {".github/workflows/gel.yml": "jobs:\n  gel:\n    uses: flisk-sh/gel/.github/workflows/gel.yml@v1\n"}},
+  {"name": "local action", "label": "good", "files": {".github/workflows/ci.yml": "steps:\n  - uses: ./.github/actions/x\n"}},
+  {"name": "no workflows", "label": "good", "files": {"README.md": "hello\n"}}
+]

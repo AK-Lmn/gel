@@ -1,0 +1,10 @@
+[
+  {"name": "aws key in env file", "label": "bad", "files": {".env.example": ["AWS_KEY=", "AKIA", "IOSFODNN7EXAMPLE"]}},
+  {"name": "github token in script", "label": "bad", "files": {"deploy.sh": ["export T=", "ghp_", "abcdefghijklmnopqrstuvwxyz0123456789"]}},
+  {"name": "anthropic key in readme", "label": "bad", "files": {"README.md": ["use sk-", "ant-api03-", "abcdefghijklmnopqrstuv"]}},
+  {"name": "private key block", "label": "bad", "files": {"id": ["-----BEGIN ", "RSA PRIVATE KEY-----\nabc"]}},
+  {"name": "stripe live key", "label": "bad", "files": {"pay.js": ["const k = 'sk_", "live_", "abcdefghijklmnop1234'"]}},
+  {"name": "plain code", "label": "good", "files": {"index.js": "export const x = 1;\n"}},
+  {"name": "env var name only", "label": "good", "files": {"README.md": "Set ANTHROPIC_API_KEY and OPENAI_API_KEY in the dashboard.\n"}},
+  {"name": "short sk word", "label": "good", "files": {"a.md": "the sk-learn style prefix is fine\n"}}
+]

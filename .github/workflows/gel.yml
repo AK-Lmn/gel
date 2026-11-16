@@ -1,0 +1,48 @@
+# GEL reusable workflow. A repo calls it with a 10-line caller, see templates/caller.yml.
+name: GEL
+
+on:
+  workflow_call:
+    inputs:
+      gel_ref:
+        description: Tag of flisk-sh/gel to run. The caller pins this to a version.
+        type: string
+        default: v1
+
+permissions:
+  contents: read
+
+jobs:
+  gel:
+    name: GEL guards
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      checks: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: flisk-sh/gel
+          ref: ${{ inputs.gel_ref }}
+          path: .gel-engine
+      - name: Build pull request context
+        if: github.event_name == 'pull_request'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node .gel-engine/bin/gel-ctx.mjs "$RUNNER_TEMP/gel-ctx.json"
+      - name: Run guards
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node .gel-engine/bin/gel.mjs run --base "$BASE_SHA" --ctx "$RUNNER_TEMP/gel-ctx.json" --record "$RUNNER_TEMP/gel-record.jsonl"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: gel-record
+          path: ${{ runner.temp }}/gel-record.jsonl
+          if-no-files-found: ignore
+          retention-days: 30
