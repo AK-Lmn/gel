@@ -5,7 +5,7 @@
 //   node scripts/flywheel.mjs [--max 5] [--repo owner/name] [--dry-run]
 // GH_TOKEN must be able to push branches and open PRs in the target repos. Without it the run is a dry run.
 import { execFileSync } from "node:child_process";
-import { mkdtempSync } from "node:fs";
+import { appendFileSync, mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -20,7 +20,7 @@ const SKIP = new Set(["gel-e2e"]);
 const DATA = opt("data", "https://cilytics.flisk.si/data.json");
 const dry = args.includes("--dry-run") || !process.env.GH_TOKEN;
 const sh = (cmd, a, o = {}) => execFileSync(cmd, a, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"], ...o });
-const log = (s) => { console.log(s); if (process.env.GITHUB_STEP_SUMMARY) execFileSync("sh", ["-c", `printf '%s\\n' "$1" >> "$GITHUB_STEP_SUMMARY"`, "sh", s]); };
+const log = (s) => { console.log(s); if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, s + "\n"); };
 
 async function candidates() {
   if (opt("repo")) return [opt("repo")];
