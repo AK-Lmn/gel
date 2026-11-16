@@ -10,6 +10,7 @@ import { GUARD_NAMES, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
 import { diffChanges, baseReader } from "../lib/diff.mjs";
 import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
+import { fixPinned, lsRemoteResolver } from "../lib/fix-pinned.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -22,7 +23,52 @@ function changedFiles(root, base) {
   } catch { return null; }
 }
 
+// every guard over the whole tree: { guard: { count, findings } } (the flywheel's before/after score)
+async function scanTree(root) {
+  const cfg = loadConfig(root);
+  const files = walk(root).filter((f) => !matchAny(cfg.ignore, f));
+  const out = {};
+  for (const name of GUARD_NAMES) {
+    if (cfg.guards[name] === "off") continue;
+    const res = await (await loadGuard(name)).run({ root, files, ctx: {}, cfg, changes: null, readBase: null });
+    out[name] = { count: res.findings.length, findings: res.findings };
+  }
+  return out;
+}
+
+// gel fix <guard>: fix what the guard reports, then let the guards score the result
+async function fix() {
+  const what = args[1];
+  if (what !== "pinned-actions") { console.log("usage: gel fix pinned-actions [--root .] [--repo owner/name] [--json]"); process.exit(2); }
+  const root = resolve(opt("root", "."));
+  // the repo's own owner is trusted (its actions may stay on a tag), as in CI, so the fixer needs to know the repo
+  if (!process.env.GITHUB_REPOSITORY) {
+    const repo = opt("repo") ?? (() => {
+      try { return execFileSync("git", ["remote", "get-url", "origin"], { cwd: root, encoding: "utf8" }).trim().match(/github\.com[:/]([^/]+\/[^/.]+?)(?:\.git)?$/)?.[1]; } catch { return undefined; }
+    })();
+    if (!repo) { console.log("gel fix: pass --repo owner/name (no GitHub origin found)"); process.exit(2); }
+    process.env.GITHUB_REPOSITORY = repo;
+  }
+  const before = await scanTree(root);
+  const res = fixPinned(root, before[what]?.findings ?? [], lsRemoteResolver());
+  const after = await scanTree(root);
+  const counts = (s) => Object.fromEntries(Object.entries(s).map(([k, v]) => [k, v.count]));
+  const worse = Object.keys(after).filter((k) => after[k].count > (before[k]?.count ?? 0));
+  // the target guard must drop, no guard may rise, and only workflow or action files may change (never policy or cases)
+  const outside = res.files.filter((f) => !(/^\.github\/(workflows|actions)\/.+\.ya?ml$/.test(f) || /(^|\/)action\.ya?ml$/.test(f)));
+  const better = (after[what]?.count ?? 0) < (before[what]?.count ?? 0) && !worse.length && !outside.length;
+  const report = { fixer: what, better, before: counts(before), after: counts(after), worse, outside, files: res.files, pinned: res.pinned, unresolved: res.unresolved };
+  if (args.includes("--json")) console.log(JSON.stringify(report));
+  else {
+    console.log(`${what}: ${before[what]?.count ?? 0} -> ${after[what]?.count ?? 0} findings, ${res.pinned} pinned in ${res.files.length} files${better ? "" : " (not better: do not open a PR)"}`);
+    if (worse.length) console.log(`worse: ${worse.join(", ")}`);
+    for (const u of res.unresolved) console.log(`unresolved ${u.file}:${u.line} ${u.why}`);
+  }
+  process.exit(better ? 0 : 1);
+}
+
 async function main() {
+  if (cmd === "fix") return fix();
   if (cmd === "selftest") {
     const rows = await selftest();
     if (args.includes("--json")) { console.log(JSON.stringify(rows, null, 1)); process.exit(rows.every((r) => r.ok) ? 0 : 1); }
@@ -50,7 +96,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel fix pinned-actions [--root .] [--repo owner/name] [--json]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
