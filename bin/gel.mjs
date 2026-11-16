@@ -8,6 +8,7 @@ import { matchAny } from "../lib/glob.mjs";
 import { walk } from "../lib/fs.mjs";
 import { GUARD_NAMES, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
+import { diffChanges, baseReader } from "../lib/diff.mjs";
 import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
 
 const args = process.argv.slice(2);
@@ -58,6 +59,9 @@ async function main() {
   const scope = (changed ?? all).filter((f) => existsSync(resolve(root, f)) && !matchAny(cfg.ignore, f));
   const { lane, reason } = pickLane(changed ?? all, { laneC: cfg.laneC ?? undefined, laneA: cfg.laneA ?? undefined });
   const ctx = opt("ctx") && existsSync(opt("ctx")) ? JSON.parse(readFileSync(opt("ctx"), "utf8")) : {};
+  // before-and-after guards (migrations, API specs) see what this branch changed; a scan of the whole tree has no "before"
+  const changes = changed ? diffChanges(root, opt("base"))?.filter((c) => !matchAny(cfg.ignore, c.from ?? c.file)) ?? null : null;
+  const readBase = changes ? baseReader(root, opt("base")) : null;
 
   const started = Date.now();
   const results = [];
@@ -67,7 +71,7 @@ async function main() {
     const guard = await loadGuard(name);
     // links can break in files that did not change, so that guard looks at the whole tree
     const files = name === "dead-links" ? all : scope;
-    const res = await guard.run({ root, files, ctx, cfg });
+    const res = await guard.run({ root, files, ctx, cfg, changes, readBase });
     results.push({ guard: name, level, pass: res.pass, findings: res.findings });
   }
   const blocked = results.filter((r) => !r.pass && r.level === "block");
