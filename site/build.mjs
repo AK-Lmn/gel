@@ -29,7 +29,7 @@ const share = pct(C.flagged, C.withChecks);
 
 // Text that fills the bars, ponytail style: what each guard actually reads. Fake keys are split so no scanner trips on this file.
 const fill = {
-  secret: `const key = "AKIA" + "…"; stripe.init("sk_" + "live_…"); -----BEGIN ${"PRIVATE"} KEY----- headers: { authorization: "ghp_…" } anthropic({ apiKey: "sk-ant-…" }) `,
+  secret: `const key = "AKIA" + "…"; stripe.init("sk_" + "live_…"); ----BEGIN ${"PRIVATE"} KEY---- headers: { authorization: "ghp_…" } anthropic({ apiKey: "sk-ant-…" }) `,
   action: `- uses: actions/checkout@v4  - uses: docker/build-push-action@master  - uses: aws-actions/configure-aws-credentials@v4.1.0  - uses: some/action@main `,
   perm: `on: pull_request_target  permissions: write-all  jobs: build: runs-on: ubuntu-latest  ref: ${"$"}{{ github.event.pull_request.head.sha }}  `,
   link: `[Setup](docs/setup.md)  ![diagram](img/arch.png)  [API](docs/api.md#auth)  [Guide](../guide/README.md)  [Changelog](CHANGELOG.md) `,

@@ -37,7 +37,9 @@ jobs:
         run: node .gel-engine/bin/gel-ctx.mjs "$RUNNER_TEMP/gel-ctx.json"
       - name: Run guards
         env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          # a pull request checks its diff; a push to the default branch scans the whole tree, so the record
+          # (and Cilytics, which reads it) says whether main is clean, not only whether the last push was
+          BASE_SHA: ${{ github.event.pull_request.base.sha || (github.ref != format('refs/heads/{0}', github.event.repository.default_branch) && github.event.before || '') }}
         run: node .gel-engine/bin/gel.mjs run --base "$BASE_SHA" --ctx "$RUNNER_TEMP/gel-ctx.json" --record "$RUNNER_TEMP/gel-record.jsonl"
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()

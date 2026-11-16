@@ -36,7 +36,10 @@ runs:
         BASE_INPUT: ${{ inputs.base }}
         PR_BASE: ${{ github.event.pull_request.base.sha }}
         PUSH_BEFORE: ${{ github.event.before }}
+        ON_DEFAULT: ${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) }}
         RECORD: ${{ inputs.record }}
       run: |
+        # a push to the default branch scans the whole tree, so the record says whether main is clean
+        [ "$ON_DEFAULT" = true ] && [ -z "$PR_BASE" ] && PUSH_BEFORE=""
         base="${BASE_INPUT:-${PR_BASE:-$PUSH_BEFORE}}"
         node "$GITHUB_ACTION_PATH/bin/gel.mjs" run --root . --base "$base" --ctx "$RUNNER_TEMP/gel-ctx.json" --record "$RECORD"
