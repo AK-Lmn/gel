@@ -1,4 +1,4 @@
-import { readText } from "../../lib/fs.mjs";
+// No node imports here: this file also runs in a browser. `read(file)` returns the file text or null.
 
 export const name = "workflow-permissions";
 // Pre-flight on workflow config: the job token gets only what it needs, and a pull_request_target
@@ -40,10 +40,10 @@ function jobs(lines) {
   return out;
 }
 
-export function run({ root, files }) {
+export function run({ files, read }) {
   const findings = [];
   for (const f of files.filter((x) => /^\.github\/workflows\/[^/]+\.ya?ml$/.test(x))) {
-    const text = readText(root, f);
+    const text = read(f);
     if (text === null) continue;
     const lines = text.split("\n");
     const on = onBlock(lines);
