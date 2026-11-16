@@ -88,6 +88,10 @@ Each guard has `guards/<name>/cases.json`, labelled good and bad. `node bin/gel.
 
 Each run appends one JSON line to `gel-record.jsonl`: repo, commit, lane, each guard's result, its first 10 findings and the time. That record is how you decide to promote a guard.
 
+## Org view: Cilytics
+
+[Cilytics](https://cilytics.flisk.si/) ([flisk-sh/cilytics](https://github.com/flisk-sh/cilytics)) shows GEL across a whole org or user account. It finds the newest completed run of each repo's workflow named `GEL` (or a file called `gel.yml`), reads `gel-record.jsonl` from its `gel-record` artifact, and shows which repos run GEL, the guard findings and what is blocked. Keep that workflow name and artifact name, or the repo shows as "GEL not installed".
+
 ## Metrics and the flywheel
 
 ```bash

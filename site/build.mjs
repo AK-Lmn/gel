@@ -308,7 +308,7 @@ lane C  .github/workflows/release.yml  <span class="c"># a person approves this 
   <div class="step"><span class="ix">flywheel</span><br><code>promote / demote</code><p>Promote after 20 runs, 5 labelled findings and 95% precision. Demote a blocking guard on one false alarm. Each false alarm is listed as a hard case to add to <code>cases.json</code>.</p></div>
   <div class="step"><span class="ix">before release</span><br><code>release-gate</code><p>A shared workflow in <a href="https://github.com/flisk-sh/.github">flisk-sh/.github</a>: waits for every check on the release commit and fails on a red or missing required one.</p></div>
   <div class="step"><span class="ix">after deploy</span><br><code>deploy-health</code><p>Curls the deployed URL until it answers with the expected status and text, or fails the release.</p></div>
-  <div class="step"><span class="ix">org view</span><br><code>Cilytics</code><p>The org CI dashboard reads the latest <code>gel-record</code> of each repo: which repos run GEL, findings, blocks.</p></div>
+  <div class="step"><span class="ix">org view</span><br><a href="https://cilytics.flisk.si/"><code>Cilytics</code></a><p>The org CI dashboard (<a href="https://github.com/flisk-sh/cilytics">flisk-sh/cilytics</a>, for any org or user) reads the latest <code>gel-record</code> of each repo: which repos run GEL, findings, blocks.</p></div>
  </div>
 </div></section>
 
