@@ -1,9 +1,88 @@
 [
-  {"name": "missing markdown target", "label": "bad", "files": {"README.md": "see [docs](docs/missing.md)\n"}},
-  {"name": "missing image", "label": "bad", "files": {"README.md": "![logo](assets/logo.svg)\n"}},
-  {"name": "html href to missing page", "label": "bad", "files": {"index.html": "<a href=\"pricing.html\">p</a>"}},
-  {"name": "existing target", "label": "good", "files": {"README.md": "see [docs](docs/a.md#top)\n", "docs/a.md": "# a\n"}},
-  {"name": "web and anchor links ignored", "label": "good", "files": {"README.md": "[x](https://example.com/nope) [y](#intro) [m](mailto:a@b.c)\n"}},
-  {"name": "link inside code fence ignored", "label": "good", "files": {"README.md": "```\n[x](nope.md)\n```\n"}},
-  {"name": "relative from subfolder", "label": "good", "files": {"docs/b.md": "[up](../README.md)\n", "README.md": "hi\n"}}
+ {
+  "name": "missing markdown target",
+  "label": "bad",
+  "files": {
+   "README.md": "see [docs](docs/missing.md)\n"
+  }
+ },
+ {
+  "name": "missing image",
+  "label": "bad",
+  "files": {
+   "README.md": "![logo](assets/logo.svg)\n"
+  }
+ },
+ {
+  "name": "html href to missing page",
+  "label": "bad",
+  "files": {
+   "index.html": "<a href=\"pricing.html\">p</a>"
+  }
+ },
+ {
+  "name": "existing target",
+  "label": "good",
+  "files": {
+   "README.md": "see [docs](docs/a.md#top)\n",
+   "docs/a.md": "# a\n"
+  }
+ },
+ {
+  "name": "web and anchor links ignored",
+  "label": "good",
+  "files": {
+   "README.md": "[x](https://example.com/nope) [y](#intro) [m](mailto:a@b.c)\n"
+  }
+ },
+ {
+  "name": "link inside code fence ignored",
+  "label": "good",
+  "files": {
+   "README.md": "```\n[x](nope.md)\n```\n"
+  }
+ },
+ {
+  "name": "relative from subfolder",
+  "label": "good",
+  "files": {
+   "docs/b.md": "[up](../README.md)\n",
+   "README.md": "hi\n"
+  }
+ },
+ {
+  "name": "site-root link is a server route",
+  "label": "good",
+  "files": {
+   "index.html": "<a href=\"/admin/\">a</a>"
+  }
+ },
+ {
+  "name": "broken link inside test fixture",
+  "label": "good",
+  "files": {
+   "tests/fixtures/readme.md": "[x](docs/nope.md)\n"
+  }
+ },
+ {
+  "name": "placeholder word",
+  "label": "good",
+  "files": {
+   "d.md": "[x](URL)\n"
+  }
+ },
+ {
+  "name": "template literal in html",
+  "label": "good",
+  "files": {
+   "f.html": "<img src=\"${c.icon}\">"
+  }
+ },
+ {
+  "name": "link inside a templates folder",
+  "label": "good",
+  "files": {
+   "cli/templates/s/SKILL.md": "[d](../../../docs/x.md)\n"
+  }
+ }
 ]

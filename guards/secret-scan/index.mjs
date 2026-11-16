@@ -1,4 +1,4 @@
-import { readText } from "../../lib/fs.mjs";
+import { readText, isTestPath } from "../../lib/fs.mjs";
 
 export const name = "secret-scan";
 const RULES = [
@@ -15,6 +15,7 @@ const RULES = [
 export function run({ root, files }) {
   const findings = [];
   for (const f of files) {
+    if (isTestPath(f)) continue; // fake keys live in test fixtures
     if (/\.(lock|svg|png|jpg|gif|ico|woff2?)$/.test(f)) continue;
     const text = readText(root, f);
     if (text === null) continue;
