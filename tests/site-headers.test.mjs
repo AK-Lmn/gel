@@ -33,8 +33,12 @@ test("the baseline security headers are set once each", () => {
   for (const [k, v] of Object.entries(want)) assert.deepEqual(rules["/*"][k], [v], k);
 });
 
-test("the CSP only restricts framing", () => {
-  assert.deepEqual(rules["/*"]["content-security-policy"], ["frame-ancestors 'self'"]);
+test("the CSP sets a default-src and restricts framing", () => {
+  const csp = rules["/*"]["content-security-policy"];
+  assert.equal(csp.length, 1);
+  assert.match(csp[0], /^default-src 'self';/);
+  assert.match(csp[0], /frame-ancestors 'self'/);
+  assert.match(csp[0], /object-src 'none'/);
 });
 
 test("the site has a 404 page setting and the _headers file ships with the assets", () => {
