@@ -1,0 +1,13 @@
+# GEL runs on itself through the same reusable workflow every repo will call.
+name: GEL dogfood
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  gel:
+    permissions: { contents: read, checks: read, pull-requests: read }
+    uses: ./.github/workflows/gel.yml
+    with: { gel_ref: main }
