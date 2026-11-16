@@ -1,0 +1,8413 @@
+{
+ "summary": {
+  "date": "2026-11-16",
+  "repos": 30,
+  "files": 11350,
+  "perKind": {
+   "secret": {
+    "covered": {
+     "n": 150,
+     "caught": 150
+    },
+    "hard": {
+     "n": 90,
+     "caught": 0
+    },
+    "withoutGel": 1
+   },
+   "action": {
+    "covered": {
+     "n": 90,
+     "caught": 90
+    },
+    "hard": {
+     "n": 0,
+     "caught": 0
+    },
+    "withoutGel": 3
+   },
+   "perm": {
+    "covered": {
+     "n": 90,
+     "caught": 90
+    },
+    "hard": {
+     "n": 30,
+     "caught": 0
+    },
+    "withoutGel": 3
+   },
+   "link": {
+    "covered": {
+     "n": 90,
+     "caught": 90
+    },
+    "hard": {
+     "n": 30,
+     "caught": 0
+    },
+    "withoutGel": 1
+   },
+   "claim": {
+    "covered": {
+     "n": 120,
+     "caught": 120
+    },
+    "hard": {
+     "n": 0,
+     "caught": 0
+    },
+    "withoutGel": 0
+   }
+  },
+  "perDefect": {
+   "aws-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "github-token": {
+    "n": 30,
+    "caught": 30
+   },
+   "anthropic-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "stripe-live-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "private-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "google-api-key": {
+    "n": 30,
+    "caught": 0
+   },
+   "password-in-url": {
+    "n": 30,
+    "caught": 0
+   },
+   "aws-key-in-test-file": {
+    "n": 30,
+    "caught": 0
+   },
+   "tag-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "branch-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "semver-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "missing-doc": {
+    "n": 30,
+    "caught": 30
+   },
+   "missing-image": {
+    "n": 30,
+    "caught": 30
+   },
+   "missing-with-anchor": {
+    "n": 30,
+    "caught": 30
+   },
+   "html-href": {
+    "n": 30,
+    "caught": 0
+   },
+   "no-permissions": {
+    "n": 30,
+    "caught": 30
+   },
+   "write-all": {
+    "n": 30,
+    "caught": 30
+   },
+   "prt-head-checkout": {
+    "n": 30,
+    "caught": 30
+   },
+   "scope-not-needed": {
+    "n": 30,
+    "caught": 0
+   },
+   "claims-green-red-check": {
+    "n": 30,
+    "caught": 30
+   },
+   "claims-green-timed-out": {
+    "n": 30,
+    "caught": 30
+   },
+   "claims-green-is-green": {
+    "n": 30,
+    "caught": 30
+   },
+   "no-claim-red-check": {
+    "n": 30,
+    "caught": 30
+   }
+  },
+  "clean": {
+   "secret-scan": {
+    "reposWithFindings": 0,
+    "findings": 0
+   },
+   "pinned-actions": {
+    "reposWithFindings": 21,
+    "findings": 371
+   },
+   "workflow-permissions": {
+    "reposWithFindings": 18,
+    "findings": 45
+   },
+   "dead-links": {
+    "reposWithFindings": 9,
+    "findings": 21
+   },
+   "done-without-green": {
+    "reposWithFindings": 0,
+    "findings": 0
+   }
+  },
+  "msP50": 19,
+  "msP95": 93
+ },
+ "repos": [
+  {
+   "repo": "postcss/postcss",
+   "sha": "b6316e5d61e5cc26c32d050eeb8d856cb410d8be",
+   "files": 115,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/stringifier.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/input.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/document.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/warning.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/warning.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "tsconfig.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "package.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/stringify.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "CHANGELOG.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 9,
+   "workflows": 2
+  },
+  {
+   "repo": "mobxjs/mobx",
+   "sha": "bf94b8e866c58995f78189c5412cf06042012720",
+   "files": 429,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 7,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/build_and_test.yml:11 no permissions: at the top or on job \"build\", so the token gets the repo default",
+     ".github/workflows/coveralls.yml:6 no permissions: at the top or on job \"mobx\", so the token gets the repo default"
+    ],
+    "dead-links": 11,
+    "dead-links:sample": [
+     "website/static/getting-started.html:9 link to assets/getting-started-assets/style.css does not exist",
+     "website/static/getting-started.html:14 link to assets/getting-started-assets/images/favicon.png does not exist",
+     "website/static/getting-started.html:32 link to assets/getting-started-assets/images/mobservable.png does not exist",
+     "website/static/getting-started.html:58 link to assets/getting-started-assets/overview.png does not exist",
+     "website/static/getting-started.html:470 link to assets/getting-started-assets/javascripts/jquery-2.1.4.min.js does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "jest.config.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "packages/mobx-react/src/index.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "packages/mobx/src/utils/iterable.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "jest.setup.base.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "packages/mobx/src/global.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "packages/mobx-react-plugin/tsconfig.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "packages/mobx/jest.setup.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "packages/mobx/__tests__/base/babel-tests.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/coveralls.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/build_and_test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/build_and_test.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/refguide/computed.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "packages/mobx-react-lite/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/configuration.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 62,
+   "workflows": 3
+  },
+  {
+   "repo": "fingerprintjs/fingerprintjs",
+   "sha": "7a738d0e9920c7431b34aff24b345a21f9054855",
+   "files": 157,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 17,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/check_upcoming_browser_versions.yml:18 no permissions: at the top or on job \"unit_tests\", so the token gets the repo default",
+     ".github/workflows/test.yml:14 no permissions: at the top or on job \"test\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/sources/device_memory.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": ".github/workflows/check_upcoming_browser_versions.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "tsconfig.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/sources/screen_frame.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/sources/device_memory.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "resources/content_blocking/filters.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/sources/index.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/sources/audio.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql_analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/npm_publish.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/typescript_support.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/content_blockers.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "readme.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/ISSUE_TEMPLATE/other_bug.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 7,
+   "workflows": 5
+  },
+  {
+   "repo": "yamadashy/repomix",
+   "sha": "813a886c6aa1d66aaec0b061a4442754529c7bcb",
+   "files": 1343,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 4,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/core/git/gitHubArchiveApi.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/core/output/outputSort.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/core/skill/skillSectionGenerators.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "website/client/scripts/generateSchema.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".pinact.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "website/client/src/public/schemas/1.16.0/schema.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/core/treeSitter/parseStrategies/GoParseStrategy.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/core/file/fileTreeGenerate.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/schema-update.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/jev-pr-labeler.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/claude-code-review.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "website/client/src/zh-cn/guide/security.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "llms-install.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/releases/v0.1.x/v0.1.25.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "website/client/src/zh-tw/guide/usage.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": true,
+    "pins": true,
+    "perms": true,
+    "links": false,
+    "claims": false
+   },
+   "ms": 93,
+   "workflows": 21
+  },
+  {
+   "repo": "wg-easy/wg-easy",
+   "sha": "36c6310706f7b261ae3d455c9b521d045c59eeb5",
+   "files": 451,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/deploy-pr.yml:12 no permissions: at the top or on job \"docker\", so the token gets the repo default",
+     ".github/workflows/lint.yml:10 no permissions: at the top or on job \"docs\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/app/utils/types.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/server/api/client/[clientId]/qrcode.svg.get.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/i18n/locales/id.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/shared/utils/clientBulk.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/server/database/repositories/interface/types.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/app/composables/useColorMode.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/app/stores/auth.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/test/e2e/helpers.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/stale.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/lint.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/content/examples/tutorials/traefik.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/content/contributing/translation.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/content/getting-started.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/content/advanced/metrics/prometheus.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 29,
+   "workflows": 8
+  },
+  {
+   "repo": "Molunerfinn/PicGo",
+   "sha": "dfdb991188fae25abe9d35fd97885086d0b5e173",
+   "files": 494,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 30,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/main.yml:53 no permissions: at the top or on job \"build-macos\", so the token gets the repo default",
+     ".github/workflows/notify-homepage.yml:13 no permissions: at the top or on job \"rebuild-homepage\", so the token gets the repo default"
+    ],
+    "dead-links": 2,
+    "dead-links:sample": [
+     "README.md:111 link to ./chart.png does not exist",
+     "README_zh-CN.md:111 link to ./chart.png does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/renderer/components/main/album/album-inspector-details.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/renderer/components/main/dashboard/hooks/use-dashboard-drop-handler.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/renderer/components/main/dashboard/picgo-dashboard.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/universal/utils/staticPath.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/renderer/components/main/providers/use-provider-selection.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/renderer/components/main/dashboard/uploader-switcher.tsx",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/renderer/components/common/media-thumbnail.tsx",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/__tests__/main/uploader-context.spec.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/notify-homepage.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci-check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/issue-duplicate-detection.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "CONTRIBUTING_EN.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "changelog/2.4.1.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 64,
+   "workflows": 4
+  },
+  {
+   "repo": "immerjs/immer",
+   "sha": "784c86bb234e805566481c9425fcb2a3897e8bcc",
+   "files": 169,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "perf-testing/immutability-profiling.mjs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/plugins/arrayMethods.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".codesandbox/ci.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": ".vscode/launch.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/types/types-external.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": ".codesandbox/ci.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "vitest.config.build.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "__tests__/array-methods-filter-length.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "website/docs/other-lang.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "website/docs/api.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "website/docs/faq.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "website/docs/map-set.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 14,
+   "workflows": 3
+  },
+  {
+   "repo": "tj/commander.js",
+   "sha": "a5a7dc084d4d2b7932e85ca049c5204e50a2c721",
+   "files": 220,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/suggestSimilar.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "examples/options-env.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/help.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/options-defaults.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/help.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "examples/custom-command-class.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "examples/color-help.mjs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/help.optionDescription.test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "AI_POLICY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/zh-CN/不再推荐使用的功能.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "AI_POLICY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/options-in-depth.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 10,
+   "workflows": 2
+  },
+  {
+   "repo": "caolan/async",
+   "sha": "3921e54bd0704157dbea238fdfcc0c3619abde1a",
+   "files": 502,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 6,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "intro.md:25 link to global.html#AsyncFunction does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/someLimit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/filterLimit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/autoInject.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/whilst.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "lib/each.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "lib/internal/getIterator.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/queue.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "support/module_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "support/module_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "support/jsdoc/theme/README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 79,
+   "workflows": 1
+  },
+  {
+   "repo": "jashkenas/underscore",
+   "sha": "5c1e5f686f8500af9c9d15614ed60289d6d35d6b",
+   "files": 398,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 4,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "index.html:2523 link to docs/modules/noConflict.html does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "modules/omit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "modules/_shallowProperty.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "modules/sortedIndex.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "modules/isSymbol.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "modules/sortedIndex.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "modules/isFunction.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "modules/isNull.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/treeshake.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CODE_OF_CONDUCT.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 125,
+   "workflows": 1
+  },
+  {
+   "repo": "ai/nanoid",
+   "sha": "055d1700cc67ac843e3efb5235d806b419ec7b2b",
+   "files": 46,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "index.browser.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": ".prettierrc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "non-secure/index.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pnpm-workspace.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "nanoid.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": ".prettierrc.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/benchmark.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/benchmark.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README.ko.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.ar.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.ko.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 4,
+   "workflows": 3
+  },
+  {
+   "repo": "remy/nodemon",
+   "sha": "df00a4e463547383a4c1c5eaab280f395d439c23",
+   "files": 170,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 8,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/commits.yml:9 no permissions: at the top or on job \"check-for-cc\", so the token gets the repo default",
+     ".github/workflows/node.js.yml:13 no permissions: at the top or on job \"build\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "website/oc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "website/oc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/version.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/config/command.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/utils/log.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "lib/index.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "lib/monitor/signals.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/fixtures/packages/start/package.json",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/commits.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/commits.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/website.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "doc/requireable.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "doc/events.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "TODO.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "doc/arch.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 6,
+   "workflows": 5
+  },
+  {
+   "repo": "philc/vimium",
+   "sha": "4046615ae4128d485fce3335fc1032e6f87c630a",
+   "files": 140,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "pages/command_listing.html:18 link to ../github.svg does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "content_scripts/hud.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/settings.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "content_scripts/mode_insert.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "pages/exclusion_rules_editor.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "content_scripts/ui_component.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "background_scripts/marks.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "background_scripts/user_search_engines.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/unit_tests/tab_recency_test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/pull_request_template.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 8,
+   "workflows": 0
+  },
+  {
+   "repo": "python-telegram-bot/python-telegram-bot",
+   "sha": "41e3633bd1b4e51693ee57059828a59a9773618a",
+   "files": 1363,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "examples/passportbot.html:16 link to telegram-passport.js does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": ".github/workflows/stale.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "changes/22.4_2025-09-13/4926.GMcTfT2hSAdmdT7wi73mzZ.toml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/telegram/ext/_handlers/chatjoinrequesthandler.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/telegram/ext/_handlers/managedbotupdatedhandler.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/telegram/_chat.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "examples/timerbot.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "changes/22.7_2026-03-16/5166.5cZDXUcYWLrCCWCRnBKktb.toml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/ext/test_chatjoinrequesthandler.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/unit_tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release_test_pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release_test_pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/pull_request_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/copilot-instructions.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "examples/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/pull_request_template.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": true,
+    "perms": true,
+    "links": true,
+    "claims": false
+   },
+   "ms": 58,
+   "workflows": 14
+  },
+  {
+   "repo": "celery/celery",
+   "sha": "9c2f238334331db43f15956f131235fd3bb70fd1",
+   "files": 861,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 29,
+    "workflow-permissions": 1,
+    "workflow-permissions:sample": [
+     ".github/workflows/docker.yml:28 no permissions: at the top or on job \"docker-build\", so the token gets the repo default"
+    ],
+    "dead-links": 2,
+    "dead-links:sample": [
+     ".github/Agents.md:131 link to .github/copilot-instructions.md does not exist",
+     ".github/Agents.md:132 link to SECURITY.md does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "celery/bin/control.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "celery/apps/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "examples/django/proj/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/next-steps/setup.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "celery/utils/sysinfo.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "t/integration/test_security.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "t/integration/__init__.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "t/smoke/tests/test_chord_headers_exchange.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/smoke-tests-dev.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/smoke-tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/integration-tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/Feature-Request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/Documentation-Bug-Report.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/PULL_REQUEST_TEMPLATE.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 47,
+   "workflows": 8
+  },
+  {
+   "repo": "deezer/spleeter",
+   "sha": "6f2c8a2e283914faa544631430f65b793f1b1218",
+   "files": 76,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 14,
+    "workflow-permissions": 4,
+    "workflow-permissions:sample": [
+     ".github/workflows/conda.yml:5 no permissions: at the top or on job \"build-linux\", so the token gets the repo default",
+     ".github/workflows/docker.yml:10 no permissions: at the top or on job \"cuda-base\", so the token gets the repo default",
+     ".github/workflows/pypi.yml:7 no permissions: at the top or on job \"package-and-deploy\", so the token gets the repo default",
+     ".github/workflows/test.yml:7 no permissions: at the top or on job \"tests\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "docker/conda-entrypoint.sh",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "conda/spleeter/meta.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "spleeter/types.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "spleeter/utils/logging.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pyproject.toml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "spleeter/utils/logging.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "spleeter/resources/5stems.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/test_ffmpeg_adapter.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/conda.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/discussion.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "paper.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 5,
+   "workflows": 4
+  },
+  {
+   "repo": "resemble-ai/chatterbox",
+   "sha": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+   "files": 66,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 2,
+    "workflow-permissions": 1,
+    "workflow-permissions:sample": [
+     ".github/workflows/install_check.yml:10 no permissions: at the top or on job \"build\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/chatterbox/vc.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/chatterbox/tts.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/chatterbox/models/s3gen/transformer/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/chatterbox/models/s3tokenizer/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "gradio_tts_turbo_app.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/chatterbox/models/s3gen/transformer/attention.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "multilingual_app.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 19,
+   "workflows": 1
+  },
+  {
+   "repo": "micro-editor/micro",
+   "sha": "02409a314f437183eac71381f79ad43d9ff9b361",
+   "files": 335,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 9,
+    "workflow-permissions": 3,
+    "workflow-permissions:sample": [
+     ".github/workflows/nightly.yaml:7 no permissions: at the top or on job \"nightly\", so the token gets the repo default",
+     ".github/workflows/release.yaml:8 no permissions: at the top or on job \"release\", so the token gets the repo default",
+     ".github/workflows/test.yaml:4 no permissions: at the top or on job \"test\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "internal/config/plugin_installer.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "runtime/syntax/r.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "runtime/syntax/stata.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "runtime/syntax/python3.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "runtime/syntax/lisp.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "runtime/syntax/git-commit.yaml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "runtime/syntax/typescript.yaml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/nightly.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/nightly.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "runtime/help/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "runtime/help/defaultkeys.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "runtime/help/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "runtime/help/colors.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 19,
+   "workflows": 3
+  },
+  {
+   "repo": "charmbracelet/glow",
+   "sha": "8b0600fa445535b9c53194c0d4f7fe3cf700ef3e",
+   "files": 54,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 4,
+    "workflow-permissions": 4,
+    "workflow-permissions:sample": [
+     ".github/workflows/build.yml:6 no permissions: at the top or on job \"build\", so the token gets the repo default",
+     ".github/workflows/coverage.yml:5 no permissions: at the top or on job \"coverage\", so the token gets the repo default",
+     ".github/workflows/goreleaser.yml:15 no permissions: at the top or on job \"goreleaser\", so the token gets the repo default",
+     ".github/workflows/lint.yml:7 no permissions: at the top or on job \"golangci\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "ui/rawpaint_windows.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "ui/pager.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "utils/utils.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "ui/stashitem.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "url.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "main.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "ui/rawpaint_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/dependabot-sync.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/dependabot-sync.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/coverage.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 3,
+   "workflows": 6
+  },
+  {
+   "repo": "henrygd/beszel",
+   "sha": "39f9a0765311e83213e5379ea27a9e9811475b58",
+   "files": 629,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 21,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "agent/client.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "agent/cpu_unsupported.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".github/DISCUSSION_TEMPLATE/support.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "supplemental/helm/beszel-hub/templates/httproute.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "internal/site/src/components/routes/settings/layout.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "internal/hub/systems/system_smart_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "internal/entities/smart/smart.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/site/tests/chart-time.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "supplemental/helm/beszel-agent/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "supplemental/helm/beszel-hub/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "supplemental/helm/beszel-agent/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "SECURITY.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 81,
+   "workflows": 6
+  },
+  {
+   "repo": "stretchr/testify",
+   "sha": "87a7b9d57689f6579db2da795ab8deeab29cb724",
+   "files": 91,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 1,
+    "workflow-permissions:sample": [
+     ".github/workflows/main.yml:5 no permissions: at the top or on job \"build\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "_codegen/main.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "suite/interfaces.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "internal/spew/config.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "assert/yaml/yaml_default.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "assert/http_assertions_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "mock/mock_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": ".github/workflows/release.yml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/spew/testdata/dumpcgo.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/main.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/main.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/pull_request_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "MAINTAINERS.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "internal/spew/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "EMERITUS.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 17,
+   "workflows": 2
+  },
+  {
+   "repo": "go-kratos/kratos",
+   "sha": "dd0fb7df1e325daf5ffb9c30862be8f1091763eb",
+   "files": 475,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 15,
+    "workflow-permissions": 6,
+    "workflow-permissions:sample": [
+     ".github/workflows/codeql-analysis.yml:8 no permissions: at the top or on job \"analyze\", so the token gets the repo default",
+     ".github/workflows/comment-check.yml:26 pull_request_target checks out the pull request's own code with a write token",
+     ".github/workflows/gitee-sync.yml:10 no permissions: at the top or on job \"run\", so the token gets the repo default",
+     ".github/workflows/go.yml:13 no permissions: at the top or on job \"build\", so the token gets the repo default",
+     ".github/workflows/issue-translator.yml:9 no permissions: at the top or on job \"build\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "transport/http/pprof/pprof.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "errors/types.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "log/level.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "contrib/middleware/validate/validate.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "transport/http/router_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "config/env/env_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "cmd/kratos/internal/upgrade/upgrade.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/testdata/binding/generate.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/comment-check.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README_zh.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "log/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "contrib/middleware/oauth2/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "contrib/otel/README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 23,
+   "workflows": 6
+  },
+  {
+   "repo": "sirupsen/logrus",
+   "sha": "6ef0748d1177dadaeee9aa79ffef604570f487d7",
+   "files": 64,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "terminal_check_unix.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "json_formatter_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "hooks/slog/slog.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "terminal_check_no_terminal.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "formatter.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "terminal_check_appengine.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "terminal_check_unix.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "hooks/test/test_test.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "hooks/syslog/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 3,
+   "workflows": 1
+  },
+  {
+   "repo": "asdf-vm/asdf",
+   "sha": "b41b2d222a93e6607c86fa990c7a49f98d8b1b29",
+   "files": 268,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 20,
+    "workflow-permissions": 4,
+    "workflow-permissions:sample": [
+     ".github/workflows/documentation.yml:14 no permissions: at the top or on job \"deploy\", so the token gets the repo default",
+     ".github/workflows/lint.yml:13 no permissions: at the top or on job \"asdf-bash\", so the token gets the repo default",
+     ".github/workflows/semantic-pr.yml:11 no permissions: at the top or on job \"semantic-pr\", so the token gets the repo default",
+     ".github/workflows/tests.yml:10 no permissions: at the top or on job \"detect-changes\", so the token gets the repo default"
+    ],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "docs/pt-br/contribute/documentation.md:44 link to ../package.json does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "internal/git/git_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "internal/versions/versions.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "internal/cli/set/set_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "internal/execenv/execenv.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "internal/pluginindex/pluginindex.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "docs/package.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "docs/.vitepress/sidebars.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/semantic-pr.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release-build.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/zh-hans/contribute/first-party-plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/more/faq.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/ko-kr/contribute/core.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "SECURITY.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 18,
+   "workflows": 6
+  },
+  {
+   "repo": "sharkdp/hyperfine",
+   "sha": "c5161524980522320c7d3425e714cc0965a869a5",
+   "files": 75,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 12,
+    "workflow-permissions": 1,
+    "workflow-permissions:sample": [
+     ".github/workflows/CICD.yml:17 no permissions: at the top or on job \"crate_metadata\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/command.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/benchmark/benchmark_result.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/benchmark/measurement.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/quantity/statistics.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "scripts/plot_progression.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/parameter/range_step.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/metric.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/common.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "scripts/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "scripts/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "scripts/README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 7,
+   "workflows": 1
+  },
+  {
+   "repo": "cloudflare/pingora",
+   "sha": "3f87e92c982ee27c714506e16ae362776faea4aa",
+   "files": 468,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 9,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/build.yml:10 no permissions: at the top or on job \"pingora\", so the token gets the repo default",
+     ".github/workflows/docs.yml:9 no permissions: at the top or on job \"docs\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "pingora/examples/service/proxy.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "pingora-proxy/examples/conf.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "pingora-core/src/protocols/http/mod.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "pingora-core/src/offload.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pingora-proxy/src/proxy_h2/replay_tests.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "pingora-core/src/protocols/http/v1/mod.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "pingora-proxy/benches/shutdown_signal.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "pingora-proxy/tests/test_basic/gate_off_contract/custom.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/mark-stale.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/build.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/mark-stale.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/user_guide/prom.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/user_guide/start_stop.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 43,
+   "workflows": 5
+  },
+  {
+   "repo": "tokio-rs/axum",
+   "sha": "2449f1600c6626a9b8b7dbcc3500bf64995968e1",
+   "files": 508,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 37,
+    "workflow-permissions": 1,
+    "workflow-permissions:sample": [
+     ".github/workflows/CI.yml:15 no permissions: at the top or on job \"check\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "axum-extra/src/handler/mod.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "axum/src/service_ext.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "examples/low-level-openssl/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/routes-and-handlers-close-together/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "axum-extra/src/response/attachment.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "axum-core/src/extract/from_ref.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "axum/src/middleware/map_request.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "axum-macros/tests/debug_handler/fail/not_a_function.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/CI.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release-plz.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release-plz.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "axum-macros/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "axum-extra/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "axum/src/docs/method_routing/route_layer.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 20,
+   "workflows": 2
+  },
+  {
+   "repo": "Schniz/fnm",
+   "sha": "07f13237ae208f531f8ea88d4cfde3160c22f99a",
+   "files": 162,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 70,
+    "workflow-permissions": 5,
+    "workflow-permissions:sample": [
+     ".github/workflows/debug.yml:11 no permissions: at the top or on job \"e2e_windows_debug\", so the token gets the repo default",
+     ".github/workflows/installation_script.yml:13 no permissions: at the top or on job \"test_against_latest_release_arm\", so the token gets the repo default",
+     ".github/workflows/release-to-cargo.yml:7 no permissions: at the top or on job \"publish_to_crates_io\", so the token gets the repo default",
+     ".github/workflows/release.yml:11 no permissions: at the top or on job \"create_pull_request\", so the token gets the repo default",
+     ".github/workflows/rust.yml:17 no permissions: at the top or on job \"fmt\", so the token gets the repo default"
+    ],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "site/vercel.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/commands/use.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/user_version_reader.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/commands/completions.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".ci/get_shell_profile.sh",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "e2e/shellcode/test-bin-dir.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/commands/alias.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "e2e/system-node.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release-to-cargo.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release-to-cargo.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "AGENTS.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".changeset/warm-apes-fold.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".changeset/warm-apes-fold.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 9,
+   "workflows": 5
+  },
+  {
+   "repo": "rwf2/Rocket",
+   "sha": "3a54d079aef060a8f732bd04ea54b0581a604087",
+   "files": 758,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 6,
+    "workflow-permissions": 2,
+    "workflow-permissions:sample": [
+     ".github/workflows/ci.yml:9 no permissions: at the top or on job \"test\", so the token gets the repo default",
+     ".github/workflows/trigger.yaml:4 no permissions: at the top or on job \"trigger\", so the token gets the repo default"
+    ],
+    "dead-links": 1,
+    "dead-links:sample": [
+     "docs/guide/11-deploying.md:33 link to ../configuration does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "contrib/dyn_templates/src/metadata.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "examples/static-files/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "contrib/ws/src/websocket.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "core/lib/src/router/router.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "core/lib/src/response/stream/sse.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "contrib/db_pools/lib/src/pool.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "core/http/src/header/known_media_types.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "core/codegen/tests/ui-fail-stable/route-warnings.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/trigger.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/guide/03-getting-started.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "contrib/sync_db_pools/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/guide/12-pastebin.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "CHANGELOG.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "perms": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 29,
+   "workflows": 2
+  },
+  {
+   "repo": "actix/actix-web",
+   "sha": "97ea807a02b1e820816deb09a835a02fff9fa202",
+   "files": 463,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 47,
+    "workflow-permissions": 0,
+    "workflow-permissions:sample": [],
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "actix-http/benches/response-body-compression.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "actix-http/src/body/size.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "actix-router/src/lib.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "actix-web/src/http/header/accept_language.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "actix-http/src/h1/utils.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "awc/src/connect.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "actix-http/src/ws/dispatcher.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "actix-files/tests/test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci-post-merge.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/semver-checks.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/labeler.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "actix-multipart/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "actix-files/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "actix-multipart/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "actix-http/README.md",
+     "caught": false
+    },
+    {
+     "kind": "perm",
+     "id": "no-permissions",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "write-all",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "prt-head-checkout",
+     "hard": false,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": true
+    },
+    {
+     "kind": "perm",
+     "id": "scope-not-needed",
+     "hard": true,
+     "file": ".github/workflows/gel-bench-perm.yml",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": true,
+    "perms": true,
+    "links": false,
+    "claims": false
+   },
+   "ms": 28,
+   "workflows": 8
+  }
+ ],
+ "claims": {
+  "summary": {
+   "date": "2026-11-16",
+   "queries": [
+    "\"all tests pass\"",
+    "\"all checks pass\"",
+    "\"ready to merge\""
+   ],
+   "window": "2026-10-01..2026-11-09",
+   "prs": 298,
+   "withChecks": 231,
+   "flagged": 35,
+   "flaggedMerged": 19,
+   "share": 0.15151515151515152
+  },
+  "prs": [
+   {
+    "url": "https://github.com/purduerov/X19-Embedded/pull/265",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [
+     "Cross-Compile STM32 Firmware & Check Formatting"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/450",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raeyasse/python_homework/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/434",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/423",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/393",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/391",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/389",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ASAD-BE18/web-technology-fall2026/pull/138",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/387",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/piomin/sample-vertx-microservices/pull/201",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/379",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/378",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/piomin/sample-vertx-microservices/pull/197",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/278",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CGProductionHouse/CG-Dynamics/pull/891",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/272",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/267",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/262",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/258",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/254",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/256",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/253",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/251",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/243",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/232",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/229",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/NfgOdin/RuneBox/pull/51",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/380",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/piomin/sample-vertx-microservices/pull/196",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/The-time-forever/classic-cli-calculator/pull/6",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/react_people-table-basics/pull/2547",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/react_tabs-with-router/pull/2630",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CGProductionHouse/CG-Dynamics/pull/979",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/GeneticAlgorithms/hyphenate-JarvisERP/pull/1",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/413",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/408",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CGProductionHouse/CG-Dynamics/pull/954",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/370",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/366",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/MRahimiMajd/leaf_gm_architecture/pull/3",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CGProductionHouse/CG-Dynamics/pull/915",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/406",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/375",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/react_sum/pull/4475",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/kenclarkz/skillet/pull/20",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-test/pull/368",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ihorlapka/Order-Service/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CGProductionHouse/CG-Dynamics/pull/867",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Oasis-Coders/bookstore/pull/5",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/DK3N/Spreadsheet-Git/pull/5",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/260",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tim-riep/json-xml-utilities/pull/3",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/0xSiddhant/Cerebro/pull/1",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Lthumby/bert-gpt/pull/14",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/keaneritchiey83-lang/Resume-Build-AI-/pull/7",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 34,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/juniorhillory-creator/Sophia_AI/pull/6",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mhaziq502-droid/Bank-Extractor-Data/pull/1",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CSC207-2026F-UofT/ca-login/pull/21",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/hibernate-cascade/pull/1306",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/link-seek/docker-images/pull/57",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/hibernate-configuration-hw/pull/1294",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mate-academy/hibernate-relations-hw/pull/1232",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/anikatay/jeepers-leapers/pull/81",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-medium/pull/232",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuan6100/PL0-Compiler/pull/1",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/siddharth2440/chishiya/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/onepercentclub/bluebottle/pull/7237",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [
+     "Tests (without Elasticsearch)",
+     "Translations"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/simonhauck/OpenFireStationManager/pull/365",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-medium/pull/215",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/1983stevec-gif/EMBERLINGS/pull/29",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Aleksanderis/Gitunia/pull/1155",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/sotonye-dagogo-dev/along-app/pull/189",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/brent472/satkeep/pull/30",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 15,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/johnbrussell/airline-game/pull/267",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/google/rune/pull/57",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/lsm/oxap/pull/1599",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 51,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/estebanbaigts/Mediaflow-/pull/4",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/supabase/pg-toolbelt/pull/566",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 100,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/molokmax/ai-for-developers-project-387/pull/9",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/astroophilliiiiiiiii/testing-python-fastapi-inventory-api/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/preferencemodel/karotte/pull/109",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/sotonye-dagogo-dev/along-app/pull/245",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Heizdoobert/Quiz_web/pull/166",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [
+     "Analyze and Test (Flutter)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/hnaboulssi/group2practice2/pull/7",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/250",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/small-thinking/deepcode/pull/332",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/lsm/HyperNeo/pull/9311",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 28,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/AlexandraHutchby/whakaora-mobilesys/pull/4",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-medium/pull/221",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/227",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Tonmoy-04/checklist/pull/4",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/CodePauler/assignment-1/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Abdelrahman-Ehab1/ML-Project1/pull/2",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/223",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/quantcdn/quantcode-e2e-small/pull/222",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/NocKtuRn4L/retro_vault/pull/19",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 14,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/gugoltrue/python_broken_tdd/pull/3",
+    "query": "\"all tests pass\"",
+    "merged": false,
+    "checks": 18,
+    "red": [
+     "Тесты (pytest, Python 3.12)",
+     "Тесты (pytest, Python 3.12)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/joeinblackpool/xkey/pull/33",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [
+     "Workers Builds: xkey"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/xerktech/wolf/pull/81",
+    "query": "\"all tests pass\"",
+    "merged": true,
+    "checks": 14,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/superada2026/codans-e2e-rerun/pull/2",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/moradtarta-crypto/moradtec-telegram-bot/pull/6",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/bbk-acli/pull/22",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/googleads/googleads-mobile-flutter/pull/1537",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 17,
+    "red": [
+     "zizmor-output",
+     "all-checks-passed",
+     "flutter"
+    ],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Holonic-Technologies/ftgo-application/pull/74",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/minion-test/pull/9",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 14,
+    "red": [
+     "[Required] Tests passed",
+     "Tests on ubuntu-latest with node 24",
+     "Tests on ubuntu-latest with node 22",
+     "Tests on windows-latest with node 22",
+     "Tests on macos-latest with node 24",
+     "Tests on ubuntu-latest with node 23",
+     "Tests on macos-latest with node 22",
+     "Tests on windows-latest with node 24",
+     "Tests on macos-latest with node 23",
+     "Tests on windows-latest with node 23",
+     "test (2)",
+     "test (1)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/hesedcasa/ai-sidekick/pull/15",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/harness/pull/23",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/recipe/pull/24",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/jira-acli/pull/39",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hesedcasa/claude/pull/42",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Salk-Harnessing-Plants-Initiative/bloom-desktop/pull/482",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 33,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/richietau-gif/digital-illusion/pull/16",
+    "query": "\"all checks pass\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/vladimirBolkh/ai-for-developers-project-387/pull/25",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ignateff/ai-for-developers-project-387/pull/14",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [
+     "check"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/gholtzap/lintapple/pull/82",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 13,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/react-tailwind-template/pull/8",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/bootstrap-storybook/pull/60",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/template-nextjs/pull/14",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/springboot-bootstrap/pull/85",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/my-npm-packages-tester-ts/pull/630",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/explorer-bug/pull/313",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/react-context-example/pull/35",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/template-nestjs/pull/9",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/template-express/pull/1033",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/java-reactive/pull/5",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [
+     "build"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/ayonious/template-react/pull/35",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/portfolio/pull/76",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ayonious/that-it-guy-tech-blog/pull/50",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [
+     "codecov/project"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/ayonious/interview-cheatsheet/pull/31",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/docker-adventskalender/pull/59",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/docker-debugcontainer/pull/324",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/python-ipam/pull/99",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/docker-podsync/pull/339",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 7,
+    "red": [
+     "build-test / quick-build"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tdannenmuller/openwrt-deco-p9/pull/4",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/toolbox/pull/2",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/mac-dev-playbook/pull/98",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [
+     "Integration (macos-12)",
+     "Integration (macos-11)",
+     "Lint"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tuxpeople/tuxpeople/pull/6",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/rancher-offline-docs/pull/16",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 13,
+    "red": [
+     "build (harvester)",
+     "build (longhorn)",
+     "build (kubewarden)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tuxpeople/homebrew-personal/pull/10",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [
+     "test-bot (macOS-latest)",
+     "test-bot (ubuntu-latest)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tuxpeople/tuxpeople.github.io/pull/62",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/test.thomas-deutsch.ch/pull/8",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/docker-image-syncer/pull/108",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 7,
+    "red": [
+     "build-test / function-test",
+     "build-test / snyk-scan"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tuxpeople/docker-baseimage-alpine-light/pull/164",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 7,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/shared/pull/2",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/www.thomas-deutsch.ch/pull/15",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/digitalgarden/pull/83",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [
+     "Redirect rules - tourmaline-dasik-79cb80",
+     "Header rules - tourmaline-dasik-79cb80",
+     "Pages changed - tourmaline-dasik-79cb80"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/tuxpeople/k8s-mobilelab/pull/192",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/container-scan-tests/pull/69",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuxpeople/containers/pull/284",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/simonhauck/OpenFireStationManager/pull/366",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ashwin-mahadevan/terminal.svelte/pull/20",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 11,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Castor-o7/marshal/pull/80",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jannikmi/multivar_horner/pull/107",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 17,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ddvnguyen/deepseek-harness/pull/19",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 8,
+    "red": [
+     "all checks passed",
+     "node 24 / snapshots and artifacts"
+    ],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/graphty-org/graphty-monorepo/pull/3516",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 30,
+    "red": [
+     "Flaky screenshots",
+     "Visual report",
+     "visual (graphty)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/raimonvibe/bible-old-and-new-testament/pull/27",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/chrisguidry/docket/pull/594",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 55,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/tanach/pull/26",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/payment-solution-guide-for-nigerians/pull/7",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/form-education/pull/3",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/change-my-com-v2/pull/393",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/website-editorial-eu/pull/189",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/Christmas-website-ethereal-NL/pull/14",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/book-of-mormon/pull/23",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/TaskFlow/pull/283",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 12,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/scootmobieltocht-hoorn-nl/pull/7",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/AramiGo/pull/96",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/digital-marketing/pull/20",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/christmas-responsive_web_design/pull/4",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/rootwork/pull/27",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/holidays_website_nextjs_com_v6/pull/25",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/temperance/pull/4",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/responsive_web_design/pull/4",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 8,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/forty-days/pull/7",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/lagos-health-navigator-v2/pull/35",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/website-editorial-eu-vps-christmas/pull/38",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 7,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/bible-wonders/pull/29",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/leviaan/pull/53",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 11,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/amsterdam-metro-v2/pull/220",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 10,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/website-ethereal-NL/pull/35",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/raimonvibe/First-Century-Medicine/pull/15",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/chrisguidry/pytest-opentelemetry/pull/52",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 9,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/nimueller/dotfiles/pull/24",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [
+     "lint"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/chrisguidry/uncalled-for/pull/26",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 10,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/elviskahoro/oss-hq/pull/114",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/chrisguidry/measured/pull/73",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 10,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JeanIsahakyan/theodore/pull/153",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 4,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/graphty-org/graphty-monorepo/pull/6156",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 38,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Fatal1tyBarucco/Salesforce-WebDev/pull/216",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 11,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/karagemop466-tech/Korea4/pull/16",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/intarsiaml/intarsiaml/pull/306",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/stackradar-demo/plausible/pull/4",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 21,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/OpenVibers/OpenVibe.Blog/pull/2",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tipu/frshty/pull/245",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/stanislavkozlovski/dclaude/pull/106",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 18,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JakubBialoskorski/opsrag/pull/11",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mikelane/pytest-gremlins/pull/861",
+    "query": "\"all checks pass\"",
+    "merged": true,
+    "checks": 24,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/kkestell/hypercube-pr-lab/pull/3",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Xylem-Group/lopt-entropy-formal/pull/29",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Xylem-Group/lopt-entropy-formal/pull/28",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/pavel-dzerzhinsky/Steams/pull/3",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ISTA-PLV/coinductive/pull/12",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/leanprover-community/lean-update/pull/283",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/WebFuzzing/EvoMaster/pull/1914",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 37,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/oliver-butterley/SpectralThm/pull/52",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hoanganhduc/HoangMathLib/pull/10",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hoanganhduc/HoangMathLib/pull/9",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hoanganhduc/HoangMathLib/pull/8",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/hoanganhduc/HoangMathLib/pull/7",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/maplespike/quill/pull/1294",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 21,
+    "red": [
+     "PR checks",
+     "merge"
+    ],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/kkestell/hypercube-pr-lab/pull/4",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [
+     "lint"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/vikraman/event-structures/pull/32",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [
+     "dependabot"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/jbradshawcode/garageband-cli/pull/6",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/etianwang/Honsen-procure/pull/13",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/gdahia/DensityHalesJewett/pull/24",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jds1985/cipher-concierge/pull/10",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/medici-finance/assay/pull/4139",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 23,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/etianwang/Honsen-procure/pull/14",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [
+     "quality",
+     "quality"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/mazednoor/saversbd-web/pull/4",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/LSTJ23/Event-Photo-Sharing-Live-Gallery-App/pull/2",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/salmanhoussam/alzabt-pos/pull/18",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/NVIDIA/Megatron-LM/pull/8192",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 100,
+    "red": [
+     "Nemo_CICD_Test",
+     "Unit tests (H100) / tests/unit_tests/inference/engines/**/*.py",
+     "multi-approval-bot-summary"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/jds1985/Cipher_bot/pull/29",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JObersi10/CarAALink/pull/24",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/rashid2003/claude-watch/pull/13",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ablaszkiewicz/proke/pull/6",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/solarssk/admitto/pull/1771",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 24,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/fallrising/newclear/pull/479",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 5,
+    "red": [
+     "java"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/Naijei1/FlashCardApp/pull/9",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Hylozoic/hylo/pull/1735",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 5,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Sydneygotoman/skills/pull/27",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [
+     "validate"
+    ],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/tuannx/maven/pull/4",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 26,
+    "red": [
+     "integration-tests (ubuntu-latest, 17)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/antinodes/review-queue/pull/11",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/SirB0b27/SirB0b27.github.io/pull/33",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [
+     "quality"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/SwfteAI/swfte-node/pull/7",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/SwfteAI/swfte-python/pull/7",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/SwfteAI/swfte-java/pull/7",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/rdhforeclosureconqueror-sys/Mufasa.fitness.node/pull/973",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/chahd17/MONITUS/pull/2",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/SwfteAI/swfte-mcp-server/pull/9",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Ascend/sglang/pull/1382",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 86,
+    "red": [
+     "pr-test-finish",
+     "pr-test-extra-finish",
+     "call-gate / pr-gate",
+     "pr-test-amd-finish",
+     "call-gate / pr-gate",
+     "full-16-npu-a3 / full-16-npu-a3 (0)",
+     "full-2-npu-a3 / full-2-npu-a3 (0)",
+     "full-8-npu-a3 / full-8-npu-a3 (1)",
+     "full-4-npu-a3 / full-4-npu-a3 (0)",
+     "pr-test-amd-extra-finish",
+     "call-gate / pr-gate",
+     "call-gate / pr-gate"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/dwatts1772/work-agent-daemon/pull/41",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/landmarketthai/landmarketthai/pull/10",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jonathanmendez/enterprise-merge-scripts/pull/18",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/VanTanev/skills/pull/15",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/bettersoftware-io/skills-demo/pull/3",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 5,
+    "red": [
+     "visual goldens (linux-x64)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/bettersoftware-io/skills-demo/pull/6",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 5,
+    "red": [
+     "visual goldens (linux-x64)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/link-assistant/hive-mind/pull/2810",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 33,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/rickwphillips/grandkid-arcade/pull/49",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Kobi-Lipari/lca-website/pull/101",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/METR/hawk/pull/2849",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 62,
+    "red": [
+     "PR Scan"
+    ],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Hamza-ye/sharrwah-knowledge-map/pull/8",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jackordman/pr-desk-lab/pull/14",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jackordman/pr-desk-lab/pull/6",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Jeges0/FruitTreeWeb/pull/1",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mnolte/stock-trading-agent/pull/203",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 11,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/Seasawher/lean-book/pull/123",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mseri/BET/pull/133",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jackordman/pr-desk-lab/pull/49",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/seonWKim/software-factory/pull/323",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/jackordman/pr-desk-lab/pull/50",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ider-zh/university-seed-curation/pull/15",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/THamilton1123/MtgManager/pull/9",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/fabienfleureau/corral/pull/74",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/haacked/switchboard/pull/100",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/GuardianWork/guard-work/pull/35",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 4,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/v3ndsxg/ProSlide/pull/17",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mmejiadev/tia-station-mcp/pull/67",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 6,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/eduralph/pdca-harness/pull/906",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 10,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/duckdb/duckdb/pull/28305",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 100,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ISTA-PLV/coinductive/pull/11",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/leanprover-community/lean4-metaprogramming-book/pull/228",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/emerjent/ziki/pull/257",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/justinbrenton/githermes/pull/13",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/mseri/BET/pull/132",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/bketelsen/pi-pocket-team/pull/187",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 7,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/NivSolomon/pr-triage-demo/pull/14",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/thefundamentaltheor3m/Sphere-Packing-Lean/pull/503",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/XRPLF/rippled/pull/8695",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 44,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/bloodf/velum/pull/351",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 4,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JohnDominicJasmin/liquidity-hq/pull/2054",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 15,
+    "red": [
+     "CI Gate",
+     "E2E (Playwright) - desktop"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/SergeyPirogov/mako-agent/pull/460",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/thenorthnate/buzz/pull/18",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [
+     "golangci-lint (ubuntu-latest, 1.22.x)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/duckdb/duckdb/pull/27997",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 100,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JohnDominicJasmin/liquidity-hq/pull/1995",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 15,
+    "red": [
+     "CI Gate",
+     "E2E (Playwright) - desktop"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/Recoverystarts/recoverystarts-site/pull/90",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 3,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/sfreiberg/maxnines/pull/2",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 32,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/haacked/switchboard/pull/119",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 1,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/justinbrenton/githermes/pull/9",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 2,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/JohnDominicJasmin/liquidity-hq/pull/1974",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 15,
+    "red": [
+     "CI Gate",
+     "E2E (Playwright) - desktop"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/jig-harness/jig/pull/658",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 37,
+    "red": [
+     "gates",
+     "gates",
+     "gates"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/Gestell-Solution/GGS_Automotive-Mini-ECU/pull/76",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 6,
+    "red": [
+     "embedded/coverage"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/Misfit-Sanctuary/nuclear-14/pull/2153",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 14,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/ZenoWangzy/zenoforge/pull/179",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 11,
+    "red": [
+     "suites (6)",
+     "suites (5)",
+     "suites (1)",
+     "suites (2)",
+     "suites (3)",
+     "suites (7)"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/univelop/.github/pull/7",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   },
+   {
+    "url": "https://github.com/grieverguidetech/griever-guidance/pull/609",
+    "query": "\"ready to merge\"",
+    "merged": true,
+    "checks": 6,
+    "red": [
+     "Ready to merge"
+    ],
+    "flagged": true
+   },
+   {
+    "url": "https://github.com/end2endlogic-com/quantum-framework/pull/144",
+    "query": "\"ready to merge\"",
+    "merged": false,
+    "checks": 0,
+    "red": [],
+    "flagged": false
+   }
+  ]
+ }
+}

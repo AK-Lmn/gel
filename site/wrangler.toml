@@ -1,0 +1,8 @@
+name = "gel-site"
+compatibility_date = "2026-11-01"
+
+[assets]
+directory = "./public"
+not_found_handling = "404-page"
+
+# Custom domain gel.flisk.si is added at deploy time.

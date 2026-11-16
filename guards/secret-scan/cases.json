@@ -6,7 +6,7 @@
    ".env.example": [
     "AWS_KEY=",
     "AKIA",
-    "IOSFODNN7EXAMPLE"
+    "Q3T7ZK2WM9PL4XRB"
    ]
   }
  },
@@ -17,7 +17,7 @@
    "deploy.sh": [
     "export T=",
     "ghp_",
-    "abcdefghijklmnopqrstuvwxyz0123456789"
+    "Zq8Lm3Vt7Rp2Wn9Kc4Hy6Bx1Fs5Dg0Jk8Mq7"
    ]
   }
  },
@@ -28,7 +28,7 @@
    "README.md": [
     "use sk-",
     "ant-api03-",
-    "abcdefghijklmnopqrstuv"
+    "Tq9Lx2Vm7Rp4Wn8Kc3Hy6B"
    ]
   }
  },
@@ -49,7 +49,7 @@
    "pay.js": [
     "const k = 'sk_",
     "live_",
-    "abcdefghijklmnop1234'"
+    "Rq7Lx2Vm9Tp4Wn8K'"
    ]
   }
  },
@@ -90,7 +90,59 @@
   "files": {
    ".claude/worktrees/a/x.js": [
     "AKIA",
-    "IOSFODNN7EXAMPLE"
+    "Q3T7ZK2WM9PL4XRB"
+   ]
+  }
+ },
+ {
+  "name": "placeholder key in a docs guide",
+  "label": "good",
+  "files": {
+   "docs/security.md": [
+    "const apiKey = \"sk_",
+    "live_",
+    "1234567890abcdef\";\n"
+   ]
+  }
+ },
+ {
+  "name": "aws documented example key",
+  "label": "good",
+  "files": {
+   "README.md": [
+    "AKIA",
+    "IOSFODNN7EXAMPLE\n"
+   ]
+  }
+ },
+ {
+  "name": "sample tls key shipped with an example",
+  "label": "good",
+  "files": {
+   "examples/tls/key.pem": [
+    "-----BEGIN ",
+    "PRIVATE KEY-----\nabc\n"
+   ]
+  }
+ },
+ {
+  "name": "tests in a t/unit folder",
+  "label": "good",
+  "files": {
+   "t/unit/security/__init__.py": [
+    "KEY = '''-----BEGIN ",
+    "RSA PRIVATE KEY-----'''\n"
+   ]
+  }
+ },
+ {
+  "name": "real-looking stripe key in docs is still caught",
+  "label": "bad",
+  "files": {
+   "docs/setup.md": [
+    "STRIPE=sk_",
+    "live_",
+    "Rq7Lx2Vm9Tp4Wn8KcY3H\n"
    ]
   }
  }

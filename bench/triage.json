@@ -1,0 +1,106 @@
+{
+ "about": "Every dead-links finding on the untouched repos, checked by hand on 2026-11-16. real = the link is broken on GitHub today; false = the file exists once the site is built or served; unclear = could not tell.",
+ "dead-links": [
+  {
+   "repo": "Molunerfinn/PicGo",
+   "where": "README.md:111, README_zh-CN.md:111",
+   "n": 2,
+   "verdict": "real",
+   "why": "chart.png is not in the repo"
+  },
+  {
+   "repo": "celery/celery",
+   "where": ".github/Agents.md:131-132",
+   "n": 2,
+   "verdict": "real",
+   "why": "links written from the repo root, but GitHub resolves them from .github/"
+  },
+  {
+   "repo": "asdf-vm/asdf",
+   "where": "docs/pt-br/contribute/documentation.md:44",
+   "n": 1,
+   "verdict": "real",
+   "why": "translation kept ../package.json; it needs ../../package.json"
+  },
+  {
+   "repo": "mobxjs/mobx",
+   "where": "website/static/getting-started.html",
+   "n": 11,
+   "verdict": "false",
+   "why": "page is served from the site root, where assets/ exists"
+  },
+  {
+   "repo": "caolan/async",
+   "where": "intro.md:25",
+   "n": 1,
+   "verdict": "false",
+   "why": "global.html is made by the jsdoc build"
+  },
+  {
+   "repo": "jashkenas/underscore",
+   "where": "index.html:2523",
+   "n": 1,
+   "verdict": "false",
+   "why": "docs/modules is made by the docs build"
+  },
+  {
+   "repo": "rwf2/Rocket",
+   "where": "docs/guide/11-deploying.md:33",
+   "n": 1,
+   "verdict": "false",
+   "why": "site route to a numbered page"
+  },
+  {
+   "repo": "philc/vimium",
+   "where": "pages/command_listing.html:18",
+   "n": 1,
+   "verdict": "unclear",
+   "why": "github.svg may be copied in at build time"
+  },
+  {
+   "repo": "python-telegram-bot/python-telegram-bot",
+   "where": "examples/passportbot.html:16",
+   "n": 1,
+   "verdict": "unclear",
+   "why": "the example asks you to supply telegram-passport.js"
+  }
+ ],
+ "workflow-permissions-about": "A sample of workflow-permissions findings on the untouched repos, read by hand on 2026-11-16. real = the file has no permissions key for that job (or checks out the PR head under pull_request_target), as GEL says. GEL cannot see the org default token setting, so a real finding may still run read-only.",
+ "workflow-permissions": [
+  {
+   "repo": "go-kratos/kratos",
+   "where": ".github/workflows/comment-check.yml:26",
+   "n": 1,
+   "verdict": "real",
+   "why": "pull_request_target checks out the fork head with a pull-requests: write token"
+  },
+  {
+   "repo": "mobxjs/mobx",
+   "where": ".github/workflows/build_and_test.yml:11",
+   "n": 1,
+   "verdict": "real",
+   "why": "no permissions key in the file"
+  },
+  {
+   "repo": "tokio-rs/axum",
+   "where": ".github/workflows/CI.yml:15",
+   "n": 1,
+   "verdict": "real",
+   "why": "no permissions key in the file"
+  },
+  {
+   "repo": "stretchr/testify",
+   "where": ".github/workflows/main.yml:5",
+   "n": 1,
+   "verdict": "real",
+   "why": "no permissions key in the file"
+  },
+  {
+   "repo": "cloudflare/pingora",
+   "where": ".github/workflows/docs.yml:9",
+   "n": 1,
+   "verdict": "real",
+   "why": "no permissions key in the file"
+  }
+ ]
+}

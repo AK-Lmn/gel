@@ -1,0 +1,11 @@
+{
+ "about": "Wall time of the GEL job on the three pilot repos, from the GitHub Actions run list on 2026-11-16 (queue + checkout + guards + upload).",
+ "runs": [
+  { "repo": "flisk-sh/chat", "event": "push", "seconds": 11 },
+  { "repo": "flisk-sh/chat", "event": "pull_request", "seconds": 17 },
+  { "repo": "flisk-sh/pages", "event": "push", "seconds": 13 },
+  { "repo": "flisk-sh/pages", "event": "pull_request", "seconds": 32 },
+  { "repo": "flisk-sh/md2html", "event": "push", "seconds": 11 },
+  { "repo": "flisk-sh/md2html", "event": "pull_request", "seconds": 18 }
+ ]
+}

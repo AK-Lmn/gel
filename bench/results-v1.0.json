@@ -1,0 +1,4919 @@
+{
+ "summary": {
+  "date": "2026-11-16",
+  "repos": 30,
+  "files": 11350,
+  "perKind": {
+   "secret": {
+    "covered": {
+     "n": 150,
+     "caught": 150
+    },
+    "hard": {
+     "n": 90,
+     "caught": 0
+    },
+    "withoutGel": 1
+   },
+   "action": {
+    "covered": {
+     "n": 90,
+     "caught": 90
+    },
+    "hard": {
+     "n": 0,
+     "caught": 0
+    },
+    "withoutGel": 3
+   },
+   "link": {
+    "covered": {
+     "n": 90,
+     "caught": 89
+    },
+    "hard": {
+     "n": 30,
+     "caught": 0
+    },
+    "withoutGel": 1
+   },
+   "claim": {
+    "covered": {
+     "n": 120,
+     "caught": 120
+    },
+    "hard": {
+     "n": 0,
+     "caught": 0
+    },
+    "withoutGel": 0
+   }
+  },
+  "perDefect": {
+   "aws-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "github-token": {
+    "n": 30,
+    "caught": 30
+   },
+   "anthropic-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "stripe-live-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "private-key": {
+    "n": 30,
+    "caught": 30
+   },
+   "google-api-key": {
+    "n": 30,
+    "caught": 0
+   },
+   "password-in-url": {
+    "n": 30,
+    "caught": 0
+   },
+   "aws-key-in-test-file": {
+    "n": 30,
+    "caught": 0
+   },
+   "tag-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "branch-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "semver-pin": {
+    "n": 30,
+    "caught": 30
+   },
+   "missing-doc": {
+    "n": 30,
+    "caught": 29
+   },
+   "missing-image": {
+    "n": 30,
+    "caught": 30
+   },
+   "missing-with-anchor": {
+    "n": 30,
+    "caught": 30
+   },
+   "html-href": {
+    "n": 30,
+    "caught": 0
+   },
+   "claims-green-red-check": {
+    "n": 30,
+    "caught": 30
+   },
+   "claims-green-timed-out": {
+    "n": 30,
+    "caught": 30
+   },
+   "claims-green-is-green": {
+    "n": 30,
+    "caught": 30
+   },
+   "no-claim-red-check": {
+    "n": 30,
+    "caught": 30
+   }
+  },
+  "clean": {
+   "secret-scan": {
+    "reposWithFindings": 5,
+    "findings": 26
+   },
+   "pinned-actions": {
+    "reposWithFindings": 21,
+    "findings": 371
+   },
+   "dead-links": {
+    "reposWithFindings": 15,
+    "findings": 217
+   },
+   "done-without-green": {
+    "reposWithFindings": 0,
+    "findings": 0
+   }
+  },
+  "msP50": 44,
+  "msP95": 252
+ },
+ "repos": [
+  {
+   "repo": "postcss/postcss",
+   "sha": "b6316e5d61e5cc26c32d050eeb8d856cb410d8be",
+   "files": 115,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/stringifier.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/input.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/document.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/warning.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/warning.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "tsconfig.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "package.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/stringify.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "CHANGELOG.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 14,
+   "workflows": 2
+  },
+  {
+   "repo": "mobxjs/mobx",
+   "sha": "bf94b8e866c58995f78189c5412cf06042012720",
+   "files": 429,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 7,
+    "dead-links": 38,
+    "dead-links:sample": [
+     "docs/assets/getting-started-assets/javascripts/codemirror/javascript/index.html:5 link to ../../doc/docs.css does not exist",
+     "docs/assets/getting-started-assets/javascripts/codemirror/javascript/index.html:7 link to ../../lib/codemirror.css does not exist",
+     "docs/assets/getting-started-assets/javascripts/codemirror/javascript/index.html:8 link to ../../lib/codemirror.js does not exist",
+     "docs/assets/getting-started-assets/javascripts/codemirror/javascript/index.html:9 link to ../../addon/edit/matchbrackets.js does not exist",
+     "docs/assets/getting-started-assets/javascripts/codemirror/javascript/index.html:10 link to ../../addon/comment/continuecomment.js does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "jest.config.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "packages/mobx-react/src/index.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "packages/mobx/src/utils/iterable.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "jest.setup.base.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "packages/mobx/src/global.d.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "packages/mobx-react-plugin/tsconfig.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "packages/mobx/jest.setup.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "packages/mobx/__tests__/base/babel-tests.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/coveralls.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/build_and_test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/build_and_test.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/refguide/computed.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "packages/mobx-react-lite/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/configuration.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 100,
+   "workflows": 3
+  },
+  {
+   "repo": "fingerprintjs/fingerprintjs",
+   "sha": "7a738d0e9920c7431b34aff24b345a21f9054855",
+   "files": 157,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 17,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/sources/device_memory.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": ".github/workflows/check_upcoming_browser_versions.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "tsconfig.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/sources/screen_frame.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/sources/device_memory.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "resources/content_blocking/filters.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/sources/index.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/sources/audio.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql_analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/npm_publish.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/typescript_support.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/content_blockers.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "readme.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/ISSUE_TEMPLATE/other_bug.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 13,
+   "workflows": 5
+  },
+  {
+   "repo": "yamadashy/repomix",
+   "sha": "813a886c6aa1d66aaec0b061a4442754529c7bcb",
+   "files": 1343,
+   "clean": {
+    "secret-scan": 2,
+    "secret-scan:sample": [
+     "website/client/src/vi/guide/security.md:94 Stripe live key (rotate it, then remove it)",
+     "website/client/src/vi/guide/security.md:106 Stripe live key (rotate it, then remove it)"
+    ],
+    "pinned-actions": 4,
+    "dead-links": 96,
+    "dead-links:sample": [
+     "website/client/src/de/index.md:226 link to ./guide/use-cases does not exist",
+     "website/client/src/de/index.md:232 link to ./guide/mcp-server does not exist",
+     "website/client/src/de/index.md:233 link to ./guide/github-actions does not exist",
+     "website/client/src/de/index.md:234 link to ./guide/code-compress does not exist",
+     "website/client/src/de/index.md:235 link to ./guide/development/using-repomix-as-a-library does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/core/git/gitHubArchiveApi.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/core/output/outputSort.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/core/skill/skillSectionGenerators.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "website/client/scripts/generateSchema.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".pinact.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "website/client/src/public/schemas/1.16.0/schema.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/core/treeSitter/parseStrategies/GoParseStrategy.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/core/file/fileTreeGenerate.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/schema-update.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/jev-pr-labeler.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/claude-code-review.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "website/client/src/zh-cn/guide/security.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "llms-install.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/releases/v0.1.x/v0.1.25.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "website/client/src/zh-tw/guide/usage.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": true,
+    "pins": true,
+    "links": false,
+    "claims": false
+   },
+   "ms": 148,
+   "workflows": 21
+  },
+  {
+   "repo": "wg-easy/wg-easy",
+   "sha": "36c6310706f7b261ae3d455c9b521d045c59eeb5",
+   "files": 451,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/app/utils/types.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/server/api/client/[clientId]/qrcode.svg.get.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/i18n/locales/id.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/shared/utils/clientBulk.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/server/database/repositories/interface/types.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/app/composables/useColorMode.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/app/stores/auth.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/test/e2e/helpers.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/stale.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/lint.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/content/examples/tutorials/traefik.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/content/contributing/translation.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/content/getting-started.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/content/advanced/metrics/prometheus.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 60,
+   "workflows": 8
+  },
+  {
+   "repo": "Molunerfinn/PicGo",
+   "sha": "dfdb991188fae25abe9d35fd97885086d0b5e173",
+   "files": 494,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 30,
+    "dead-links": 2,
+    "dead-links:sample": [
+     "README.md:111 link to ./chart.png does not exist",
+     "README_zh-CN.md:111 link to ./chart.png does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/renderer/components/main/album/album-inspector-details.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/renderer/components/main/dashboard/hooks/use-dashboard-drop-handler.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/renderer/components/main/dashboard/picgo-dashboard.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/universal/utils/staticPath.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/renderer/components/main/providers/use-provider-selection.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/renderer/components/main/dashboard/uploader-switcher.tsx",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/renderer/components/common/media-thumbnail.tsx",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "src/__tests__/main/uploader-context.spec.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/notify-homepage.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci-check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/issue-duplicate-detection.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "CONTRIBUTING_EN.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "changelog/2.4.1.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 71,
+   "workflows": 4
+  },
+  {
+   "repo": "immerjs/immer",
+   "sha": "784c86bb234e805566481c9425fcb2a3897e8bcc",
+   "files": 169,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 6,
+    "dead-links:sample": [
+     "_site/readme/index.html:1 link to images/immer-logo.png does not exist",
+     "_site/readme/index.html:114 link to images/hd/immer.png does not exist",
+     "_site/readme/index.html:1095 link to __performance_tests__/todo.js does not exist",
+     "_site/readme/index.html:1105 link to images/performance.png does not exist",
+     "website/docs/api.md:21 link to ./installation#pick-your-immer-version does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "perf-testing/immutability-profiling.mjs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/plugins/arrayMethods.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".codesandbox/ci.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": ".vscode/launch.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/types/types-external.ts",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": ".codesandbox/ci.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "vitest.config.build.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "__tests__/array-methods-filter-length.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "website/docs/other-lang.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "website/docs/api.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "website/docs/faq.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "website/docs/map-set.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 33,
+   "workflows": 3
+  },
+  {
+   "repo": "tj/commander.js",
+   "sha": "a5a7dc084d4d2b7932e85ca049c5204e50a2c721",
+   "files": 220,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 6,
+    "dead-links:sample": [
+     "Readme_zh-CN.md:55 link to ./docs/zh-CN/%E6%9C%AF%E8%AF%AD%E8%A1%A8.md does not exist",
+     "Readme_zh-CN.md:321 link to ./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md does not exist",
+     "Readme_zh-CN.md:371 link to ./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md does not exist",
+     "Readme_zh-CN.md:1041 link to ./docs/zh-CN/%E4%B8%8D%E5%86%8D%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E7%9A%84%E5%8A%9F%E8%83%BD.md does not exist",
+     "Readme_zh-CN.md:1042 link to ./docs/zh-CN/%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E7%9A%84%E9%80%89%E9%A1%B9.md does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/suggestSimilar.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "examples/options-env.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/help.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/options-defaults.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/help.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "examples/custom-command-class.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "examples/color-help.mjs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/help.optionDescription.test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "AI_POLICY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/zh-CN/不再推荐使用的功能.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "AI_POLICY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/options-in-depth.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 23,
+   "workflows": 2
+  },
+  {
+   "repo": "caolan/async",
+   "sha": "3921e54bd0704157dbea238fdfcc0c3619abde1a",
+   "files": 502,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 6,
+    "dead-links": 8,
+    "dead-links:sample": [
+     "CHANGELOG.md:161 link to github.com/Kikobeats does not exist",
+     "CHANGELOG.md:161 link to github.com/aearly does not exist",
+     "CHANGELOG.md:161 link to github.com/megawac does not exist",
+     "CHANGELOG.md:161 link to github.com/jdalton does not exist",
+     "CHANGELOG.md:161 link to github.com/Rich-Harris does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "lib/someLimit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/filterLimit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/autoInject.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/whilst.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "lib/each.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "lib/internal/getIterator.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/queue.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "support/module_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "support/module_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "support/jsdoc/theme/README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 252,
+   "workflows": 1
+  },
+  {
+   "repo": "jashkenas/underscore",
+   "sha": "5c1e5f686f8500af9c9d15614ed60289d6d35d6b",
+   "files": 398,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 4,
+    "dead-links": 2,
+    "dead-links:sample": [
+     "index.html:655 link to ... does not exist",
+     "index.html:2523 link to docs/modules/noConflict.html does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "modules/omit.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "modules/_shallowProperty.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "modules/sortedIndex.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "modules/isSymbol.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "modules/sortedIndex.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "modules/isFunction.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "modules/isNull.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/treeshake.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CODE_OF_CONDUCT.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 258,
+   "workflows": 1
+  },
+  {
+   "repo": "ai/nanoid",
+   "sha": "055d1700cc67ac843e3efb5235d806b419ec7b2b",
+   "files": 46,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "index.browser.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": ".prettierrc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "non-secure/index.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pnpm-workspace.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "nanoid.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": ".prettierrc.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/benchmark.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/benchmark.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README.ko.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.ar.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.ko.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 6,
+   "workflows": 3
+  },
+  {
+   "repo": "remy/nodemon",
+   "sha": "df00a4e463547383a4c1c5eaab280f395d439c23",
+   "files": 170,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 8,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "website/oc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "website/oc.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "lib/version.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "lib/config/command.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "lib/utils/log.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "lib/index.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "lib/monitor/signals.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/fixtures/packages/start/package.json",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/commits.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/commits.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/website.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "doc/requireable.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "doc/events.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "TODO.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "doc/arch.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 11,
+   "workflows": 5
+  },
+  {
+   "repo": "philc/vimium",
+   "sha": "4046615ae4128d485fce3335fc1032e6f87c630a",
+   "files": 140,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 1,
+    "dead-links:sample": [
+     "pages/command_listing.html:18 link to ../github.svg does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "content_scripts/hud.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "lib/settings.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "content_scripts/mode_insert.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "pages/exclusion_rules_editor.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "content_scripts/ui_component.js",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "background_scripts/marks.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "background_scripts/user_search_engines.js",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/unit_tests/tab_recency_test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/gel-bench.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": false
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/pull_request_template.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 16,
+   "workflows": 0
+  },
+  {
+   "repo": "python-telegram-bot/python-telegram-bot",
+   "sha": "41e3633bd1b4e51693ee57059828a59a9773618a",
+   "files": 1363,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 1,
+    "dead-links:sample": [
+     "examples/passportbot.html:16 link to telegram-passport.js does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": ".github/workflows/stale.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "changes/22.4_2025-09-13/4926.GMcTfT2hSAdmdT7wi73mzZ.toml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/telegram/ext/_handlers/chatjoinrequesthandler.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/telegram/ext/_handlers/managedbotupdatedhandler.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "src/telegram/_chat.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "examples/timerbot.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "changes/22.7_2026-03-16/5166.5cZDXUcYWLrCCWCRnBKktb.toml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/ext/test_chatjoinrequesthandler.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/unit_tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release_test_pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release_test_pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/pull_request_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/copilot-instructions.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "examples/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/pull_request_template.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": true,
+    "links": true,
+    "claims": false
+   },
+   "ms": 73,
+   "workflows": 14
+  },
+  {
+   "repo": "celery/celery",
+   "sha": "9c2f238334331db43f15956f131235fd3bb70fd1",
+   "files": 861,
+   "clean": {
+    "secret-scan": 4,
+    "secret-scan:sample": [
+     "examples/security/ssl/worker.key:1 Private key (rotate it, then remove it)",
+     "t/unit/security/__init__.py:9 Private key (rotate it, then remove it)",
+     "t/unit/security/__init__.py:44 Private key (rotate it, then remove it)",
+     "t/unit/security/__init__.py:133 Private key (rotate it, then remove it)"
+    ],
+    "pinned-actions": 29,
+    "dead-links": 2,
+    "dead-links:sample": [
+     ".github/Agents.md:131 link to .github/copilot-instructions.md does not exist",
+     ".github/Agents.md:132 link to SECURITY.md does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "celery/bin/control.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "celery/apps/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "examples/django/proj/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/next-steps/setup.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "celery/utils/sysinfo.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "t/integration/test_security.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "t/integration/__init__.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "t/smoke/tests/test_chord_headers_exchange.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/smoke-tests-dev.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/smoke-tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/integration-tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/Feature-Request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "SECURITY.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/Documentation-Bug-Report.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".github/PULL_REQUEST_TEMPLATE.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 95,
+   "workflows": 8
+  },
+  {
+   "repo": "deezer/spleeter",
+   "sha": "6f2c8a2e283914faa544631430f65b793f1b1218",
+   "files": 76,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 14,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "docker/conda-entrypoint.sh",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "conda/spleeter/meta.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "spleeter/types.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "spleeter/utils/logging.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pyproject.toml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "spleeter/utils/logging.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "spleeter/resources/5stems.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/test_ffmpeg_adapter.py",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/test.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/conda.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/pypi.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/discussion.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "paper.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 5,
+   "workflows": 4
+  },
+  {
+   "repo": "resemble-ai/chatterbox",
+   "sha": "ab55923c27757c90cfcc407baa57dc25a7d25217",
+   "files": 66,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 2,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/chatterbox/vc.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/chatterbox/tts.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/chatterbox/models/s3gen/transformer/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/chatterbox/models/s3tokenizer/__init__.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "gradio_tts_turbo_app.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/chatterbox/models/s3gen/transformer/attention.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "multilingual_app.py",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/install_check.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 6,
+   "workflows": 1
+  },
+  {
+   "repo": "micro-editor/micro",
+   "sha": "02409a314f437183eac71381f79ad43d9ff9b361",
+   "files": 335,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 9,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "internal/config/plugin_installer.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "runtime/syntax/r.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "runtime/syntax/stata.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "runtime/syntax/python3.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "runtime/syntax/lisp.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "runtime/syntax/git-commit.yaml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "runtime/syntax/typescript.yaml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/nightly.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/nightly.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "runtime/help/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "runtime/help/defaultkeys.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "runtime/help/plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "runtime/help/colors.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 56,
+   "workflows": 3
+  },
+  {
+   "repo": "charmbracelet/glow",
+   "sha": "8b0600fa445535b9c53194c0d4f7fe3cf700ef3e",
+   "files": 54,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 4,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "ui/rawpaint_windows.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "ui/pager.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "utils/utils.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "ui/stashitem.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "url.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "main.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "ui/rawpaint_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/dependabot-sync.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/dependabot-sync.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/coverage.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".github/ISSUE_TEMPLATE/feature_request.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 5,
+   "workflows": 6
+  },
+  {
+   "repo": "henrygd/beszel",
+   "sha": "39f9a0765311e83213e5379ea27a9e9811475b58",
+   "files": 629,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 21,
+    "dead-links": 3,
+    "dead-links:sample": [
+     "internal/site/index.html:5 link to ./static/manifest.json does not exist",
+     "internal/site/index.html:6 link to ./static/icon.svg does not exist",
+     "internal/site/index.html:7 link to ./static/icon.png does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "agent/client.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "agent/cpu_unsupported.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": ".github/DISCUSSION_TEMPLATE/support.yml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "supplemental/helm/beszel-hub/templates/httproute.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "internal/site/src/components/routes/settings/layout.tsx",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "internal/hub/systems/system_smart_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "internal/entities/smart/smart.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/site/tests/chart-time.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/inactivity-actions.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "supplemental/helm/beszel-agent/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "supplemental/helm/beszel-hub/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "supplemental/helm/beszel-agent/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "SECURITY.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 128,
+   "workflows": 6
+  },
+  {
+   "repo": "stretchr/testify",
+   "sha": "87a7b9d57689f6579db2da795ab8deeab29cb724",
+   "files": 91,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "_codegen/main.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "suite/interfaces.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "internal/spew/config.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "assert/yaml/yaml_default.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "assert/http_assertions_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "mock/mock_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": ".github/workflows/release.yml",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/spew/testdata/dumpcgo.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/main.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/main.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": ".github/pull_request_template.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "MAINTAINERS.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "internal/spew/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "EMERITUS.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 11,
+   "workflows": 2
+  },
+  {
+   "repo": "go-kratos/kratos",
+   "sha": "dd0fb7df1e325daf5ffb9c30862be8f1091763eb",
+   "files": 475,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 15,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "transport/http/pprof/pprof.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "errors/types.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "log/level.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "contrib/middleware/validate/validate.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "transport/http/router_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "config/env/env_test.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "cmd/kratos/internal/upgrade/upgrade.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "internal/testdata/binding/generate.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/codeql-analysis.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/comment-check.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "README_zh.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "log/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "contrib/middleware/oauth2/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "contrib/otel/README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 44,
+   "workflows": 6
+  },
+  {
+   "repo": "sirupsen/logrus",
+   "sha": "6ef0748d1177dadaeee9aa79ffef604570f487d7",
+   "files": 64,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 0,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "terminal_check_unix.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "json_formatter_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "hooks/slog/slog.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "terminal_check_no_terminal.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "formatter.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "terminal_check_appengine.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "terminal_check_unix.go",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "hooks/test/test_test.go",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "hooks/syslog/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 7,
+   "workflows": 1
+  },
+  {
+   "repo": "asdf-vm/asdf",
+   "sha": "b41b2d222a93e6607c86fa990c7a49f98d8b1b29",
+   "files": 268,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 20,
+    "dead-links": 1,
+    "dead-links:sample": [
+     "docs/pt-br/contribute/documentation.md:44 link to ../package.json does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "internal/git/git_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "internal/versions/versions.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "internal/cli/set/set_test.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "internal/execenv/execenv.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "internal/pluginindex/pluginindex.go",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "docs/package.json",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "docs/.vitepress/sidebars.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "test/gel_bench_fixture.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/semantic-pr.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/tests.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release-build.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/zh-hans/contribute/first-party-plugins.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "docs/more/faq.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/ko-kr/contribute/core.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "SECURITY.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 30,
+   "workflows": 6
+  },
+  {
+   "repo": "sharkdp/hyperfine",
+   "sha": "c5161524980522320c7d3425e714cc0965a869a5",
+   "files": 75,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 12,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "src/command.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/benchmark/benchmark_result.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/benchmark/measurement.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/quantity/statistics.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "scripts/plot_progression.py",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "src/parameter/range_step.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/metric.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "tests/common.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/CICD.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "scripts/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "scripts/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "scripts/README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 7,
+   "workflows": 1
+  },
+  {
+   "repo": "cloudflare/pingora",
+   "sha": "3f87e92c982ee27c714506e16ae362776faea4aa",
+   "files": 468,
+   "clean": {
+    "secret-scan": 5,
+    "secret-scan:sample": [
+     "pingora-core/examples/keys/client-ca/key.pem:1 Private key (rotate it, then remove it)",
+     "pingora-core/examples/keys/clients/invalid-key.pem:1 Private key (rotate it, then remove it)",
+     "pingora-core/examples/keys/clients/key-1.pem:1 Private key (rotate it, then remove it)",
+     "pingora-core/examples/keys/clients/key-2.pem:1 Private key (rotate it, then remove it)",
+     "pingora-core/examples/keys/server/key.pem:1 Private key (rotate it, then remove it)"
+    ],
+    "pinned-actions": 9,
+    "dead-links": 1,
+    "dead-links:sample": [
+     "CHANGELOG.md:236 link to (https://blog.cloudflare.com/madeyoureset-an-http-2-vulnerability-thwarted-by-rapid-reset-mitigations/ does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "pingora/examples/service/proxy.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "pingora-proxy/examples/conf.yaml",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "pingora-core/src/protocols/http/mod.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "pingora-core/src/offload.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "pingora-proxy/src/proxy_h2/replay_tests.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "pingora-core/src/protocols/http/v1/mod.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "pingora-proxy/benches/shutdown_signal.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "pingora-proxy/tests/test_basic/gate_off_contract/custom.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/mark-stale.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/build.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/mark-stale.yaml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/user_guide/prom.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "docs/user_guide/start_stop.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 82,
+   "workflows": 5
+  },
+  {
+   "repo": "tokio-rs/axum",
+   "sha": "2449f1600c6626a9b8b7dbcc3500bf64995968e1",
+   "files": 508,
+   "clean": {
+    "secret-scan": 6,
+    "secret-scan:sample": [
+     "examples/low-level-native-tls/self_signed_certs/key.pem:1 Private key (rotate it, then remove it)",
+     "examples/low-level-openssl/self_signed_certs/key.pem:1 Private key (rotate it, then remove it)",
+     "examples/low-level-rustls/self_signed_certs/key.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls-graceful-shutdown/self_signed_certs/key.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls-rustls/self_signed_certs/key.pem:1 Private key (rotate it, then remove it)"
+    ],
+    "pinned-actions": 37,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "axum-extra/src/handler/mod.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "axum/src/service_ext.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "examples/low-level-openssl/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "examples/routes-and-handlers-close-together/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "axum-extra/src/response/attachment.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "axum-core/src/extract/from_ref.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "axum/src/middleware/map_request.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "axum-macros/tests/debug_handler/fail/not_a_function.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/CI.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release-plz.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release-plz.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "axum-macros/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "CONTRIBUTING.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "axum-extra/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "axum/src/docs/method_routing/route_layer.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 86,
+   "workflows": 2
+  },
+  {
+   "repo": "Schniz/fnm",
+   "sha": "07f13237ae208f531f8ea88d4cfde3160c22f99a",
+   "files": 162,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 70,
+    "dead-links": 0,
+    "dead-links:sample": [],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "site/vercel.json",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "src/commands/use.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "src/user_version_reader.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "src/commands/completions.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": ".ci/get_shell_profile.sh",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "e2e/shellcode/test-bin-dir.ts",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "src/commands/alias.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "e2e/system-node.test.ts",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/release-to-cargo.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/release-to-cargo.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/release.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "CHANGELOG.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "AGENTS.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": ".changeset/warm-apes-fold.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": ".changeset/warm-apes-fold.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 27,
+   "workflows": 5
+  },
+  {
+   "repo": "rwf2/Rocket",
+   "sha": "3a54d079aef060a8f732bd04ea54b0581a604087",
+   "files": 758,
+   "clean": {
+    "secret-scan": 9,
+    "secret-scan:sample": [
+     "examples/tls/private/ca_key.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls/private/client.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls/private/ecdsa_nistp256_sha256_key_pkcs8.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls/private/ecdsa_nistp256_sha256_key_sec1.pem:1 Private key (rotate it, then remove it)",
+     "examples/tls/private/ecdsa_nistp384_sha384_key_pkcs8.pem:1 Private key (rotate it, then remove it)"
+    ],
+    "pinned-actions": 6,
+    "dead-links": 48,
+    "dead-links:sample": [
+     "docs/guide/01-upgrading.md:13 link to ../faq/ does not exist",
+     "docs/guide/04-overview.md:79 link to ../requests/#error-catchers does not exist",
+     "docs/guide/04-overview.md:82 link to ../requests/ does not exist",
+     "docs/guide/04-overview.md:199 link to @git/master/examples/hello does not exist",
+     "docs/guide/04-overview.md:200 link to @git/master/examples/ does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "contrib/dyn_templates/src/metadata.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "examples/static-files/src/main.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "contrib/ws/src/websocket.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "core/lib/src/router/router.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "core/lib/src/response/stream/sse.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "contrib/db_pools/lib/src/pool.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "core/http/src/header/known_media_types.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "core/codegen/tests/ui-fail-stable/route-warnings.rs",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/trigger.yaml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/ci.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "docs/guide/03-getting-started.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "contrib/sync_db_pools/README.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "docs/guide/12-pastebin.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "CHANGELOG.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": false,
+    "links": false,
+    "claims": false
+   },
+   "ms": 57,
+   "workflows": 2
+  },
+  {
+   "repo": "actix/actix-web",
+   "sha": "97ea807a02b1e820816deb09a835a02fff9fa202",
+   "files": 463,
+   "clean": {
+    "secret-scan": 0,
+    "secret-scan:sample": [],
+    "pinned-actions": 47,
+    "dead-links": 2,
+    "dead-links:sample": [
+     "README.md:46 link to examples/introspection.rs does not exist",
+     "README.md:46 link to examples/introspection_multi_servers.rs does not exist"
+    ],
+    "done-without-green": 0
+   },
+   "planted": [
+    {
+     "kind": "secret",
+     "id": "aws-key",
+     "hard": false,
+     "file": "actix-http/benches/response-body-compression.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "github-token",
+     "hard": false,
+     "file": "actix-http/src/body/size.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "anthropic-key",
+     "hard": false,
+     "file": "actix-router/src/lib.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "stripe-live-key",
+     "hard": false,
+     "file": "actix-web/src/http/header/accept_language.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "private-key",
+     "hard": false,
+     "file": "actix-http/src/h1/utils.rs",
+     "caught": true
+    },
+    {
+     "kind": "secret",
+     "id": "google-api-key",
+     "hard": true,
+     "file": "awc/src/connect.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "password-in-url",
+     "hard": true,
+     "file": "actix-http/src/ws/dispatcher.rs",
+     "caught": false
+    },
+    {
+     "kind": "secret",
+     "id": "aws-key-in-test-file",
+     "hard": true,
+     "file": "actix-files/tests/test.js",
+     "caught": false
+    },
+    {
+     "kind": "action",
+     "id": "tag-pin",
+     "hard": false,
+     "file": ".github/workflows/ci-post-merge.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "branch-pin",
+     "hard": false,
+     "file": ".github/workflows/semver-checks.yml",
+     "caught": true
+    },
+    {
+     "kind": "action",
+     "id": "semver-pin",
+     "hard": false,
+     "file": ".github/workflows/labeler.yml",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-doc",
+     "hard": false,
+     "file": "actix-multipart/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-image",
+     "hard": false,
+     "file": "actix-files/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "missing-with-anchor",
+     "hard": false,
+     "file": "actix-multipart/CHANGES.md",
+     "caught": true
+    },
+    {
+     "kind": "link",
+     "id": "html-href",
+     "hard": true,
+     "file": "actix-http/README.md",
+     "caught": false
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-red-check",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-timed-out",
+     "hard": false,
+     "expectBad": true,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "claims-green-is-green",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    },
+    {
+     "kind": "claim",
+     "id": "no-claim-red-check",
+     "hard": false,
+     "expectBad": false,
+     "caught": true
+    }
+   ],
+   "ownCi": {
+    "secrets": false,
+    "pins": true,
+    "links": false,
+    "claims": false
+   },
+   "ms": 63,
+   "workflows": 8
+  }
+ ]
+}
