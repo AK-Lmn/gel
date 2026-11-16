@@ -1,0 +1,116 @@
+[
+ {
+  "name": "rails migration edited",
+  "label": "bad",
+  "base": {
+   "db/migrate/20240101_add_users.rb": "class AddUsers < ActiveRecord::Migration[7.1]\n  def change\n    create_table :users\n  end\nend\n"
+  },
+  "files": {
+   "db/migrate/20240101_add_users.rb": "class AddUsers < ActiveRecord::Migration[7.1]\n  def change\n    create_table :users do |t|\n      t.string :email\n    end\n  end\nend\n"
+  }
+ },
+ {
+  "name": "django migration deleted",
+  "label": "bad",
+  "base": {
+   "shop/migrations/0002_order.py": "from django.db import migrations\n",
+   "shop/models.py": "x = 1\n"
+  },
+  "files": {
+   "shop/models.py": "x = 1\n"
+  }
+ },
+ {
+  "name": "alembic revision renamed",
+  "label": "bad",
+  "base": {
+   "alembic/versions/abc123_add_col.py": "revision = 'abc123'\n"
+  },
+  "files": {
+   "alembic/versions/abc124_add_col.py": "revision = 'abc123'\n"
+  }
+ },
+ {
+  "name": "prisma migration sql edited",
+  "label": "bad",
+  "base": {
+   "prisma/migrations/20240101_init/migration.sql": "CREATE TABLE a (id int);\n"
+  },
+  "files": {
+   "prisma/migrations/20240101_init/migration.sql": "CREATE TABLE a (id bigint);\n"
+  }
+ },
+ {
+  "name": "supabase migration edited",
+  "label": "bad",
+  "base": {
+   "supabase/migrations/20240101000000_init.sql": "create table t (id int);\n"
+  },
+  "files": {
+   "supabase/migrations/20240101000000_init.sql": "create table t (id int, name text);\n"
+  }
+ },
+ {
+  "name": "new migration added",
+  "label": "good",
+  "base": {
+   "db/migrate/20240101_add_users.rb": "class AddUsers < ActiveRecord::Migration[7.1]\n  def change\n    create_table :users\n  end\nend\n"
+  },
+  "files": {
+   "db/migrate/20240101_add_users.rb": "class AddUsers < ActiveRecord::Migration[7.1]\n  def change\n    create_table :users\n  end\nend\n",
+   "db/migrate/20240202_add_email.rb": "class AddEmail < ActiveRecord::Migration[7.1]\nend\n"
+  }
+ },
+ {
+  "name": "drizzle journal rewritten on a new migration",
+  "label": "good",
+  "base": {
+   "drizzle/migrations/meta/_journal.json": "{\"entries\":[1]}\n",
+   "drizzle/migrations/0000_init.sql": "create table a(id int);\n"
+  },
+  "files": {
+   "drizzle/migrations/meta/_journal.json": "{\"entries\":[1,2]}\n",
+   "drizzle/migrations/0000_init.sql": "create table a(id int);\n",
+   "drizzle/migrations/0001_b.sql": "create table b(id int);\n"
+  }
+ },
+ {
+  "name": "prisma lock file and rails schema change",
+  "label": "good",
+  "base": {
+   "prisma/migrations/migration_lock.toml": "provider = \"sqlite\"\n",
+   "db/schema.rb": "v1\n"
+  },
+  "files": {
+   "prisma/migrations/migration_lock.toml": "provider = \"postgresql\"\n",
+   "db/schema.rb": "v2\n"
+  }
+ },
+ {
+  "name": "django migrations package init edited",
+  "label": "good",
+  "base": {
+   "app/migrations/__init__.py": ""
+  },
+  "files": {
+   "app/migrations/__init__.py": "# keep\n"
+  }
+ },
+ {
+  "name": "push scan without a base",
+  "label": "good",
+  "files": {
+   "db/migrate/20240101_add_users.rb": "class AddUsers < ActiveRecord::Migration[7.1]\n  def change\n    create_table :users\n  end\nend\n"
+  }
+ },
+ {
+  "name": "migration docs edited",
+  "label": "good",
+  "base": {
+   "migrations/README.md": "old\n"
+  },
+  "files": {
+   "migrations/README.md": "new\n"
+  }
+ }
+]

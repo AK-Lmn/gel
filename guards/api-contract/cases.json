@@ -1,0 +1,146 @@
+[
+ {
+  "name": "endpoint removed (yaml)",
+  "label": "bad",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "method removed (json)",
+  "label": "bad",
+  "base": {
+   "api/openapi.json": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"A\",\n    \"version\": \"1\"\n  },\n  \"paths\": {\n    \"/items\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ok\"\n          }\n        }\n      },\n      \"delete\": {\n        \"responses\": {\n          \"204\": {\n            \"description\": \"gone\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+  },
+  "files": {
+   "api/openapi.json": "{\n  \"openapi\": \"3.1.0\",\n  \"info\": {\n    \"title\": \"A\",\n    \"version\": \"1\"\n  },\n  \"paths\": {\n    \"/items\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ok\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+  }
+ },
+ {
+  "name": "optional query parameter made required",
+  "label": "bad",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: true\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "new required header",
+  "label": "bad",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: X-Tenant\n          in: header\n          required: true\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "success response dropped",
+  "label": "bad",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"202\":\n          description: accepted\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "request body made required",
+  "label": "bad",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        required: true\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "spec deleted",
+  "label": "bad",
+  "base": {
+   "docs/swagger.json": "{\n  \"swagger\": \"2.0\",\n  \"info\": {\n    \"title\": \"A\",\n    \"version\": \"1\"\n  },\n  \"paths\": {\n    \"/a\": {\n      \"get\": {\n        \"responses\": {\n          \"200\": {\n            \"description\": \"ok\"\n          }\n        }\n      }\n    }\n  }\n}\n"
+  },
+  "files": {
+   "README.md": "moved\n"
+  }
+ },
+ {
+  "name": "endpoint added",
+  "label": "good",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\n  /health:\n    get:\n      responses:\n        \"200\":\n          description: ok\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "optional parameter added and text edited",
+  "label": "good",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List all orders # paged\n      parameters:\n        - name: cursor\n          in: query\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "required parameter dropped (clients still send it)",
+  "label": "good",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: true\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "error response removed",
+  "label": "good",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "new spec added",
+  "label": "good",
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ },
+ {
+  "name": "other yaml changed",
+  "label": "good",
+  "base": {
+   "k8s/deploy.yaml": "kind: Deployment\nspec:\n  replicas: 1\n"
+  },
+  "files": {
+   "k8s/deploy.yaml": "kind: Deployment\nspec:\n  replicas: 2\n"
+  }
+ },
+ {
+  "name": "spec it cannot read is skipped",
+  "label": "good",
+  "base": {
+   "openapi.yaml": "openapi: 3.0.0\npaths:\n  /a: &a\n    get: {}\n"
+  },
+  "files": {
+   "openapi.yaml": "openapi: 3.0.0\npaths: {}\n"
+  }
+ },
+ {
+  "name": "push scan without a base",
+  "label": "good",
+  "files": {
+   "openapi.yaml": "openapi: 3.0.3\ninfo:\n  title: Shop\n  version: \"1.0\"\npaths:\n  /orders:\n    get:\n      summary: List orders\n      parameters:\n        - name: limit\n          in: query\n          required: false\n          schema: { type: integer }\n      responses:\n        \"200\":\n          description: ok\n    post:\n      requestBody:\n        content:\n          application/json:\n            schema:\n              type: object\n      responses:\n        \"201\":\n          description: created\n  /orders/{id}:\n    parameters:\n      - $ref: \"#/components/parameters/OrderId\"\n    get:\n      responses:\n        \"200\":\n          description: ok\n        \"404\":\n          description: missing\ncomponents:\n  parameters:\n    OrderId:\n      name: id\n      in: path\n      required: true\n      schema:\n        type: string\n"
+  }
+ }
+]

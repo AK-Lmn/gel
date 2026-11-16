@@ -1,6 +1,6 @@
 # GEL: Guard, Eval, Loop
 
-Five checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, and a pull request that says "all tests pass" while a check is red. Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
+Seven checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, a pull request that says "all tests pass" while a check is red, an edit to a database migration that already ran, and an API change that breaks existing clients. Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
 
 **Bench on 30 public repos (11,350 files) and 231 real pull requests:**
 
@@ -61,6 +61,10 @@ npx github:flisk-sh/gel run --root .
 | `workflow-permissions` | a workflow job has no `permissions` (and no top-level one), uses `write-all`, or checks out the fork's code under `pull_request_target` |
 | `dead-links` | a markdown or HTML link points to a file that is not in the repo |
 | `done-without-green` | a pull request says "all checks pass" or "ready to merge" while a check on its last commit is red |
+| `migrations-append-only` | a pull request edits, renames or deletes a migration that is already on the base branch (Rails, Django, Alembic, Prisma, Knex, Drizzle, Supabase, Flyway, golang-migrate and others). Adding a migration is fine |
+| `api-contract` | a pull request changes an OpenAPI or Swagger spec (JSON or YAML) so that an existing client breaks: an endpoint or method removed, a new required parameter or request body, a path parameter or a 2xx response gone |
+
+The last two compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 
 ## gel.json
 
