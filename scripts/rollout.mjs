@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Opens one pull request per flisk-sh repo that adds the GEL caller. Dry run unless --apply.
+// Opens one pull request per repo in --org (default flisk-sh) that adds the GEL caller. Dry run unless --apply.
 // Report only: gel.json starts in mode "report", so nothing can block on day one.
 import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const here = dirname(fileURLToPath(import.meta.url));
 const apply = process.argv.includes("--apply");
 const only = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1].split(",") : null;
-const org = "flisk-sh";
+const org = (() => { const i = process.argv.indexOf("--org"); return i > 0 ? process.argv[i + 1] : "flisk-sh"; })();
 const BRANCH = "gel/add-guards";
 const gh = (...a) => execFileSync("gh", a, { encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] });
 const api = (...a) => JSON.parse(gh("api", ...a) || "null");

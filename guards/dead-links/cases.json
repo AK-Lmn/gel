@@ -84,5 +84,57 @@
   "files": {
    "cli/templates/s/SKILL.md": "[d](../../../docs/x.md)\n"
   }
+ },
+ {
+  "name": "stray bracket on an earlier line does not hide a link",
+  "label": "bad",
+  "files": {
+   "CHANGELOG.md": "- fixed [issue\n\nSee [the guide](docs/missing.md).\n"
+  }
+ },
+ {
+  "name": "percent-encoded link to a file that exists",
+  "label": "good",
+  "files": {
+   "README.md": "[t](./docs/%E6%9C%AF.md)\n",
+   "docs/术.md": "x\n"
+  }
+ },
+ {
+  "name": "web address without its scheme",
+  "label": "good",
+  "files": {
+   "CHANGELOG.md": "thanks [@a](github.com/a)\n"
+  }
+ },
+ {
+  "name": "doc-site link without .md",
+  "label": "good",
+  "files": {
+   "docs/index.md": "[use](./guide/use-cases)\n",
+   "docs/guide/use-cases.md": "x\n"
+  }
+ },
+ {
+  "name": "vite index.html asset served from public",
+  "label": "good",
+  "files": {
+   "web/index.html": "<link rel=\"manifest\" href=\"./static/m.json\">",
+   "web/public/static/m.json": "{}"
+  }
+ },
+ {
+  "name": "link to a missing script file",
+  "label": "bad",
+  "files": {
+   "README.md": "run [install](scripts/install.sh)\n"
+  }
+ },
+ {
+  "name": "doc-site link without .md that does not exist",
+  "label": "bad",
+  "files": {
+   "docs/index.md": "[use](./guide/gone)\n"
+  }
  }
 ]

@@ -1,3 +1,5 @@
 node_modules
 gel-record.jsonl
 gel-ctx.json
+bench/.work/
+.wrangler/

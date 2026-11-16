@@ -8,6 +8,7 @@ import { matchAny } from "../lib/glob.mjs";
 import { walk } from "../lib/fs.mjs";
 import { GUARD_NAMES, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
+import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -23,13 +24,23 @@ function changedFiles(root, base) {
 async function main() {
   if (cmd === "selftest") {
     const rows = await selftest();
+    if (args.includes("--json")) { console.log(JSON.stringify(rows, null, 1)); process.exit(rows.every((r) => r.ok) ? 0 : 1); }
     for (const r of rows) {
-      console.log(`${r.ok ? "ok  " : "FAIL"} ${r.guard.padEnd(20)} cases ${r.cases} (good ${r.good}, bad ${r.bad})  recall ${(r.recall * 100).toFixed(0)}%  false blocks ${r.falseBlocks}`);
+      console.log(`${r.ok ? "ok  " : "FAIL"} ${r.guard.padEnd(20)} cases ${r.cases} (good ${r.good}, bad ${r.bad})  recall ${(r.recall * 100).toFixed(0)}%  precision ${(r.precision * 100).toFixed(0)}%  false blocks ${r.falseBlocks}`);
       for (const w of r.wrong) console.log(`       ${w}`);
     }
     process.exit(rows.every((r) => r.ok) ? 0 : 1);
   }
-  if (cmd !== "run") { console.log("usage: gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest"); process.exit(2); }
+  if (cmd === "metrics") {
+    const recs = readRecords(args.slice(1).filter((a, i, xs) => !a.startsWith("--") && !(xs[i - 1] ?? "").startsWith("--")));
+    const labels = opt("labels") && existsSync(opt("labels")) ? JSON.parse(readFileSync(opt("labels"), "utf8")) : [];
+    const report = metrics(recs, labels, loadConfig(resolve(opt("root", "."))));
+    if (args.includes("--json")) console.log(JSON.stringify(report, null, 1));
+    else console.log(metricsMarkdown(report));
+    if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, metricsMarkdown(report) + "\n");
+    process.exit(0);
+  }
+  if (cmd !== "run") { console.log("usage: gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
@@ -47,7 +58,7 @@ async function main() {
     const guard = await loadGuard(name);
     // links can break in files that did not change, so that guard looks at the whole tree
     const files = name === "dead-links" ? all : scope;
-    const res = await guard.run({ root, files, ctx });
+    const res = await guard.run({ root, files, ctx, cfg });
     results.push({ guard: name, level, pass: res.pass, findings: res.findings });
   }
   const blocked = results.filter((r) => !r.pass && r.level === "block");
@@ -59,7 +70,8 @@ async function main() {
     lane, laneReason: reason,
     needsPerson: lane === "C",
     files: (changed ?? all).length,
-    results: results.map((r) => ({ guard: r.guard, level: r.level, pass: r.pass, findings: r.findings.length })),
+    // the first findings travel with the record, so a person can label them real or false later (gel metrics)
+    results: results.map((r) => ({ guard: r.guard, level: r.level, pass: r.pass, findings: r.findings.length, top: r.findings.slice(0, 10).map((f) => ({ file: f.file, line: f.line, message: f.message })) })),
     blocked: blocked.map((b) => b.guard),
     ms: Date.now() - started,
   };

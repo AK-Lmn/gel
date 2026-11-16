@@ -1,0 +1,42 @@
+name: GEL guards
+description: Secret scan, pinned actions, dead links and done-without-green on every pull request. Report only until you promote a guard.
+author: flisk-sh
+branding:
+  icon: shield
+  color: green
+
+inputs:
+  base:
+    description: Commit to diff against. Defaults to the pull request base or the previous push.
+    required: false
+    default: ""
+  record:
+    description: File to append the JSON run record to
+    required: false
+    default: gel-record.jsonl
+
+outputs:
+  lane:
+    description: Risk lane A, B or C picked from the changed files
+    value: ${{ steps.run.outputs.lane }}
+
+runs:
+  using: composite
+  steps:
+    - name: Read pull request context
+      if: github.event_name == 'pull_request'
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+      run: node "$GITHUB_ACTION_PATH/bin/gel-ctx.mjs" "$RUNNER_TEMP/gel-ctx.json"
+    - name: Run guards
+      id: run
+      shell: bash
+      env:
+        BASE_INPUT: ${{ inputs.base }}
+        PR_BASE: ${{ github.event.pull_request.base.sha }}
+        PUSH_BEFORE: ${{ github.event.before }}
+        RECORD: ${{ inputs.record }}
+      run: |
+        base="${BASE_INPUT:-${PR_BASE:-$PUSH_BEFORE}}"
+        node "$GITHUB_ACTION_PATH/bin/gel.mjs" run --root . --base "$base" --ctx "$RUNNER_TEMP/gel-ctx.json" --record "$RECORD"

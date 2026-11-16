@@ -3,10 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "GEL: Guard, Eval, Loop. One reusable CI workflow for every flisk-sh repo.",
+  "description": "GEL: four CI guards for AI-written pull requests. Leaked keys, unpinned actions, dead links, and PRs that say green while a check is red.",
   "scripts": {
     "selftest": "node bin/gel.mjs selftest",
-    "test": "node bin/gel.mjs selftest && node --test tests/*.test.mjs"
+    "test": "node bin/gel.mjs selftest && node --test tests/*.test.mjs",
+    "bench": "node bench/run.mjs && node bench/claims.mjs"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "bin": {
+    "gel": "bin/gel.mjs"
+  }
 }

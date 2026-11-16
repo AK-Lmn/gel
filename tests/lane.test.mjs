@@ -26,3 +26,6 @@ test("report mode downgrades block", () => {
   assert.equal(cfg.mode, "report");
   assert.ok(Object.values(cfg.guards).every((v) => v === "report"));
 });
+test("labels, guard cases and the bench baseline are lane C: the loop cannot grade itself", () => {
+  for (const f of ["gel-labels.json", "guards/secret-scan/cases.json", "bench/baseline.json"]) assert.equal(pickLane([f]).lane, "C", f);
+});
