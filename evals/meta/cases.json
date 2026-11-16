@@ -1,0 +1,481 @@
+[
+ {
+  "name": "clean guard",
+  "check": "clean",
+  "records": [
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s0",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s1",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s2",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s3",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s4",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s5",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s6",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s7",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s8",
+    "result": "pass"
+   },
+   {
+    "guard": "clean",
+    "repo": "r",
+    "sha": "s9",
+    "result": "pass"
+   }
+  ],
+  "expect": "trusted"
+ },
+ {
+  "name": "planted flaky guard: same sha both results",
+  "check": "flaky",
+  "records": [
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s0",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s1",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s2",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s3",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s4",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s5",
+    "result": "pass"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s0",
+    "result": "fail"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s1",
+    "result": "fail"
+   },
+   {
+    "guard": "flaky",
+    "repo": "r",
+    "sha": "s2",
+    "result": "fail"
+   }
+  ],
+  "expect": "untrusted"
+ },
+ {
+  "name": "planted blind guard: passes changes that were bad",
+  "check": "blind",
+  "records": [
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s0",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s1",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s2",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s3",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s4",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s5",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s6",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s7",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s8",
+    "result": "pass"
+   },
+   {
+    "guard": "blind",
+    "repo": "r",
+    "sha": "s9",
+    "result": "pass"
+   }
+  ],
+  "outcomes": [
+   {
+    "repo": "r",
+    "sha": "s0",
+    "bad": true
+   },
+   {
+    "repo": "r",
+    "sha": "s1",
+    "bad": true
+   },
+   {
+    "repo": "r",
+    "sha": "s2",
+    "bad": true
+   },
+   {
+    "repo": "r",
+    "sha": "s3",
+    "bad": true
+   },
+   {
+    "repo": "r",
+    "sha": "s4",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s5",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s6",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s7",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s8",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s9",
+    "bad": false
+   }
+  ],
+  "expect": "untrusted"
+ },
+ {
+  "name": "planted noisy guard: fails changes that were fine",
+  "check": "noisy",
+  "records": [
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s0",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s1",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s2",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s3",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s4",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s5",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s6",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s7",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s8",
+    "result": "fail"
+   },
+   {
+    "guard": "noisy",
+    "repo": "r",
+    "sha": "s9",
+    "result": "fail"
+   }
+  ],
+  "outcomes": [
+   {
+    "repo": "r",
+    "sha": "s0",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s1",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s2",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s3",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s4",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s5",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s6",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s7",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s8",
+    "bad": false
+   },
+   {
+    "repo": "r",
+    "sha": "s9",
+    "bad": false
+   }
+  ],
+  "expect": "untrusted"
+ },
+ {
+  "name": "too few runs",
+  "check": "new",
+  "records": [
+   {
+    "guard": "new",
+    "repo": "r",
+    "sha": "s0",
+    "result": "pass"
+   },
+   {
+    "guard": "new",
+    "repo": "r",
+    "sha": "s1",
+    "result": "pass"
+   }
+  ],
+  "expect": "unknown"
+ },
+ {
+  "name": "planted drifting eval",
+  "check": "repo-hygiene",
+  "evalRecords": [
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-01",
+    "score": 0.95
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-02",
+    "score": 0.95
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-03",
+    "score": 0.95
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-04",
+    "score": 0.95
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-05",
+    "score": 0.6
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-06",
+    "score": 0.6
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-07",
+    "score": 0.6
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-08",
+    "score": 0.6
+   }
+  ],
+  "expect": "untrusted"
+ },
+ {
+  "name": "steady eval",
+  "check": "repo-hygiene",
+  "evalRecords": [
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-01",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-02",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-03",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-04",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-05",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-06",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-07",
+    "score": 0.9
+   },
+   {
+    "eval": "repo-hygiene",
+    "at": "2026-11-08",
+    "score": 0.9
+   }
+  ],
+  "expect": "trusted"
+ }
+]

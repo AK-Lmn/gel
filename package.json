@@ -6,7 +6,7 @@
   "description": "GEL: seven CI guards for AI-written pull requests. Leaked keys, unpinned actions, open workflow tokens, dead links, PRs that say green while a check is red, edited migrations and breaking API changes.",
   "scripts": {
     "selftest": "node bin/gel.mjs selftest",
-    "test": "node bin/gel.mjs selftest && node --test tests/*.test.mjs",
+    "test": "node bin/gel.mjs selftest && node bin/gel.mjs eval selftest && node bin/gel.mjs meta selftest && node --test tests/*.test.mjs",
     "bench": "node bench/run.mjs && node bench/claims.mjs"
   },
   "license": "MIT",

@@ -1,0 +1,7 @@
+[
+ {"name":"stable","ctx":{"runs":[{"workflow":"ci","sha":"a","conclusion":"success","ms":1000},{"workflow":"ci","sha":"b","conclusion":"success","ms":2000}]},"expect":{"min":1,"max":1,"status":"ok"}},
+ {"name":"planted flake: same sha failed then passed","ctx":{"runs":[{"workflow":"ci","sha":"a","conclusion":"failure"},{"workflow":"ci","sha":"a","conclusion":"success"},{"workflow":"ci","sha":"b","conclusion":"success"},{"workflow":"ci","sha":"c","conclusion":"success"}]},"expect":{"min":0.66,"max":0.67,"status":"below"}},
+ {"name":"a plain red is not a flake","ctx":{"runs":[{"workflow":"ci","sha":"a","conclusion":"failure"},{"workflow":"ci","sha":"b","conclusion":"success"}]},"expect":{"min":1,"max":1,"status":"ok"}},
+ {"name":"cancelled runs are ignored","ctx":{"runs":[{"workflow":"ci","sha":"a","conclusion":"cancelled"}]},"expect":{"score":null,"status":"skip"}},
+ {"name":"no history","ctx":{},"expect":{"score":null,"status":"skip"}}
+]

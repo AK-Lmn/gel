@@ -1,0 +1,6 @@
+[
+ {"name":"all right","ctx":{"dataset":[{"name":"a","lane":"A","files":["README.md"]},{"name":"c","lane":"C","files":["src/auth/x.ts"]}]},"expect":{"min":1,"max":1,"status":"ok"}},
+ {"name":"planted: dangerous change labelled A is picked too low? no, GEL picks C, so this one is too high","ctx":{"dataset":[{"name":"a","lane":"A","files":["src/auth/x.ts"]},{"name":"b","lane":"B","files":["src/a.ts"]}]},"expect":{"min":0.5,"max":0.5,"status":"below"}},
+ {"name":"planted: a change a person calls C that GEL calls B (too low)","ctx":{"dataset":[{"name":"x","lane":"C","files":["src/feature.ts"]},{"name":"y","lane":"B","files":["src/a.ts"]}]},"expect":{"min":0.5,"max":0.5,"status":"below"}},
+ {"name":"no data","ctx":{"dataset":[]},"expect":{"score":null,"status":"skip"}}
+]

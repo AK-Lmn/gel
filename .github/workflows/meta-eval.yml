@@ -23,6 +23,12 @@ jobs:
         run: |
           node bin/gel.mjs selftest --json > "$RUNNER_TEMP/selftest.json"
           node bin/gel.mjs selftest | tee -a "$GITHUB_STEP_SUMMARY"
+      - name: Evals against their planted cases (layer 3)
+        run: |
+          node bin/gel.mjs eval selftest
+          node bin/gel.mjs meta selftest
+      - name: Evals on this repo (layer 1, report only)
+        run: node bin/gel.mjs eval --record "$RUNNER_TEMP/eval-record.jsonl" | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Bench on 30 public repos
         run: node bench/run.mjs --out "$RUNNER_TEMP/results.json"
       - name: Not worse than the baseline
@@ -33,6 +39,7 @@ jobs:
           name: meta-eval
           path: |
             ${{ runner.temp }}/selftest.json
+            ${{ runner.temp }}/eval-record.jsonl
             ${{ runner.temp }}/results.json
           if-no-files-found: ignore
           retention-days: 90

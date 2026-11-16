@@ -10,6 +10,9 @@ import { GUARD_NAMES, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
 import { diffChanges, baseReader } from "../lib/diff.mjs";
 import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
+import { EVAL_NAMES, runEval, ratchet, evalSelftest, readJson } from "../lib/evals.mjs";
+import { meta, metaMarkdown, metaSelftest } from "../lib/meta.mjs";
+import { collectRuns } from "../evals/ci-reliability/collect.mjs";
 import { fixPinned, lsRemoteResolver } from "../lib/fix-pinned.mjs";
 
 const args = process.argv.slice(2);
@@ -87,6 +90,45 @@ async function main() {
     if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, metricsMarkdown(report) + "\n");
     process.exit(0);
   }
+  if (cmd === "eval") {
+    const sub = args[1] && !args[1].startsWith("--") ? args[1] : "run";
+    const json = args.includes("--json");
+    if (sub === "selftest") {
+      const rows = await evalSelftest();
+      if (json) console.log(JSON.stringify(rows, null, 1));
+      else for (const r of rows) { console.log(`${r.ok ? "ok  " : "FAIL"} ${r.eval.padEnd(16)} cases ${r.cases} (planted-low ${r.lows})`); for (const w of r.wrong) console.log(`       ${w}`); }
+      process.exit(rows.every((r) => r.ok) ? 0 : 1);
+    }
+    if (sub === "collect") { console.log(JSON.stringify(collectRuns(opt("repo")))); process.exit(0); }
+    const only = opt("only") ? opt("only").split(",") : EVAL_NAMES;
+    const ctx = { runs: readJson(opt("runs"), undefined) };
+    const root = resolve(opt("root", "."));
+    const base = readJson(opt("baseline"), {});
+    const rows = ratchet(await Promise.all(only.map((n) => runEval(n, { root, ctx }))), base);
+    if (opt("record")) appendFileSync(opt("record"), rows.map((r) => JSON.stringify({ at: new Date().toISOString(), repo: process.env.GITHUB_REPOSITORY ?? root, eval: r.eval, score: r.score, status: r.status })).join("\n") + "\n");
+    if (json) console.log(JSON.stringify(rows, null, 1));
+    else for (const r of rows) {
+      console.log(`${{ ok: "ok  ", below: "LOW ", skip: "skip" }[r.status]} ${r.eval.padEnd(16)} ${r.score === null ? "  - " : r.score.toFixed(2)}  (need ${r.threshold})${r.dropped ? `  DROPPED from ${r.baseline}` : ""}  ${r.detail}`);
+      for (const it of r.items.slice(0, 5)) console.log(`       ${JSON.stringify(it)}`);
+    }
+    // report mode by default: it only fails with --strict
+    process.exit(args.includes("--strict") && rows.some((r) => r.status === "below" || r.dropped) ? 1 : 0);
+  }
+  if (cmd === "meta") {
+    if (args[1] === "selftest") {
+      const res = metaSelftest(JSON.parse(readFileSync(new URL("../evals/meta/cases.json", import.meta.url), "utf8")));
+      console.log(`${res.ok ? "ok  " : "FAIL"} meta  cases ${res.cases}`);
+      for (const w of res.wrong) console.log(`       ${w}`);
+      process.exit(res.ok ? 0 : 1);
+    }
+    const recs = readRecords(args.slice(1).filter((a, i, xs) => !a.startsWith("--") && !(xs[i - 1] ?? "").startsWith("--")));
+    const evalRecords = opt("evals") && existsSync(opt("evals")) ? readFileSync(opt("evals"), "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)) : [];
+    const rows = meta({ records: recs, evalRecords, outcomes: readJson(opt("outcomes"), []) });
+    if (args.includes("--json")) console.log(JSON.stringify(rows, null, 1));
+    else console.log(metaMarkdown(rows));
+    if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, metaMarkdown(rows) + "\n");
+    process.exit(0);
+  }
   if (cmd === "lane") {
     const root = resolve(opt("root", "."));
     const cfg = loadConfig(root);
@@ -96,7 +138,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel fix pinned-actions [--root .] [--repo owner/name] [--json]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
