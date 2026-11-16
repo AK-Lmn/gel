@@ -1,0 +1,9 @@
+# gel.flisk.si is static files served by Cloudflare: these headers apply to every response, 404 page included.
+# The CSP only stops other sites framing this one; it adds no script or style rules.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: frame-ancestors 'self'
