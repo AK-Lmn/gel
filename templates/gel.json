@@ -14,6 +14,7 @@
     "status-declared": "report",
     "dependabot-config": "report",
     "release-integrity": "report",
-    "five-second-test": "report"
+    "five-second-test": "report",
+    "north-star": "report"
   }
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { appendFileSync, readFileSync, existsSync } from "node:fs";
-import { execFileSync } from "node:child_process";
+import { appendFileSync, readFileSync, writeFileSync, existsSync } from "node:fs";
+import { execFileSync, execSync } from "node:child_process";
 import { resolve } from "node:path";
 import { loadConfig } from "../lib/config.mjs";
 import { pickLane, lanePlan } from "../lib/lane.mjs";
@@ -15,6 +15,7 @@ import { meta, metaMarkdown, metaSelftest } from "../lib/meta.mjs";
 import { collectRuns } from "../evals/ci-reliability/collect.mjs";
 import { fixPinned, lsRemoteResolver } from "../lib/fix-pinned.mjs";
 import { collectRelease } from "../lib/release-ctx.mjs";
+import { run as northStar, ratioOf } from "../guards/north-star/index.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -138,6 +139,30 @@ async function main() {
     console.log(JSON.stringify(collectRelease({ repo, tag, sha: opt("sha"), phase: opt("phase", "post") })));
     process.exit(0);
   }
+  if (cmd === "north-star") {
+    // gel north-star [--root .] [--measure] [--json]: with --measure, run north_star.measure (it prints {"value":..,"baseline":..,"unit":..,"run":..}),
+    // stamp measuredAt and write north_star.result; then judge the result against the target. Exit 1 when the target is not met.
+    const root = resolve(opt("root", "."));
+    const cfg = loadConfig(root);
+    const ns = cfg.north_star;
+    if (!ns?.result) { console.log('gel.json has no north_star.result: see the north-star guard in README.md'); process.exit(2); }
+    if (args.includes("--measure")) {
+      if (!ns.measure) { console.log("north_star.measure is not set: nothing to run"); process.exit(2); }
+      const out = execSync(ns.measure, { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "inherit"] });
+      const r = JSON.parse(out.trim().split("\n").filter(Boolean).pop());
+      writeFileSync(resolve(root, ns.result), JSON.stringify({ ...r, measuredAt: new Date().toISOString() }, null, 1) + "\n");
+    }
+    const files = walk(root);
+    const verdict = northStar({ cfg, files, read: (f) => { try { return readFileSync(resolve(root, f), "utf8"); } catch { return null; } } });
+    let r = null; try { r = JSON.parse(readFileSync(resolve(root, ns.result), "utf8")); } catch {}
+    const got = r ? ratioOf(r, ns.target?.better) : null;
+    if (args.includes("--json")) console.log(JSON.stringify({ met: verdict.pass, ratio: got, target: ns.target?.ratio, findings: verdict.findings }));
+    else {
+      console.log(`north star: ${ns.metric}\n  now ${r?.value ?? "?"}${r?.unit ? " " + r.unit : ""} vs ${ns.baseline} ${r?.baseline ?? "?"}${r?.unit ? " " + r.unit : ""} = ${got ? got.toFixed(2) : "?"}x, target ${ns.target?.ratio}x -> ${verdict.pass ? "MET" : "NOT MET"}`);
+      for (const f of verdict.findings) console.log(`  ${f.message}`);
+    }
+    process.exit(verdict.pass ? 0 : 1);
+  }
   if (cmd === "lane") {
     const root = resolve(opt("root", "."));
     const cfg = loadConfig(root);
@@ -147,7 +172,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel north-star [--root .] [--measure] [--json] | gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
