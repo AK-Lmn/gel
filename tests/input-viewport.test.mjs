@@ -2,10 +2,11 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { instrument, parseDump } from "../lib/input-viewport.mjs";
 
-test("instrument adds a base and the measuring script", () => {
-  const out = instrument("<html><head></head><body><textarea></textarea></body></html>", "https://x.test/");
-  assert.match(out, /<head><base href="https:\/\/x.test\/">/);
-  assert.match(out, /gel-input-viewport[\s\S]*<\/script><\/body>/);
+test("instrument draws the page in a frame of the requested size, with a base", () => {
+  const out = instrument('<html><head></head><body><textarea name="a"></textarea></body></html>', "https://x.test/", 320, 568);
+  assert.match(out, /<iframe id="f" width="320" height="568"/);
+  assert.match(out, /&lt;base|<base href=&quot;https:\/\/x.test\/&quot;>/);
+  assert.match(out, /gel-input-viewport/);
 });
 test("parseDump reads the measurement from the dumped DOM", () => {
   const dom = '<body><pre id="gel-input-viewport">{&quot;width&quot;:375,&quot;height&quot;:667,&quot;top&quot;:400,&quot;bottom&quot;:460}</pre></body>';
