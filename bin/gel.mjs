@@ -9,7 +9,7 @@ import { matchAny } from "../lib/glob.mjs";
 import { walk } from "../lib/fs.mjs";
 import { GUARD_NAMES, WHOLE_TREE, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
-import { diffChanges, baseReader } from "../lib/diff.mjs";
+import { diffChanges, movedOnBase, baseReader } from "../lib/diff.mjs";
 import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
 import { EVAL_NAMES, runEval, ratchet, evalSelftest, readJson } from "../lib/evals.mjs";
 import { meta, metaMarkdown, metaSelftest } from "../lib/meta.mjs";
@@ -216,6 +216,8 @@ async function main() {
   // before-and-after guards (migrations, API specs) see what this branch changed; a scan of the whole tree has no "before"
   const changes = changed ? diffChanges(root, opt("base"))?.filter((c) => !matchAny(cfg.ignore, c.from ?? c.file)) ?? null : null;
   const readBase = changes ? baseReader(root, opt("base")) : null;
+  // stale-base: what the base branch changed since this branch forked (pull requests only; a push scan has no base)
+  if (changed && ctx.baseMoved === undefined) { const moved = movedOnBase(root, opt("base")); if (moved) ctx.baseMoved = moved; }
 
   const started = Date.now();
   const results = [];

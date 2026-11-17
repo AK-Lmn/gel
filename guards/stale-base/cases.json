@@ -1,0 +1,12 @@
+[
+ { "name": "workflow changed on base", "label": "bad", "ctx": { "baseMoved": [".github/workflows/ci.yml", "README.md"] } },
+ { "name": "scores gate changed on base", "label": "bad", "ctx": { "baseMoved": ["scripts/scores/action-consistency.sh"] } },
+ { "name": "Makefile changed on base", "label": "bad", "ctx": { "baseMoved": ["Makefile"] } },
+ { "name": "gel pin changed on base", "label": "bad", "ctx": { "baseMoved": ["docs/gel.json"] } },
+ { "name": "custom watch path moved", "label": "bad", "cfg": { "stale_base": { "watch": ["ci/**"] } }, "ctx": { "baseMoved": ["ci/build.sh"] } },
+ { "name": "base moved only product code", "label": "good", "ctx": { "baseMoved": ["src/app.ts", "README.md"] } },
+ { "name": "base did not move", "label": "good", "ctx": { "baseMoved": [] } },
+ { "name": "push scan has no base", "label": "good", "ctx": {} },
+ { "name": "moved path is ignored by config", "label": "good", "cfg": { "stale_base": { "ignore": [".github/workflows/docs.yml"] } }, "ctx": { "baseMoved": [".github/workflows/docs.yml"] } },
+ { "name": "custom watch excludes workflows", "label": "good", "cfg": { "stale_base": { "watch": ["ci/**"] } }, "ctx": { "baseMoved": [".github/workflows/ci.yml"] } }
+]
