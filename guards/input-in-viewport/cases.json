@@ -1,0 +1,143 @@
+[
+ {
+  "name": "input below the fold",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-11-10T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": 790, \"bottom\": 870}]}"
+  },
+  "cfg": {
+   "input_in_viewport": {
+    "result": "bench/input-viewport.json"
+   }
+  }
+ },
+ {
+  "name": "no input found in the measurement",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-11-10T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": null, \"bottom\": null}]}"
+  },
+  "cfg": {
+   "input_in_viewport": {
+    "result": "bench/input-viewport.json"
+   }
+  }
+ },
+ {
+  "name": "stale measurement",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-08-01T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": 560, \"bottom\": 640}]}"
+  },
+  "cfg": {
+   "input_in_viewport": {
+    "result": "bench/input-viewport.json"
+   }
+  }
+ },
+ {
+  "name": "declared but never measured",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  },
+  "cfg": {
+   "input_in_viewport": {
+    "result": "bench/input-viewport.json"
+   }
+  }
+ },
+ {
+  "name": "static page with textarea, no measurement",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "index.html": "<html><body><h1>Hi</h1><textarea></textarea></body></html>"
+  }
+ },
+ {
+  "name": "static page with text input, one of two widths too low",
+  "label": "bad",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "index.html": "<html><body><input name=q></body></html>",
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-11-10T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": 100, \"bottom\": 140}, {\"page\": \"/\", \"width\": 320, \"height\": 568, \"top\": 520, \"bottom\": 600}]}"
+  }
+ },
+ {
+  "name": "input inside the first screen",
+  "label": "good",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-11-10T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": 560, \"bottom\": 640}]}"
+  },
+  "cfg": {
+   "input_in_viewport": {
+    "result": "bench/input-viewport.json"
+   }
+  }
+ },
+ {
+  "name": "static page with textarea and a passing measurement",
+  "label": "good",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "index.html": "<html><body><h1>Hi</h1><textarea></textarea></body></html>",
+   "bench/input-viewport.json": "{\"measuredAt\": \"2026-11-10T00:00:00Z\", \"entries\": [{\"page\": \"/\", \"width\": 375, \"height\": 812, \"top\": 560, \"bottom\": 640}]}"
+  }
+ },
+ {
+  "name": "page without an input needs no measurement",
+  "label": "good",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "index.html": "<html><body><h1>Hi</h1><a href=x>go</a><input type=hidden name=t></body></html>"
+  }
+ },
+ {
+  "name": "no pages at all",
+  "label": "good",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "archived repo",
+  "label": "good",
+  "ctx": {
+   "now": "2026-11-17T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  },
+  "cfg": {
+   "status": "archived",
+   "input_in_viewport": {}
+  }
+ }
+]

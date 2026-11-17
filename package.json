@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "GEL: fifteen CI guards for AI-written pull requests. Leaked keys, unpinned actions, open workflow tokens, dead links, PRs that say green while a check is red, edited migrations, breaking API changes, missing tests, missing decision records, missing community files, undeclared owner or status, uncovered dependency ecosystems, landing pages a stranger cannot understand in five seconds, and repos with no north star metric.",
+  "description": "GEL: sixteen CI guards for AI-written pull requests. Leaked keys, unpinned actions, open workflow tokens, dead links, PRs that say green while a check is red, edited migrations, breaking API changes, missing tests, missing decision records, missing community files, undeclared owner or status, uncovered dependency ecosystems, landing pages a stranger cannot understand in five seconds, repos with no north star metric, and pages whose main input is below the first phone screen.",
   "scripts": {
     "selftest": "node bin/gel.mjs selftest",
     "test": "node bin/gel.mjs selftest && node bin/gel.mjs eval selftest && node bin/gel.mjs meta selftest && node --test tests/*.test.mjs",
