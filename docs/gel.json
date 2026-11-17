@@ -1,17 +1,13 @@
 {
-  "mode": "report",
-  "guards": {
-    "north-star": "report"
-  },
+  "mode": "block",
+  "guards": { "north-star": "block" },
   "north_star": {
-    "metric": "median seconds the shared GEL check takes on a pull request",
-    "baseline": "first measured run, 2026-11-17",
-    "target": {
-      "ratio": 1.5,
-      "better": "lower"
-    },
+    "metric": "planted secrets caught, out of 8 kinds (AWS, GitHub, Anthropic, Stripe, private key, Google, password in URL, key in a test file)",
+    "baseline": "trufflehog, detectors only (--no-verification), same files",
+    "target": { "ratio": 1.5, "better": "higher" },
     "result": "docs/north-star/result.json",
     "evidence": "docs/north-star/README.md",
-    "max_age_days": 30
+    "measure": "node bench/north-star.mjs",
+    "max_age_days": 90
   }
 }
