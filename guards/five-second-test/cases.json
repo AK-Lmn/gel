@@ -82,5 +82,59 @@
     ]
    }
   }
+ },
+ {
+  "name": "rendered page is plain",
+  "label": "good",
+  "files": {
+   "bench/five-second.json": "{\"measuredAt\": \"2026-11-01T00:00:00Z\", \"entries\": [{\"page\": \"https://x.example/\", \"width\": 375, \"height\": 812, \"html\": \"<h1>A free AI model for your apps.</h1><p>Get a free key in one minute and call it from any app.</p><a href=\\\"#go\\\">Get a key</a>\"}]}"
+  },
+  "cfg": {
+   "five_second": {
+    "rendered": {
+     "result": "bench/five-second.json"
+    }
+   }
+  }
+ },
+ {
+  "name": "rendered page has jargon",
+  "label": "bad",
+  "files": {
+   "bench/five-second.json": "{\"measuredAt\": \"2026-11-01T00:00:00Z\", \"entries\": [{\"page\": \"https://x.example/\", \"width\": 375, \"height\": 812, \"html\": \"<h1>Serverless inference runtime</h1><p>Call the endpoint.</p><a href=\\\"#go\\\">Go</a>\"}]}"
+  },
+  "cfg": {
+   "five_second": {
+    "rendered": {
+     "result": "bench/five-second.json"
+    }
+   }
+  }
+ },
+ {
+  "name": "rendered page drew no headline",
+  "label": "bad",
+  "files": {
+   "bench/five-second.json": "{\"measuredAt\": \"2026-11-01T00:00:00Z\", \"entries\": [{\"page\": \"https://x.example/\", \"width\": 375, \"height\": 812, \"html\": \"\"}]}"
+  },
+  "cfg": {
+   "five_second": {
+    "rendered": {
+     "result": "bench/five-second.json"
+    }
+   }
+  }
+ },
+ {
+  "name": "rendered measurement missing",
+  "label": "bad",
+  "files": {},
+  "cfg": {
+   "five_second": {
+    "rendered": {
+     "result": "bench/five-second.json"
+    }
+   }
+  }
  }
 ]

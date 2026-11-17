@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { measure as measureFirstScreen } from "../lib/five-second-render.mjs";
 import { appendFileSync, readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execFileSync, execSync } from "node:child_process";
 import { resolve } from "node:path";
@@ -163,6 +164,20 @@ async function main() {
     }
     process.exit(verdict.pass ? 0 : 1);
   }
+  if (cmd === "five-second") {
+    // gel five-second (--url https://site | --file index.html) [--size 375x812] [--merge] [--write bench/five-second.json] [--json]
+    const target = opt("url") ?? opt("file");
+    if (!target) { console.log("usage: gel five-second (--url https://site | --file index.html) [--size 375x812] [--merge] [--write bench/five-second.json] [--json]"); process.exit(2); }
+    const e = measureFirstScreen({ url: opt("url"), file: opt("file"), size: opt("size", "375x812") });
+    const out = opt("write");
+    let entries = [e];
+    if (out && args.includes("--merge") && existsSync(out)) { try { entries = [...JSON.parse(readFileSync(out, "utf8")).entries.filter((x) => x.page !== e.page), e]; } catch {} }
+    const doc = { measuredAt: new Date().toISOString(), entries };
+    if (out) writeFileSync(out, JSON.stringify(doc, null, 2) + "\n");
+    if (args.includes("--json") || !out) console.log(JSON.stringify(doc, null, 2));
+    else console.log(`five-second: ${e.html ? "first screen kept" : "NO <h1> drawn"} for ${e.page} -> ${out}`);
+    process.exit(e.html ? 0 : 1);
+  }
   if (cmd === "lane") {
     const root = resolve(opt("root", "."));
     const cfg = loadConfig(root);
@@ -172,7 +187,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel north-star [--root .] [--measure] [--json] | gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel five-second (--url u | --file f) [--write f] | gel north-star [--root .] [--measure] [--json] | gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
