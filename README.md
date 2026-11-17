@@ -110,7 +110,7 @@ Each run appends one JSON line to `gel-record.jsonl`: repo, commit, lane, each g
 
 ## Org view: Cilytics
 
-[Cilytics](https://cilytics.flisk.si/) ([flisk-sh/cilytics](https://github.com/flisk-sh/cilytics)) shows GEL across a whole org or user account. It finds the newest completed run of each repo's workflow named `GEL` (or a file called `gel.yml`), reads `gel-record.jsonl` from its `gel-record` artifact, and shows which repos run GEL, the guard findings and what is blocked. Keep that workflow name and artifact name, or the repo shows as "GEL not installed".
+[Cilytics](https://cilytics.flisk.si/) ([flisk-sh/cilytics](https://github.com/flisk-sh/cilytics)) shows GEL across a whole org or user account. It finds the newest completed run of each repo's workflow named `GEL` (or a file called `gel.yml`), reads `gel-record.jsonl` from its `gel-record` artifact, and shows which repos run GEL, the guard findings and what is blocked. Keep that workflow name and artifact name, or the repo shows as "GEL not installed". Cilytics also shows each guard's own quality score (recall, precision, false blocks) from `scores.json`, the published result of `gel selftest`; regenerate it with `node bin/gel.mjs selftest --json > scores.json` when a guard changes (a test fails if it is stale).
 
 ## Metrics and the flywheel
 
