@@ -11,8 +11,8 @@ test("auth and payment paths are lane C", () => {
   assert.equal(pickLane(["src/auth/session.ts"]).lane, "C");
   assert.equal(pickLane(["api/payments/charge.ts"]).lane, "C");
 });
-test("gel.json and eval cases are lane C: a loop cannot change its own policy", () => {
-  assert.equal(pickLane(["gel.json"]).lane, "C");
+test("docs/gel.json and eval cases are lane C: a loop cannot change its own policy", () => {
+  assert.equal(pickLane(["docs/gel.json"]).lane, "C");
   assert.equal(pickLane(["evals/answers/cases.json"]).lane, "C");
 });
 test("no files is lane A", () => assert.equal(pickLane([]).lane, "A"));
@@ -27,5 +27,5 @@ test("report mode downgrades block", () => {
   assert.ok(Object.values(cfg.guards).every((v) => v === "report"));
 });
 test("labels, guard cases and the bench baseline are lane C: the loop cannot grade itself", () => {
-  for (const f of ["gel-labels.json", "guards/secret-scan/cases.json", "bench/baseline.json"]) assert.equal(pickLane([f]).lane, "C", f);
+  for (const f of ["docs/gel-labels.json", "guards/secret-scan/cases.json", "bench/baseline.json"]) assert.equal(pickLane([f]).lane, "C", f);
 });

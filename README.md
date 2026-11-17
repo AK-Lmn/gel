@@ -65,18 +65,18 @@ npx github:flisk-sh/gel run --root .
 | `api-contract` | a pull request changes an OpenAPI or Swagger spec (JSON or YAML) so that an existing client breaks: an endpoint or method removed, a new required parameter or request body, a path parameter or a 2xx response gone |
 | `tests-with-change` | a pull request changes product code and no test file in the same pull request. It reads changed paths, never the PR title. Docs, generated files, config, fixtures and test-only changes pass. Tune with `tests_with_change` (`source`, `tests`, `exempt` globs) |
 | `adr-required` | opt-in: a pull request touches a path listed in `adr_required.paths` and adds no ADR (a new `.md` under `adr_required.directory`, default `docs/adr`) with Context, Decision, Alternatives and Consequences sections. `min_lane` sets the lowest risk lane that triggers it. No `paths`, no rule |
-| `repo-health` | a repo has no LICENSE, SECURITY.md, CONTRIBUTING.md or CODEOWNERS (root, `.github/` or `docs/`), or its README has no sentence saying what it is for. List files the org supplies from its `.github` repo in `gel.json` as `"repo_health": {"inherit": ["security", "contributing"]}` |
-| `status-declared` | `gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
+| `repo-health` | a repo has no LICENSE, SECURITY.md, CONTRIBUTING.md or CODEOWNERS (root, `.github/` or `docs/`), or its README has no sentence saying what it is for. List files the org supplies from its `.github` repo in `docs/gel.json` as `"repo_health": {"inherit": ["security", "contributing"]}` |
+| `status-declared` | `docs/gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
 | `dependabot-config` | the repo uses an ecosystem (npm, pip, go, cargo, docker, github-actions and others) that `.github/dependabot.yml` (or a Renovate config) does not cover |
 | `release-integrity` | a release whose tag is not SemVer, whose commit is gone or off the default branch, with no CHANGELOG entry, a red or missing check, an earlier failed release run, or assets without checksums (or an SBOM, if required). Feed it `gel release-ctx --repo o/n --tag v1.2.3 > ctx.json`, then `gel run --ctx ctx.json`; it complements the org `release-gate` rather than replacing it |
 | `five-second-test` | the first screen of a landing page (`index.html`, `public/index.html`, `docs/index.html`; set `five_second.pages` to change) cannot be understood in five seconds on a phone: no `<h1>`, a headline over 12 words, a lead over 32 words, jargon such as endpoint, inference or MCP in either, or no link or button under the headline. Offline; tune `max_h1_words`, `max_lead_words` and `jargon` under `five_second`. A page drawn by script has no headline in its source: declare `five_second.rendered` (`result`, `max_age_days`) and commit a measurement from `gel five-second --url <page> --write bench/five-second.json --merge` (headless Chrome at 375x812); the first screen the browser drew is judged by the same rules, and a missing or stale measurement fails |
-| `north-star` | the repo's one measured headline metric is missing, stale or not met. `gel.json` declares `north_star` with a `metric`, a `baseline`, a `target` (`{"ratio": 8, "better": "lower"}`), an `evidence` (how it is measured: a repo file or https link) and a `result` file (`{"value": 2.5, "baseline": 26.1, "unit": "s", "measuredAt": "..."}`). The guard fails when the result is not in the repo, is older than `max_age_days` (default 30), or `baseline / value` (`value / baseline` for `"higher"`) is under the target ratio. A claim with no number gets no pass. `gel north-star --measure` runs your `measure` command, writes `result` and exits 1 when the target is not met, so a bench workflow can gate on it. Archived repos need none |
-| `input-in-viewport` | a phone visitor cannot start: the page's first visible `<input>` or `<textarea>` ends below the first screen (a pitch, banner or animation pushed it down), so they must scroll before they can type. Layout cannot be read from source, so the guard reads a measurement: `gel input-viewport --url https://site --write bench/input-viewport.json` loads the page in headless Chrome at 375x667 and 320x568 (add `--cookie 'a=b'` for a theme or state) and records where the input ends. `gel.json` may declare `input_in_viewport` (`result`, `max_age_days`, `pages`); the guard applies when it is declared or when `index.html`, `public/index.html`, `docs/index.html` or `site/index.html` contain a text input. Missing or stale measurement, no input found, or `bottom` over `height` fails. Archived repos need none |
+| `north-star` | the repo's one measured headline metric is missing, stale or not met. `docs/gel.json` declares `north_star` with a `metric`, a `baseline`, a `target` (`{"ratio": 8, "better": "lower"}`), an `evidence` (how it is measured: a repo file or https link) and a `result` file (`{"value": 2.5, "baseline": 26.1, "unit": "s", "measuredAt": "..."}`). The guard fails when the result is not in the repo, is older than `max_age_days` (default 30), or `baseline / value` (`value / baseline` for `"higher"`) is under the target ratio. A claim with no number gets no pass. `gel north-star --measure` runs your `measure` command, writes `result` and exits 1 when the target is not met, so a bench workflow can gate on it. Archived repos need none |
+| `input-in-viewport` | a phone visitor cannot start: the page's first visible `<input>` or `<textarea>` ends below the first screen (a pitch, banner or animation pushed it down), so they must scroll before they can type. Layout cannot be read from source, so the guard reads a measurement: `gel input-viewport --url https://site --write bench/input-viewport.json` loads the page in headless Chrome at 375x667 and 320x568 (add `--cookie 'a=b'` for a theme or state) and records where the input ends. `docs/gel.json` may declare `input_in_viewport` (`result`, `max_age_days`, `pages`); the guard applies when it is declared or when `index.html`, `public/index.html`, `docs/index.html` or `site/index.html` contain a text input. Missing or stale measurement, no input found, or `bottom` over `height` fails. Archived repos need none |
 | `stale-base` | a pull request branch was cut before the base branch changed its CI or scoring files (`.github/workflows/**`, `.github/actions/**`, `scripts/scores/**`, `Makefile`, `docs/gel.json`; tune with `stale_base.watch` and `stale_base.ignore`). Its checks then run old gates and can fail on something the base already fixed. It reads changed paths only, and a push scan passes. Fix: merge or rebase the base branch. |
 
 `migrations-append-only`, `api-contract`, `tests-with-change` and `adr-required` compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 
-## gel.json
+## docs/gel.json
 
 ```json
 {
@@ -92,7 +92,7 @@ npx github:flisk-sh/gel run --root .
 
 ## Lanes
 
-GEL picks a risk lane from the changed files, never from a label: **A** docs and tests, **B** product code, **C** workflows, `gel.json`, auth, payment, secrets, migrations, Dockerfiles and deploy config, where a person approves.
+GEL picks a risk lane from the changed files, never from a label: **A** docs and tests, **B** product code, **C** workflows, `docs/gel.json`, auth, payment, secrets, migrations, Dockerfiles and deploy config, where a person approves.
 
 The lane also sets how much CI runs. `gel lane --base <sha>` prints the plan and writes it to the job outputs, and the shared Flisk CI (`flisk-sh/.github`) follows it:
 
@@ -102,7 +102,7 @@ The lane also sets how much CI runs. `gel lane --base <sha>` prints the plan and
 | B product code | lint, typecheck, test, build | pytest | yes |
 | C sensitive paths | B plus test:integration, test:e2e, integration, e2e | pytest | yes |
 
-A push to the default branch, the weekly run and a manual run have no diff to judge, so they always run lane C. `"minLane": "B"` (or `"C"`) in `gel.json` sets a floor for a repo; a change can raise the lane, never lower it.
+A push to the default branch, the weekly run and a manual run have no diff to judge, so they always run lane C. `"minLane": "B"` (or `"C"`) in `docs/gel.json` sets a floor for a repo; a change can raise the lane, never lower it.
 
 ## Eval of the guards
 
@@ -119,7 +119,7 @@ Each run appends one JSON line to `gel-record.jsonl`: repo, commit, lane, each g
 ## Metrics and the flywheel
 
 ```bash
-node bin/gel.mjs metrics records/*.jsonl --labels gel-labels.json
+node bin/gel.mjs metrics records/*.jsonl --labels docs/gel-labels.json
 ```
 
 Per guard: runs, fail rate, precision from your labels (`[{guard, file, line, verdict: "real" | "false"}]`), and advice:
@@ -128,7 +128,7 @@ Per guard: runs, fail rate, precision from your labels (`[{guard, file, line, ve
 - **demote** a blocking guard on a labelled false alarm;
 - **hold** otherwise. It never promotes on an unknown precision.
 
-Every false alarm is listed as a hard case to add to the guard's `cases.json`. Overall it reports first-pass share, blocked runs and p50/p95 time. GEL only advises: a person edits `gel.json`, and that edit is lane C.
+Every false alarm is listed as a hard case to add to the guard's `cases.json`. Overall it reports first-pass share, blocked runs and p50/p95 time. GEL only advises: a person edits `docs/gel.json`, and that edit is lane C.
 
 ### Fix PRs
 

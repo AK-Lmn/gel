@@ -32,7 +32,7 @@ export function run({ cfg, files, read, ctx }) {
   const withInput = pages.filter((p) => { const h = read?.(p); return h != null && hasTextInput(h); });
   if (!declared && withInput.length === 0) return { pass: true, findings: [] };
   const findings = [];
-  const at = (message) => findings.push({ file: "gel.json", line: 0, message: `input in viewport: ${message}` });
+  const at = (message) => findings.push({ file: "docs/gel.json", line: 0, message: `input in viewport: ${message}` });
   const resultFile = typeof c?.result === "string" && c.result.trim() ? c.result.trim() : "bench/input-viewport.json";
   const raw = (files ?? []).includes(resultFile) ? read?.(resultFile) : null;
   if (raw == null) {

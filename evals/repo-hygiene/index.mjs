@@ -15,7 +15,7 @@ export function run({ root }) {
     ["LICENSE", has(/^LICENSE(\.md|\.txt)?$/)],
     [".gitignore", files.has(".gitignore")],
     ["GEL caller workflow", workflows.some((f) => /flisk-sh\/gel|uses:\s*\.\/|gel/i.test(readText(root, f) ?? "") && /gel/i.test(f))],
-    ["gel.json", files.has("gel.json")],
+    ["docs/gel.json", files.has("docs/gel.json")],
     ["a CI workflow", workflows.length > 0],
     ["workflows declare permissions", workflows.length > 0 && workflows.every((f) => /^permissions:/m.test(readText(root, f) ?? ""))],
     ["SECURITY.md or org policy", files.has("SECURITY.md") || files.has(".github/SECURITY.md")],

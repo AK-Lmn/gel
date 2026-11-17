@@ -20,7 +20,7 @@
  {"name":"dockerfile","lane":"C","files":["services/api/Dockerfile"]},
  {"name":"terraform","lane":"C","files":["infra/main.tf"]},
  {"name":"wrangler config","lane":"C","files":["wrangler.toml"]},
- {"name":"gel policy","lane":"C","files":["gel.json"]},
+ {"name":"gel policy","lane":"C","files":["docs/gel.json"]},
  {"name":"guard cases","lane":"C","files":["guards/secret-scan/cases.json"]},
  {"name":"auth hidden in a big change","lane":"C","files":["README.md","src/a.ts","src/b.ts","src/auth/token.ts"]}
 ]
