@@ -1,9 +1,9 @@
 {
- "value": 540,
- "baseline": 33,
- "unit": "defects caught, of 690 planted",
- "planted": 690,
+ "value": 599,
+ "baseline": 42,
+ "unit": "defects caught, of 900 planted",
+ "planted": 900,
  "repos": 30,
  "runs": 1,
- "measuredAt": "2026-11-17T19:16:17.390Z"
+ "measuredAt": "2026-11-17T19:28:11.582Z"
 }

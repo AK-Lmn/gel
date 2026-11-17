@@ -38,6 +38,13 @@ const SECRETS = [
   { id: "google-api-key", hard: true, make: (r) => ["AI", "za", chars(r, AN, 35)].join("") },
   { id: "password-in-url", hard: true, make: (r) => ["postgres://admin:", chars(r, AN, 18), "@db.internal:5432/app"].join("") },
   { id: "aws-key-in-test-file", hard: true, inTest: true, make: (r) => ["AKIA", chars(r, UP, 16)].join("") },
+  // Outside list: formats from other scanners' default rules (gitleaks, trufflehog), not picked by GEL's authors.
+  { id: "slack-bot-token", hard: true, outside: true, make: (r) => ["xo", "xb-", chars(r, "0123456789", 12), "-", chars(r, "0123456789", 12), "-", chars(r, AN, 24)].join("") },
+  { id: "sendgrid-key", hard: true, outside: true, make: (r) => ["S", "G.", chars(r, AN, 22), ".", chars(r, AN, 43)].join("") },
+  { id: "npm-token", hard: true, outside: true, make: (r) => ["np", "m_", chars(r, AN, 36)].join("") },
+  { id: "gitlab-token", hard: true, outside: true, make: (r) => ["gl", "pat-", chars(r, AN, 20)].join("") },
+  { id: "openai-project-key", hard: true, outside: true, make: (r) => ["sk-", "proj-", chars(r, AN, 48)].join("") },
+  { id: "twilio-key", hard: true, outside: true, make: (r) => ["S", "K", chars(r, "0123456789abcdef", 32)].join("") },
 ];
 const ACTIONS = [
   { id: "tag-pin", hard: false, line: "      - uses: actions/checkout@v4" },
@@ -55,6 +62,8 @@ const PERMS = [
   { id: "no-permissions", hard: false, body: "name: gel-bench\non: [push]\njobs:\n  bench:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo bench\n" },
   { id: "write-all", hard: false, body: "name: gel-bench\non: [push]\npermissions: write-all\njobs:\n  bench:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo bench\n" },
   { id: "prt-head-checkout", hard: false, body: "name: gel-bench\non:\n  pull_request_target:\npermissions:\n  contents: read\njobs:\n  bench:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1\n        with:\n          ref: ${{ github.event.pull_request.head.sha }}\n      - run: npm test\n" },
+  // Outside list: zizmor's template-injection audit (untrusted text expanded inside a run step).
+  { id: "template-injection", hard: true, outside: true, body: "name: gel-bench\non:\n  issues:\n    types: [opened]\npermissions:\n  contents: read\njobs:\n  bench:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo \"${{ github.event.issue.title }}\"\n" },
   { id: "scope-not-needed", hard: true, body: "name: gel-bench\non: [push]\npermissions:\n  contents: write\njobs:\n  bench:\n    runs-on: ubuntu-latest\n    steps:\n      - run: echo read only\n" },
 ];
 const CLAIMS = [

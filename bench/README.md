@@ -23,9 +23,11 @@ One defect at a time is added to a file picked by a seeded random number, the gu
 | --- | --- | --- |
 | secret | AWS, GitHub, Anthropic, Stripe live keys and a private key block, in source files | yes |
 | secret | a Google API key, a password inside a database URL, an AWS key in a test file | no: not in the rules, or test files are skipped on purpose |
+| secret | outside list: Slack bot, SendGrid, npm, GitLab, OpenAI project and Twilio keys (formats from gitleaks and trufflehog default rules) | no: not in the rules |
 | action | `@v4`, `@master` and `@v4.1.0` on a third-party action | yes |
 | perm | a workflow job with no `permissions`, `permissions: write-all`, a fork head checked out under `pull_request_target` (new file `.github/workflows/gel-bench-perm.yml`) | yes |
 | perm | a job that sets a write scope it never uses | no: GEL checks a scope is set, not that it is needed |
+| perm | outside list: `${{ github.event.issue.title }}` inside a `run` step (zizmor's template-injection audit) | no: GEL does not read step bodies |
 | link | a missing doc, image, and doc with `#anchor` in markdown | yes |
 | link | an HTML `<a href>` inside a markdown file | no: markdown files are read for markdown links only |
 | claim | "all checks pass" with a red or timed-out check; and two that must not be flagged | yes |
