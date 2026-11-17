@@ -15,7 +15,7 @@ export const name = "input-in-viewport";
 const PAGES = ["index.html", "public/index.html", "docs/index.html", "site/index.html"];
 // type=hidden, checkbox, radio, submit, button, file, image, reset, range, color do not count as "the input".
 const hasTextInput = (html) => {
-  const body = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<!--[\s\S]*?-->/gi, " ");
+  const body = html.replace(/<script[\s\S]*?<\/script\b[^>]*>|<style[\s\S]*?<\/style\b[^>]*>|<!--[\s\S]*?--!?>/gi, " ");
   if (/<textarea\b/i.test(body)) return true;
   for (const m of body.matchAll(/<input\b([^>]*)>/gi)) {
     const t = /\btype\s*=\s*["']?([a-z-]+)/i.exec(m[1])?.[1]?.toLowerCase() ?? "text";
