@@ -17,6 +17,7 @@ import { collectRuns } from "../evals/ci-reliability/collect.mjs";
 import { fixPinned, lsRemoteResolver } from "../lib/fix-pinned.mjs";
 import { collectRelease } from "../lib/release-ctx.mjs";
 import { run as northStar, ratioOf } from "../guards/north-star/index.mjs";
+import { measure as measureInput } from "../lib/input-viewport.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -164,6 +165,22 @@ async function main() {
     }
     process.exit(verdict.pass ? 0 : 1);
   }
+  if (cmd === "input-viewport") {
+    // gel input-viewport (--url https://site | --file index.html) [--size 375x667,320x568] [--cookie 'a=b'] [--write bench/input-viewport.json] [--json]
+    // Measures where the first visible input or textarea sits at phone sizes (headless Chrome). Exit 1 when it ends below the first screen.
+    const target = opt("url") ? { url: opt("url") } : opt("file") ? { file: opt("file") } : null;
+    if (!target) { console.log("usage: gel input-viewport (--url https://site | --file index.html) [--size 375x667,320x568] [--cookie 'a=b'] [--write bench/input-viewport.json] [--json]"); process.exit(2); }
+    const entries = [];
+    for (const sz of opt("size", "375x667,320x568").split(",")) {
+      const [width, height] = sz.split("x").map(Number);
+      entries.push(await measureInput({ ...target, width, height, cookie: opt("cookie") }));
+    }
+    const bad = entries.filter((e) => e.bottom == null || e.bottom > e.height);
+    if (opt("write")) writeFileSync(resolve(opt("write")), JSON.stringify({ measuredAt: new Date().toISOString(), entries }, null, 1) + "\n");
+    if (args.includes("--json")) console.log(JSON.stringify({ ok: bad.length === 0, entries }));
+    else for (const e of entries) console.log(`${e.width}x${e.height}: input ${e.bottom == null ? "NOT FOUND" : `ends at ${Math.round(e.bottom)}px`} -> ${e.bottom != null && e.bottom <= e.height ? "IN VIEW" : "BELOW THE FIRST SCREEN"}`);
+    process.exit(bad.length ? 1 : 0);
+  }
   if (cmd === "five-second") {
     // gel five-second (--url https://site | --file index.html) [--size 375x812] [--merge] [--write bench/five-second.json] [--json]
     const target = opt("url") ?? opt("file");
@@ -187,7 +204,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel five-second (--url u | --file f) [--write f] | gel north-star [--root .] [--measure] [--json] | gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel five-second (--url u | --file f) [--write f] | gel input-viewport (--url u | --file f) [--size WxH,..] [--write f] | gel north-star [--root .] [--measure] [--json] | gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);
