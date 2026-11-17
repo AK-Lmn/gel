@@ -1,8 +1,9 @@
 {
- "value": 5,
- "baseline": 3,
- "unit": "of 8 planted secrets",
+ "value": 540,
+ "baseline": 33,
+ "unit": "defects caught, of 690 planted",
+ "planted": 690,
+ "repos": 30,
  "runs": 1,
- "seed": 7,
- "measuredAt": "2026-11-17T18:26:41.980Z"
+ "measuredAt": "2026-11-17T19:16:17.390Z"
 }
