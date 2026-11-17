@@ -144,9 +144,9 @@
  },
  {
   "guard": "five-second-test",
-  "cases": 11,
-  "good": 4,
-  "bad": 7,
+  "cases": 15,
+  "good": 5,
+  "bad": 10,
   "recall": 1,
   "precision": 1,
   "falseBlocks": 0,
