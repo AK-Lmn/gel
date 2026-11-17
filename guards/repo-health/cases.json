@@ -1,0 +1,9 @@
+[
+ { "name": "nothing at all", "label": "bad", "files": { "src/a.js": "x\n" } },
+ { "name": "no licence", "label": "bad", "files": { "README.md": "# t\n\nA small tool that checks pull requests for leaked keys.\n", "SECURITY.md": "report to a@b.c\n", "CONTRIBUTING.md": "open a PR\n", ".github/CODEOWNERS": "* @acme/core\n" } },
+ { "name": "no security policy", "label": "bad", "files": { "README.md": "# t\n\nA small tool that checks pull requests for leaked keys.\n", "LICENSE": "MIT\n", "CONTRIBUTING.md": "open a PR\n", "CODEOWNERS": "* @acme/core\n" } },
+ { "name": "readme is only badges and a title", "label": "bad", "files": { "README.md": "# t\n\n[![ci](https://x/y.svg)](https://x)\n", "LICENSE": "MIT\n", "SECURITY.md": "a\n", "CONTRIBUTING.md": "a\n", "CODEOWNERS": "* @a\n" } },
+ { "name": "all present", "label": "good", "files": { "README.md": "# t\n\nA small tool that checks pull requests for leaked keys.\n", "LICENSE": "MIT\n", ".github/SECURITY.md": "a\n", ".github/CONTRIBUTING.md": "a\n", ".github/CODEOWNERS": "* @acme/core\n" } },
+ { "name": "licence with extension and docs folder", "label": "good", "files": { "README.md": "# t\n\nA small tool that checks pull requests for leaked keys.\n", "LICENSE.md": "MIT\n", "docs/SECURITY.md": "a\n", "docs/CONTRIBUTING.md": "a\n", "docs/CODEOWNERS": "* @a\n" } },
+ { "name": "inherits org community files", "label": "good", "cfg": { "repo_health": { "inherit": ["security", "contributing"] } }, "files": { "README.md": "# t\n\nA small tool that checks pull requests for leaked keys.\n", "LICENSE": "MIT\n", "CODEOWNERS": "* @a\n" } }
+]
