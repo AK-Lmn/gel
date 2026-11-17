@@ -152,5 +152,16 @@
   "falseBlocks": 0,
   "wrong": [],
   "ok": true
+ },
+ {
+  "guard": "north-star",
+  "cases": 13,
+  "good": 5,
+  "bad": 8,
+  "recall": 1,
+  "precision": 1,
+  "falseBlocks": 0,
+  "wrong": [],
+  "ok": true
  }
 ]

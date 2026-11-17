@@ -1,0 +1,194 @@
+[
+ {
+  "name": "no north star",
+  "label": "bad",
+  "cfg": {
+   "status": "active"
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "north star is a string",
+  "label": "bad",
+  "cfg": {
+   "north_star": "be fast"
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "slogan with no number",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "much faster than Docker",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "bench/README.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "metric too vague",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "speed",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "bench/README.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "no baseline",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "",
+    "evidence": "bench/README.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "no evidence",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "evidence file is missing",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "bench/gone.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "evidence is plain http",
+  "label": "bad",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "http://example.com/bench"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "file evidence",
+  "label": "good",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "bench/README.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "link evidence",
+  "label": "good",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "https://github.com/flisk-sh/flisk/tree/main/bench"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "dot slash and anchor",
+  "label": "good",
+  "cfg": {
+   "north_star": {
+    "metric": "first start to healthy on a 10-part shop",
+    "target": "8x faster than Docker Compose",
+    "baseline": "Docker Compose 5.1.3",
+    "evidence": "./bench/README.md#results"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "latency target",
+  "label": "good",
+  "cfg": {
+   "north_star": {
+    "metric": "p95 time to first token",
+    "target": "under 200 ms",
+    "baseline": "the last release",
+    "evidence": "bench/README.md"
+   }
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ },
+ {
+  "name": "archived needs none",
+  "label": "good",
+  "cfg": {
+   "status": "archived"
+  },
+  "files": {
+   "README.md": "x\n",
+   "bench/README.md": "numbers\n"
+  }
+ }
+]
