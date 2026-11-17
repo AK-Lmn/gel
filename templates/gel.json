@@ -13,6 +13,7 @@
     "repo-health": "report",
     "status-declared": "report",
     "dependabot-config": "report",
-    "release-integrity": "report"
+    "release-integrity": "report",
+    "five-second-test": "report"
   }
 }
