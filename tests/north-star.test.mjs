@@ -29,3 +29,18 @@ test("in block mode gel run fails on a missed north star", () => {
   gelRun(["north-star", "--root", ok, "--measure"]);
   assert.equal(gelRun(["run", "--root", ok]).status, 0, gelRun(["run", "--root", ok]).stdout);
 });
+
+test("on a pull request that touches an unrelated file the result and evidence files are still found", () => {
+  const d = repo(2.5);
+  gelRun(["north-star", "--root", d, "--measure"]);
+  const git = (...a) => spawnSync("git", ["-c", "user.name=t", "-c", "user.email=t@t", ...a], { cwd: d, encoding: "utf8" });
+  git("init", "-q", "-b", "main");
+  git("add", "-A");
+  git("commit", "-qm", "base");
+  const base = git("rev-parse", "HEAD").stdout.trim();
+  writeFileSync(join(d, "other.txt"), "x\n");
+  git("add", "-A");
+  git("commit", "-qm", "unrelated change");
+  const r = gelRun(["run", "--root", d, "--base", base]);
+  assert.equal(r.status, 0, r.stdout + r.stderr);
+});
