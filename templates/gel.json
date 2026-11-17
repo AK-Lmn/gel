@@ -1,11 +1,11 @@
 {
-  "mode": "report",
+  "mode": "block",
   "guards": {
-    "secret-scan": "report",
+    "secret-scan": "block",
     "pinned-actions": "report",
     "workflow-permissions": "report",
     "dead-links": "report",
-    "done-without-green": "report",
+    "done-without-green": "block",
     "migrations-append-only": "report",
     "api-contract": "report",
     "tests-with-change": "report",
@@ -16,6 +16,6 @@
     "release-integrity": "report",
     "five-second-test": "report",
     "north-star": "report",
-    "stale-base": "report"
+    "stale-base": "block"
   }
 }
