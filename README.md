@@ -1,6 +1,6 @@
 # GEL: Guard, Eval, Loop
 
-Twelve checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, a pull request that says "all tests pass" while a check is red, an edit to a database migration that already ran, an API change that breaks existing clients, product code changed with no test, an architectural change with no decision record, and the basics a public repo should carry (licence, security policy, owner, status, dependency updates). Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
+Thirteen checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, a pull request that says "all tests pass" while a check is red, an edit to a database migration that already ran, an API change that breaks existing clients, product code changed with no test, an architectural change with no decision record, a release that is not safe to ship, and the basics a public repo should carry (licence, security policy, owner, status, dependency updates). Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
 
 **Bench on 30 public repos (11,350 files) and 231 real pull requests:**
 
@@ -68,6 +68,7 @@ npx github:flisk-sh/gel run --root .
 | `repo-health` | a repo has no LICENSE, SECURITY.md, CONTRIBUTING.md or CODEOWNERS (root, `.github/` or `docs/`), or its README has no sentence saying what it is for. List files the org supplies from its `.github` repo in `gel.json` as `"repo_health": {"inherit": ["security", "contributing"]}` |
 | `status-declared` | `gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
 | `dependabot-config` | the repo uses an ecosystem (npm, pip, go, cargo, docker, github-actions and others) that `.github/dependabot.yml` (or a Renovate config) does not cover |
+| `release-integrity` | a release whose tag is not SemVer, whose commit is gone or off the default branch, with no CHANGELOG entry, a red or missing check, an earlier failed release run, or assets without checksums (or an SBOM, if required). Feed it `gel release-ctx --repo o/n --tag v1.2.3 > ctx.json`, then `gel run --ctx ctx.json`; it complements the org `release-gate` rather than replacing it |
 
 `migrations-append-only`, `api-contract`, `tests-with-change` and `adr-required` compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 

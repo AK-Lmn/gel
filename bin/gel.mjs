@@ -14,6 +14,7 @@ import { EVAL_NAMES, runEval, ratchet, evalSelftest, readJson } from "../lib/eva
 import { meta, metaMarkdown, metaSelftest } from "../lib/meta.mjs";
 import { collectRuns } from "../evals/ci-reliability/collect.mjs";
 import { fixPinned, lsRemoteResolver } from "../lib/fix-pinned.mjs";
+import { collectRelease } from "../lib/release-ctx.mjs";
 
 const args = process.argv.slice(2);
 const cmd = args[0];
@@ -129,6 +130,14 @@ async function main() {
     if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, metaMarkdown(rows) + "\n");
     process.exit(0);
   }
+  if (cmd === "release-ctx") {
+    // read-only: gel release-ctx --repo o/n --tag v1.2.3 [--sha <sha>] [--phase pre|post] > ctx.json, then gel run --ctx ctx.json
+    const repo = opt("repo") ?? process.env.GITHUB_REPOSITORY;
+    const tag = opt("tag") ?? (process.env.GITHUB_REF_TYPE === "tag" ? process.env.GITHUB_REF_NAME : undefined);
+    if (!repo || !tag) { console.log("usage: gel release-ctx --repo owner/name --tag v1.2.3 [--sha <sha>] [--phase pre|post]"); process.exit(2); }
+    console.log(JSON.stringify(collectRelease({ repo, tag, sha: opt("sha"), phase: opt("phase", "post") })));
+    process.exit(0);
+  }
   if (cmd === "lane") {
     const root = resolve(opt("root", "."));
     const cfg = loadConfig(root);
@@ -138,7 +147,7 @@ async function main() {
     if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, [`lane=${plan.lane}`, `lane_reason=${plan.reason}`, `scripts=${plan.scripts.join(" ")}`, `python_tests=${plan.pythonTests}`, `codeql=${plan.codeql}`].join("\n") + "\n");
     process.exit(0);
   }
-  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json]"); process.exit(2); }
+  if (cmd !== "run") { console.log("usage: gel lane [--root .] [--base <sha>] [--min A|B|C] [--json] | gel run [--root .] [--base <sha>] [--ctx ctx.json] [--record gel-record.jsonl] | gel selftest [--json] | gel metrics <gel-record.jsonl ...> [--labels gel-labels.json] [--json] | gel eval [selftest|collect --repo o/n] [--only a,b] [--runs runs.json] [--baseline b.json] [--record f] [--strict] [--json] | gel meta <gel-record.jsonl ...> [--evals f] [--outcomes f] | gel meta selftest | gel fix pinned-actions [--root .] [--repo owner/name] [--json] | gel release-ctx --repo owner/name --tag v1.2.3 [--sha s] [--phase pre|post]"); process.exit(2); }
 
   const root = resolve(opt("root", "."));
   const cfg = loadConfig(root);

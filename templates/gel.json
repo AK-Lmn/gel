@@ -12,6 +12,7 @@
     "adr-required": "report",
     "repo-health": "report",
     "status-declared": "report",
-    "dependabot-config": "report"
+    "dependabot-config": "report",
+    "release-integrity": "report"
   }
 }
