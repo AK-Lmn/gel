@@ -141,5 +141,16 @@
   "falseBlocks": 0,
   "wrong": [],
   "ok": true
+ },
+ {
+  "guard": "five-second-test",
+  "cases": 11,
+  "good": 4,
+  "bad": 7,
+  "recall": 1,
+  "precision": 1,
+  "falseBlocks": 0,
+  "wrong": [],
+  "ok": true
  }
 ]

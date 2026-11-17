@@ -1,0 +1,86 @@
+[
+ {
+  "name": "no h1",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><p>hello</p><a href=x>go</a></body></html>"
+  }
+ },
+ {
+  "name": "jargon in lead",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><h1>A free AI model for your apps.</h1><p>An OpenAI-compatible endpoint with low latency.</p><a href=\"#go\">Get started</a></body></html>"
+  }
+ },
+ {
+  "name": "jargon in headline",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><h1>Serverless inference runtime</h1><p>Get a free key and call it from any app.</p><a href=\"#go\">Get started</a></body></html>"
+  }
+ },
+ {
+  "name": "headline is a paragraph",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><h1>We are a platform that helps teams of all sizes to build and run many different kinds of projects every day</h1><p>Get a free key.</p><a href=\"#go\">Get started</a></body></html>"
+  }
+ },
+ {
+  "name": "no lead",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><h1>Run your AI for free.</h1><a href=x>Start</a></body></html>"
+  }
+ },
+ {
+  "name": "no button",
+  "label": "bad",
+  "files": {
+   "index.html": "<html><body><h1>Run your AI for free.</h1><p>Get a free key in one minute.</p></body></html>"
+  }
+ },
+ {
+  "name": "lead too long",
+  "label": "bad",
+  "files": {
+   "public/index.html": "<html><body><h1>Free AI for your apps.</h1><p>word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word word </p><a href=\"#go\">Get started</a></body></html>"
+  }
+ },
+ {
+  "name": "plain page",
+  "label": "good",
+  "files": {
+   "index.html": "<html><body><h1>A free AI model for your apps.</h1><p>Get a free key in one minute and call the model from any app, script or chatbot.</p><a href=\"#go\">Get started</a></body></html>"
+  }
+ },
+ {
+  "name": "plain page in public",
+  "label": "good",
+  "files": {
+   "public/index.html": "<html><body><h1>Run your AI agent for free.</h1><p>Pick a free machine, follow four steps, and your agent runs for you.</p><button>Set it up</button></body></html>"
+  }
+ },
+ {
+  "name": "no landing page",
+  "label": "good",
+  "files": {
+   "README.md": "# x\n"
+  }
+ },
+ {
+  "name": "jargon allowed by config",
+  "label": "good",
+  "files": {
+   "index.html": "<html><body><h1>Serverless inference runtime</h1><p>Get a free key.</p><a href=\"#go\">Get started</a></body></html>"
+  },
+  "cfg": {
+   "five_second": {
+    "jargon": [
+     "pods?"
+    ]
+   }
+  }
+ }
+]

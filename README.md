@@ -69,6 +69,7 @@ npx github:flisk-sh/gel run --root .
 | `status-declared` | `gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
 | `dependabot-config` | the repo uses an ecosystem (npm, pip, go, cargo, docker, github-actions and others) that `.github/dependabot.yml` (or a Renovate config) does not cover |
 | `release-integrity` | a release whose tag is not SemVer, whose commit is gone or off the default branch, with no CHANGELOG entry, a red or missing check, an earlier failed release run, or assets without checksums (or an SBOM, if required). Feed it `gel release-ctx --repo o/n --tag v1.2.3 > ctx.json`, then `gel run --ctx ctx.json`; it complements the org `release-gate` rather than replacing it |
+| `five-second-test` | the first screen of a landing page (`index.html`, `public/index.html`, `docs/index.html`; set `five_second.pages` to change) cannot be understood in five seconds on a phone: no `<h1>`, a headline over 12 words, a lead over 32 words, jargon such as endpoint, inference or MCP in either, or no link or button under the headline. Offline; tune `max_h1_words`, `max_lead_words` and `jargon` under `five_second` |
 
 `migrations-append-only`, `api-contract`, `tests-with-change` and `adr-required` compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 
