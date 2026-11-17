@@ -1,0 +1,11 @@
+[
+ { "name": "runtime change, no ADR", "label": "bad", "cfg": { "adr_required": { "paths": ["src/runtime/**"] } }, "base": { "src/runtime/a.ts": "a\n" }, "files": { "src/runtime/a.ts": "b\n" } },
+ { "name": "ADR missing sections", "label": "bad", "cfg": { "adr_required": { "paths": ["src/runtime/**"] } }, "base": { "src/runtime/a.ts": "a\n" }, "files": { "src/runtime/a.ts": "b\n", "docs/adr/0001-x.md": "# Use X\n\n## Context\nbecause\n" } },
+ { "name": "editing an old ADR is not adding one", "label": "bad", "cfg": { "adr_required": { "paths": ["schemas/**"] } }, "base": { "schemas/a.json": "{}\n", "docs/adr/0001-x.md": "# a\n## Context\n## Decision\n## Alternatives\n## Consequences\n" }, "files": { "schemas/a.json": "{\"a\":1}\n", "docs/adr/0001-x.md": "# a\n## Context\n## Decision\n## Alternatives\n## Consequences\nmore\n" } },
+ { "name": "added ADR with all sections", "label": "good", "cfg": { "adr_required": { "paths": ["src/runtime/**"] } }, "base": { "src/runtime/a.ts": "a\n" }, "files": { "src/runtime/a.ts": "b\n", "docs/adr/0002-isolation.md": "# Runtime isolation\n\n## Context\nx\n\n## Decision\ny\n\n## Alternatives considered\nz\n\n## Consequences\nw\n" } },
+ { "name": "no paths configured: never asked", "label": "good", "cfg": {}, "base": { "src/runtime/a.ts": "a\n" }, "files": { "src/runtime/a.ts": "b\n" } },
+ { "name": "change outside the listed paths", "label": "good", "cfg": { "adr_required": { "paths": ["src/runtime/**"] } }, "base": { "src/ui/a.ts": "a\n" }, "files": { "src/ui/a.ts": "b\n" } },
+ { "name": "below min_lane", "label": "good", "cfg": { "adr_required": { "paths": ["src/runtime/**"], "min_lane": "C" } }, "base": { "src/runtime/a.ts": "a\n" }, "files": { "src/runtime/a.ts": "b\n" } },
+ { "name": "custom directory and sections", "label": "good", "cfg": { "adr_required": { "paths": ["api/**"], "directory": "decisions", "sections": ["context", "decision"] } }, "base": { "api/a.yml": "a\n" }, "files": { "api/a.yml": "b\n", "decisions/001.md": "# A\n## Context\n## Decision\n" } },
+ { "name": "push scan, no base", "label": "good", "cfg": { "adr_required": { "paths": ["src/runtime/**"] } }, "files": { "src/runtime/a.ts": "b\n" } }
+]

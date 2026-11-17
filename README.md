@@ -1,6 +1,6 @@
 # GEL: Guard, Eval, Loop
 
-Seven checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, a pull request that says "all tests pass" while a check is red, an edit to a database migration that already ran, and an API change that breaks existing clients. Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
+Twelve checks that stop what AI coding agents and tired people ship by mistake: a leaked key, an unpinned action, a workflow with an open token, a link to a file that is gone, a pull request that says "all tests pass" while a check is red, an edit to a database migration that already ran, an API change that breaks existing clients, product code changed with no test, an architectural change with no decision record, and the basics a public repo should carry (licence, security policy, owner, status, dependency updates). Plain Node, no model, no network, about a second on a large repo. Works in any GitHub repo, any language.
 
 **Bench on 30 public repos (11,350 files) and 231 real pull requests:**
 
@@ -63,11 +63,13 @@ npx github:flisk-sh/gel run --root .
 | `done-without-green` | a pull request says "all checks pass" or "ready to merge" while a check on its last commit is red |
 | `migrations-append-only` | a pull request edits, renames or deletes a migration that is already on the base branch (Rails, Django, Alembic, Prisma, Knex, Drizzle, Supabase, Flyway, golang-migrate and others). Adding a migration is fine |
 | `api-contract` | a pull request changes an OpenAPI or Swagger spec (JSON or YAML) so that an existing client breaks: an endpoint or method removed, a new required parameter or request body, a path parameter or a 2xx response gone |
+| `tests-with-change` | a pull request changes product code and no test file in the same pull request. It reads changed paths, never the PR title. Docs, generated files, config, fixtures and test-only changes pass. Tune with `tests_with_change` (`source`, `tests`, `exempt` globs) |
+| `adr-required` | opt-in: a pull request touches a path listed in `adr_required.paths` and adds no ADR (a new `.md` under `adr_required.directory`, default `docs/adr`) with Context, Decision, Alternatives and Consequences sections. `min_lane` sets the lowest risk lane that triggers it. No `paths`, no rule |
 | `repo-health` | a repo has no LICENSE, SECURITY.md, CONTRIBUTING.md or CODEOWNERS (root, `.github/` or `docs/`), or its README has no sentence saying what it is for. List files the org supplies from its `.github` repo in `gel.json` as `"repo_health": {"inherit": ["security", "contributing"]}` |
 | `status-declared` | `gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
 | `dependabot-config` | the repo uses an ecosystem (npm, pip, go, cargo, docker, github-actions and others) that `.github/dependabot.yml` (or a Renovate config) does not cover |
 
-The last two compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
+`migrations-append-only`, `api-contract`, `tests-with-change` and `adr-required` compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 
 ## gel.json
 

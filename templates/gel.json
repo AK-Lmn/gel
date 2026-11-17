@@ -8,6 +8,8 @@
     "done-without-green": "report",
     "migrations-append-only": "report",
     "api-contract": "report",
+    "tests-with-change": "report",
+    "adr-required": "report",
     "repo-health": "report",
     "status-declared": "report",
     "dependabot-config": "report"

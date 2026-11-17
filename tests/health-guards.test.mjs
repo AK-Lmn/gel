@@ -31,3 +31,31 @@ test("dependabot-config skips an unreadable dependabot file instead of guessing"
   const files = ["package.json", ".github/dependabot.yml"];
   assert.equal(m.run({ files, cfg: {}, read: () => null }).pass, true);
 });
+
+for (const g of ["tests-with-change", "adr-required"]) {
+  test(`${g} imports nothing from node and passes without a base`, async () => {
+    const src = readFileSync(new URL(`../guards/${g}/index.mjs`, import.meta.url), "utf8");
+    assert.doesNotMatch(src, /\bfrom\s+["']node:/);
+    const m = await import(`../guards/${g}/index.mjs`);
+    assert.equal(m.run({ changes: null, cfg: { adr_required: { paths: ["**"] } }, read: () => null }).pass, true);
+  });
+}
+
+test("tests-with-change ignores the PR title: a test file is what counts", async () => {
+  const m = await import("../guards/tests-with-change/index.mjs");
+  const src = { status: "M", file: "src/a.ts" };
+  assert.equal(m.run({ changes: [src], cfg: {}, title: "docs: typo" }).pass, false);
+  assert.equal(m.run({ changes: [src, { status: "A", file: "src/a.test.ts" }], cfg: {} }).pass, true);
+});
+
+test("adr-required needs a NEW file with the sections, and only where paths are configured", async () => {
+  const m = await import("../guards/adr-required/index.mjs");
+  const cfg = { adr_required: { paths: ["schemas/**"] } };
+  const code = { status: "M", file: "schemas/a.json" };
+  const adr = { status: "A", file: "docs/adr/0003-x.md" };
+  const full = "# X\n## Context\n## Decision\n## Alternatives\n## Consequences\n";
+  assert.equal(m.run({ changes: [code], cfg, read: () => null }).pass, false);
+  assert.equal(m.run({ changes: [code, adr], cfg, read: () => full }).pass, true);
+  assert.equal(m.run({ changes: [code, adr], cfg, read: () => "# X\n## Context\n" }).pass, false);
+  assert.equal(m.run({ changes: [code], cfg: {}, read: () => null }).pass, true);
+});
