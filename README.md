@@ -63,6 +63,9 @@ npx github:flisk-sh/gel run --root .
 | `done-without-green` | a pull request says "all checks pass" or "ready to merge" while a check on its last commit is red |
 | `migrations-append-only` | a pull request edits, renames or deletes a migration that is already on the base branch (Rails, Django, Alembic, Prisma, Knex, Drizzle, Supabase, Flyway, golang-migrate and others). Adding a migration is fine |
 | `api-contract` | a pull request changes an OpenAPI or Swagger spec (JSON or YAML) so that an existing client breaks: an endpoint or method removed, a new required parameter or request body, a path parameter or a 2xx response gone |
+| `repo-health` | a repo has no LICENSE, SECURITY.md, CONTRIBUTING.md or CODEOWNERS (root, `.github/` or `docs/`), or its README has no sentence saying what it is for. List files the org supplies from its `.github` repo in `gel.json` as `"repo_health": {"inherit": ["security", "contributing"]}` |
+| `status-declared` | `gel.json` has no `status` (production, active, experimental, archived) or no `owner`, or an `active` repo has had no commit for `stale_after_days` (default 365, needs `ctx.lastCommitAt`) |
+| `dependabot-config` | the repo uses an ecosystem (npm, pip, go, cargo, docker, github-actions and others) that `.github/dependabot.yml` (or a Renovate config) does not cover |
 
 The last two compare a pull request with its base branch, so they run on pull requests only; a push scan passes them. `api-contract` reads a spec it understands and skips one it does not (YAML anchors, for example) rather than guess.
 

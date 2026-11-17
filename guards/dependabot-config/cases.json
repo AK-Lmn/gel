@@ -1,0 +1,10 @@
+[
+ { "name": "npm and no config", "label": "bad", "files": { "package.json": "{}\n" } },
+ { "name": "workflows and no config", "label": "bad", "files": { ".github/workflows/ci.yml": "jobs: {}\n" } },
+ { "name": "config misses github-actions", "label": "bad", "files": { "package.json": "{}\n", ".github/workflows/ci.yml": "jobs: {}\n", ".github/dependabot.yml": "version: 2\nupdates:\n  - package-ecosystem: npm\n    directory: /\n    schedule:\n      interval: weekly\n" } },
+ { "name": "docker not covered", "label": "bad", "files": { "go.mod": "module x\n", "Dockerfile": "FROM scratch\n", ".github/dependabot.yml": "version: 2\nupdates:\n  - package-ecosystem: gomod\n    directory: /\n" } },
+ { "name": "all ecosystems covered", "label": "good", "files": { "package.json": "{}\n", ".github/workflows/ci.yml": "jobs: {}\n", ".github/dependabot.yml": "version: 2\nupdates:\n  - package-ecosystem: \"npm\"\n    directory: \"/\"\n    schedule:\n      interval: weekly\n  - package-ecosystem: github-actions\n    directory: /\n    schedule:\n      interval: weekly\n" } },
+ { "name": "renovate instead", "label": "good", "files": { "package.json": "{}\n", "renovate.json": "{}\n" } },
+ { "name": "no dependencies at all", "label": "good", "files": { "README.md": "hello\n" } },
+ { "name": "fixture manifest does not count", "label": "good", "files": { "tests/fixtures/app/package.json": "{}\n", "README.md": "hello\n" } }
+]

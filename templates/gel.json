@@ -7,6 +7,9 @@
     "dead-links": "report",
     "done-without-green": "report",
     "migrations-append-only": "report",
-    "api-contract": "report"
+    "api-contract": "report",
+    "repo-health": "report",
+    "status-declared": "report",
+    "dependabot-config": "report"
   }
 }
