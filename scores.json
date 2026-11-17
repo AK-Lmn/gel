@@ -155,9 +155,9 @@
  },
  {
   "guard": "north-star",
-  "cases": 13,
-  "good": 5,
-  "bad": 8,
+  "cases": 21,
+  "good": 6,
+  "bad": 15,
   "recall": 1,
   "precision": 1,
   "falseBlocks": 0,
