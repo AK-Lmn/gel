@@ -9,7 +9,7 @@ import { matchAny } from "../../lib/glob.mjs";
 export const name = "stale-base";
 
 export const WATCH = [
-  ".github/workflows/**", ".github/actions/**", "scripts/scores/**", "Makefile", "docs/gel.json", ".github/gel.json",
+  ".github/workflows/**", ".github/actions/**", "scripts/scores/**", "Makefile", "docs/gel.json",
 ];
 
 export function run({ ctx, cfg }) {

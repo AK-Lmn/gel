@@ -42,6 +42,6 @@ test("gel lane reads the git diff and writes the plan to GITHUB_OUTPUT", () => {
   assert.equal(run().lane, "A");
   mkdirSync(join(dir, "src")); writeFileSync(join(dir, "src/app.js"), "x\n"); git("add", "."); git("commit", "-qm", "c");
   assert.equal(run().lane, "B");
-  writeFileSync(join(dir, "gel.json"), JSON.stringify({ minLane: "C" })); git("add", "."); git("commit", "-qm", "d");
+  mkdirSync(join(dir, "docs"), { recursive: true }); writeFileSync(join(dir, "docs", "gel.json"), JSON.stringify({ minLane: "C" })); git("add", "."); git("commit", "-qm", "d");
   assert.equal(run().lane, "C");
 });

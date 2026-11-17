@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { loadConfig } from "../lib/config.mjs";
 import { pickLane } from "../lib/lane.mjs";
 
-test("docs/gel.json is read, and wins over a root gel.json", () => {
+test("docs/gel.json is read, and a root gel.json is not", () => {
   const d = mkdtempSync(join(tmpdir(), "cfg-"));
   mkdirSync(join(d, "docs"));
   writeFileSync(join(d, "gel.json"), JSON.stringify({ mode: "report", ignore: ["root"] }));
@@ -14,10 +14,13 @@ test("docs/gel.json is read, and wins over a root gel.json", () => {
   assert.deepEqual(loadConfig(d).ignore, ["docs"]);
 });
 
-test("a root gel.json still works when docs/gel.json is absent", () => {
+test("a root gel.json alone is ignored, with a message that says where to move it", () => {
   const d = mkdtempSync(join(tmpdir(), "cfg-"));
   writeFileSync(join(d, "gel.json"), JSON.stringify({ mode: "report", ignore: ["root"] }));
-  assert.deepEqual(loadConfig(d).ignore, ["root"]);
+  const seen = [];
+  const orig = console.error; console.error = (m) => seen.push(m);
+  try { assert.deepEqual(loadConfig(d).ignore, []); } finally { console.error = orig; }
+  assert.match(seen.join("\n"), /docs\/gel\.json/);
 });
 
 test("a change to docs/gel.json is lane C, not docs lane A", () => {

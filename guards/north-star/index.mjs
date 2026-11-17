@@ -1,4 +1,4 @@
-// No node imports here: this file also runs in a browser. Every repo names ONE north star metric in gel.json and
+// No node imports here: this file also runs in a browser. Every repo names ONE north star metric in docs/gel.json and
 // the guard FAILS when the measured result does not meet the target. A claim is not enough:
 //   "north_star": {
 //     "metric": "first start to healthy on a 10-part shop",
@@ -23,10 +23,10 @@ export function ratioOf(result, better) {
 export function run({ cfg, files, read, ctx }) {
   if (cfg?.status === "archived") return { pass: true, findings: [] };
   const findings = [];
-  const at = (message) => findings.push({ file: "gel.json", line: 0, message });
+  const at = (message) => findings.push({ file: "docs/gel.json", line: 0, message });
   const ns = cfg?.north_star;
   if (ns == null || typeof ns !== "object") {
-    at(`gel.json has no "north_star" (a measured metric: {"metric","baseline","target":{"ratio":8,"better":"lower"},"result":"bench/north-star.json","evidence"})`);
+    at(`docs/gel.json has no "north_star" (a measured metric: {"metric","baseline","target":{"ratio":8,"better":"lower"},"result":"bench/north-star.json","evidence"})`);
     return { pass: false, findings };
   }
   if (typeof ns.metric !== "string" || words(ns.metric) < 3) at(`north_star.metric must say what is measured, in at least three words`);

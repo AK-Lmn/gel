@@ -147,7 +147,7 @@ async function main() {
     const root = resolve(opt("root", "."));
     const cfg = loadConfig(root);
     const ns = cfg.north_star;
-    if (!ns?.result) { console.log('gel.json has no north_star.result: see the north-star guard in README.md'); process.exit(2); }
+    if (!ns?.result) { console.log('docs/gel.json has no north_star.result: see the north-star guard in README.md'); process.exit(2); }
     if (args.includes("--measure")) {
       if (!ns.measure) { console.log("north_star.measure is not set: nothing to run"); process.exit(2); }
       const out = execSync(ns.measure, { cwd: root, encoding: "utf8", stdio: ["ignore", "pipe", "inherit"] });
