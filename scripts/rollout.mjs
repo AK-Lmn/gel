@@ -31,13 +31,13 @@ for (const r of repos) {
     if (!apply) { console.log(`would ${repo} (${base})`); continue; }
     const sha = api(`repos/${repo}/git/ref/heads/${base}`).object.sha;
     try { gh("api", "-X", "POST", `repos/${repo}/git/refs`, "-f", `ref=refs/heads/${BRANCH}`, "-f", `sha=${sha}`); } catch { /* branch exists from an earlier run */ }
-    for (const [path, body] of [[".github/workflows/gel.yml", caller], ["gel.json", cfg]]) {
+    for (const [path, body] of [[".github/workflows/gel.yml", caller], ["docs/gel.json", cfg]]) {
       let existing = null;
       try { existing = api(`repos/${repo}/contents/${path}?ref=${BRANCH}`).sha; } catch {}
       gh("api", "-X", "PUT", `repos/${repo}/contents/${path}`, "-f", `message=ci: add GEL guards (report only)\n\nSigned-off-by: flisk-sh <noreply@flisk.sh>`, "-f", `content=${b64(body)}`, "-f", `branch=${BRANCH}`, ...(existing ? ["-f", `sha=${existing}`] : []));
     }
     const out = gh("pr", "create", "-R", repo, "--base", base, "--head", BRANCH, "--title", "ci: add GEL guards (report only)",
-      "--body", "Adds the 10-line GEL caller and a `gel.json`. Report only: nothing blocks. It runs secret scan, pinned actions, dead links and done-without-green, and writes one record per run.\n\nSee https://github.com/flisk-sh/gel");
+      "--body", "Adds the 10-line GEL caller and a `docs/gel.json`. Report only: nothing blocks. It runs secret scan, pinned actions, dead links and done-without-green, and writes one record per run.\n\nSee https://github.com/flisk-sh/gel");
     console.log(`pr    ${repo} ${out.trim()}`);
   } catch (e) { console.log(`FAIL  ${repo} ${String(e.stderr ?? e.message).split("\n")[0]}`); }
 }

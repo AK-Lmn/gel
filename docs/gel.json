@@ -1,0 +1,17 @@
+{
+  "mode": "report",
+  "guards": {
+    "north-star": "report"
+  },
+  "north_star": {
+    "metric": "median seconds the shared GEL check takes on a pull request",
+    "baseline": "first measured run, 2026-11-17",
+    "target": {
+      "ratio": 1.5,
+      "better": "lower"
+    },
+    "result": "docs/north-star/result.json",
+    "evidence": "docs/north-star/README.md",
+    "max_age_days": 30
+  }
+}
