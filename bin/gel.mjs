@@ -6,7 +6,7 @@ import { loadConfig } from "../lib/config.mjs";
 import { pickLane, lanePlan } from "../lib/lane.mjs";
 import { matchAny } from "../lib/glob.mjs";
 import { walk } from "../lib/fs.mjs";
-import { GUARD_NAMES, loadGuard } from "../lib/guards.mjs";
+import { GUARD_NAMES, WHOLE_TREE, loadGuard } from "../lib/guards.mjs";
 import { selftest } from "../lib/selftest.mjs";
 import { diffChanges, baseReader } from "../lib/diff.mjs";
 import { readRecords, metrics, metricsMarkdown } from "../lib/metrics.mjs";
@@ -157,8 +157,8 @@ async function main() {
     const level = cfg.guards[name];
     if (level === "off") continue;
     const guard = await loadGuard(name);
-    // links can break in files that did not change, so that guard looks at the whole tree
-    const files = name === "dead-links" ? all : scope;
+    // links can break in files that did not change, and a licence or a Dependabot config is absent from a diff, so these guards look at the whole tree
+    const files = WHOLE_TREE.has(name) ? all : scope;
     const res = await guard.run({ root, files, ctx, cfg, changes, readBase });
     results.push({ guard: name, level, pass: res.pass, findings: res.findings });
   }
