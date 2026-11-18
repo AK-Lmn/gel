@@ -1,0 +1,101 @@
+[
+ {
+  "name": "openai key in vite env file",
+  "label": "bad",
+  "files": {
+   ".env.example": "VITE_OPENAI_API_KEY=\n"
+  }
+ },
+ {
+  "name": "stripe secret read in react code",
+  "label": "bad",
+  "files": {
+   "src/pay.ts": "const k = import.meta.env.VITE_STRIPE_SECRET_KEY;\n"
+  }
+ },
+ {
+  "name": "supabase service role in next env",
+  "label": "bad",
+  "files": {
+   ".env.local": "NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY=abc\n"
+  }
+ },
+ {
+  "name": "resend key in workflow build step",
+  "label": "bad",
+  "files": {
+   ".github/workflows/ci.yml": "env:\n  REACT_APP_RESEND_API_KEY: ${{ secrets.RESEND }}\n"
+  }
+ },
+ {
+  "name": "password in docker build arg",
+  "label": "bad",
+  "files": {
+   "Dockerfile": "ARG VITE_ADMIN_PASSWORD\n"
+  }
+ },
+ {
+  "name": "anthropic token in expo code",
+  "label": "bad",
+  "files": {
+   "app/chat.tsx": "fetch(u,{headers:{k:process.env.EXPO_PUBLIC_ANTHROPIC_TOKEN}})\n"
+  }
+ },
+ {
+  "name": "stripe publishable key",
+  "label": "good",
+  "files": {
+   ".env": "VITE_STRIPE_PUBLISHABLE_KEY=pk_live_x\n"
+  }
+ },
+ {
+  "name": "supabase anon key",
+  "label": "good",
+  "files": {
+   ".env": "NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJ\n"
+  }
+ },
+ {
+  "name": "api url",
+  "label": "good",
+  "files": {
+   "src/a.ts": "fetch(import.meta.env.VITE_API_URL)\n"
+  }
+ },
+ {
+  "name": "server only openai key",
+  "label": "good",
+  "files": {
+   ".env": "OPENAI_API_KEY=abc\n",
+   "server.js": "const k = process.env.OPENAI_API_KEY;\n"
+  }
+ },
+ {
+  "name": "password length setting",
+  "label": "good",
+  "files": {
+   ".env": "VITE_PASSWORD_MIN_LENGTH=12\n"
+  }
+ },
+ {
+  "name": "readme warns about the name",
+  "label": "good",
+  "files": {
+   "README.md": "Never name a variable VITE_OPENAI_API_KEY.\n"
+  }
+ },
+ {
+  "name": "test fixture",
+  "label": "good",
+  "files": {
+   "test/env.test.js": "const n = 'VITE_OPENAI_API_KEY';\n"
+  }
+ },
+ {
+  "name": "recaptcha site key",
+  "label": "good",
+  "files": {
+   ".env": "VITE_RECAPTCHA_SITE_KEY=abc\n"
+  }
+ }
+]

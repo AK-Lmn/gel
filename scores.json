@@ -185,5 +185,16 @@
   "falseBlocks": 0,
   "wrong": [],
   "ok": true
+ },
+ {
+  "guard": "public-env-secrets",
+  "cases": 14,
+  "good": 8,
+  "bad": 6,
+  "recall": 1,
+  "precision": 1,
+  "falseBlocks": 0,
+  "wrong": [],
+  "ok": true
  }
 ]
