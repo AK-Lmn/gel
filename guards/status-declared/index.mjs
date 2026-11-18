@@ -1,4 +1,4 @@
-// No node imports here: this file also runs in a browser. Every repo says in gel.json what it is and who owns it:
+// No node imports here: this file also runs in a browser. A repo that opts in with a docs/gel.json says in it what it is and who owns it:
 //   { "status": "production|active|experimental|archived", "owner": "@team-or-person" }
 // That is the data the portfolio table is built from. A repo marked `active` or `production` whose last commit
 // is over `stale_after_days` (default 365) old is flagged: mark it experimental or archive it. The age comes
@@ -7,6 +7,8 @@ export const name = "status-declared";
 export const STATUSES = ["production", "active", "experimental", "archived"];
 
 export function run({ cfg, ctx }) {
+  // gel.json is optional: a repo that has none has declared nothing, so there is nothing to check (and nothing to nag about).
+  if (cfg?.noConfigFile) return { pass: true, findings: [] };
   const findings = [];
   const at = (message) => findings.push({ file: "gel.json", line: 0, message });
   const status = cfg?.status;

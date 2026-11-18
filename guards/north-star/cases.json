@@ -467,5 +467,25 @@
    "README.md": "x\n",
    "bench/README.md": "how\n"
   }
+ },
+ {
+  "name": "no docs/gel.json at all: nothing declared, nothing to check",
+  "label": "good",
+  "cfg": {
+   "noConfigFile": true
+  },
+  "files": {
+   "index.js": "export const x = 1;\n"
+  }
+ },
+ {
+  "name": "no docs/gel.json flag also skips when a repo is a bare checkout",
+  "label": "good",
+  "cfg": {
+   "noConfigFile": true
+  },
+  "files": {
+   "README.md": "# tool\n"
+  }
  }
 ]

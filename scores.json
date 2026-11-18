@@ -111,8 +111,8 @@
  },
  {
   "guard": "status-declared",
-  "cases": 7,
-  "good": 3,
+  "cases": 9,
+  "good": 5,
   "bad": 4,
   "recall": 1,
   "precision": 1,
@@ -155,8 +155,8 @@
  },
  {
   "guard": "north-star",
-  "cases": 21,
-  "good": 6,
+  "cases": 23,
+  "good": 8,
   "bad": 15,
   "recall": 1,
   "precision": 1,

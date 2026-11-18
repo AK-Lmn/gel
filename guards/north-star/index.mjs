@@ -1,4 +1,4 @@
-// No node imports here: this file also runs in a browser. Every repo names ONE north star metric in docs/gel.json and
+// No node imports here: this file also runs in a browser. A repo that opts in names ONE north star metric in docs/gel.json and
 // the guard FAILS when the measured result does not meet the target. A claim is not enough:
 //   "north_star": {
 //     "metric": "first start to healthy on a 10-part shop",
@@ -22,6 +22,8 @@ export function ratioOf(result, better) {
 
 export function run({ cfg, files, read, ctx }) {
   if (cfg?.status === "archived") return { pass: true, findings: [] };
+  // docs/gel.json is optional: a repo that has none has named no north star, so there is nothing to hold it to.
+  if (cfg?.noConfigFile) return { pass: true, findings: [] };
   const findings = [];
   const at = (message) => findings.push({ file: "docs/gel.json", line: 0, message });
   const ns = cfg?.north_star;
