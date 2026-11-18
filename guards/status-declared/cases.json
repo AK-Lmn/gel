@@ -1,9 +1,107 @@
 [
- { "name": "no status or owner", "label": "bad", "cfg": {}, "files": { "README.md": "x\n" } },
- { "name": "unknown status", "label": "bad", "cfg": { "status": "beta", "owner": "@acme/core" }, "files": { "README.md": "x\n" } },
- { "name": "status but no owner", "label": "bad", "cfg": { "status": "active" }, "files": { "README.md": "x\n" } },
- { "name": "active but untouched for two years", "label": "bad", "cfg": { "status": "active", "owner": "@acme/core" }, "ctx": { "lastCommitAt": "2024-01-01T00:00:00Z", "now": "2026-01-01T00:00:00Z" }, "files": { "README.md": "x\n" } },
- { "name": "declared", "label": "good", "cfg": { "status": "active", "owner": "@acme/core" }, "files": { "README.md": "x\n" } },
- { "name": "active and recent", "label": "good", "cfg": { "status": "production", "owner": "alice" }, "ctx": { "lastCommitAt": "2025-12-01T00:00:00Z", "now": "2026-01-01T00:00:00Z" }, "files": { "README.md": "x\n" } },
- { "name": "archived may be old", "label": "good", "cfg": { "status": "archived", "owner": "@acme/core" }, "ctx": { "lastCommitAt": "2020-01-01T00:00:00Z", "now": "2026-01-01T00:00:00Z" }, "files": { "README.md": "x\n" } }
+ {
+  "name": "no status or owner",
+  "label": "bad",
+  "cfg": {},
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "unknown status",
+  "label": "bad",
+  "cfg": {
+   "status": "beta",
+   "owner": "@acme/core"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "status but no owner",
+  "label": "bad",
+  "cfg": {
+   "status": "active"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "active but untouched for two years",
+  "label": "bad",
+  "cfg": {
+   "status": "active",
+   "owner": "@acme/core"
+  },
+  "ctx": {
+   "lastCommitAt": "2024-01-01T00:00:00Z",
+   "now": "2026-01-01T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "declared",
+  "label": "good",
+  "cfg": {
+   "status": "active",
+   "owner": "@acme/core"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "active and recent",
+  "label": "good",
+  "cfg": {
+   "status": "production",
+   "owner": "alice"
+  },
+  "ctx": {
+   "lastCommitAt": "2025-12-01T00:00:00Z",
+   "now": "2026-01-01T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "archived may be old",
+  "label": "good",
+  "cfg": {
+   "status": "archived",
+   "owner": "@acme/core"
+  },
+  "ctx": {
+   "lastCommitAt": "2020-01-01T00:00:00Z",
+   "now": "2026-01-01T00:00:00Z"
+  },
+  "files": {
+   "README.md": "x\n"
+  }
+ },
+ {
+  "name": "no docs/gel.json at all: nothing declared, nothing to check",
+  "label": "good",
+  "cfg": {
+   "noConfigFile": true
+  },
+  "files": {
+   "index.js": "export const x = 1;\n"
+  }
+ },
+ {
+  "name": "no docs/gel.json flag also skips when a repo is a bare checkout",
+  "label": "good",
+  "cfg": {
+   "noConfigFile": true
+  },
+  "files": {
+   "README.md": "# tool\n"
+  }
+ }
 ]
