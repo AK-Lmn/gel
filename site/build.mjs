@@ -86,7 +86,7 @@ const html = `<!doctype html>
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M9 17l5 5 9-12' stroke='%23b49cff' stroke-width='3.5' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Geist+Mono:wght@400;500;600&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#000;--card:#0a0a0b;--card2:#111113;--ink:#fff;--soft:#d6d3cc;--muted:#9a9690;--faint:#5f5c57;--line:rgba(255,255,255,.1);--line2:rgba(255,255,255,.18);
  --holo:linear-gradient(120deg,#7fe3f5 0%,#b49cff 50%,#ff9fd8 100%);--pink:#ff9fd8;--violet:#b49cff;--cyan:#7fe3f5;--green:#4ade80;
@@ -99,10 +99,15 @@ a{color:inherit}code,.mono{font-family:var(--mono);font-size:.86em}
 .holo{background:var(--holo);-webkit-background-clip:text;background-clip:text;color:transparent}
 .kicker{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 
-nav{position:sticky;top:0;z-index:20;background:rgba(0,0,0,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
-.brand{font:600 15px var(--mono);text-decoration:none;letter-spacing:.02em}.brand span{color:var(--violet)}
-.links{display:flex;gap:4px;align-items:center}.links a{font-size:14px;font-weight:400;color:var(--soft);text-decoration:none;padding:6px 12px;border-radius:999px}.links a:hover{background:var(--card2);color:var(--ink)}
+
+.fm .fi{width:16px;height:16px;border-radius:5px}.fm .cv{color:var(--muted);transition:transform .2s}.fm[open] .cv{transform:rotate(180deg)}
+.fm strong{font-weight:600;background:linear-gradient(100deg,#6a6a72 20%,#4ade80 40%,#bbf7d0 50%,#4ade80 60%,#6a6a72 80%) 0 0/300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:fsh 4s linear infinite}
+@keyframes fsh{to{background-position:-300% 0}}@media(prefers-reduced-motion:reduce){.fm strong{animation:none}}
+.fm-pop{position:absolute;left:0;top:calc(100% + 10px);width:min(640px,calc(100vw - 32px));background:var(--card);border:1px solid var(--line2);border-radius:16px;padding:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 18px;box-shadow:0 24px 60px -20px #000}
+.fm-g h3{margin:0 0 6px;font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.fm-g a,.fm-all{display:block;padding:5px 8px;margin:0 -8px;border-radius:8px;font-size:14px;color:var(--soft);text-decoration:none}.fm-g a:hover,.fm-all:hover{background:var(--card2);color:var(--ink)}
+.fm-all{grid-column:1/-1;border-top:1px solid var(--line);border-radius:0 0 8px 8px;margin:0;padding-top:12px;color:var(--ink)}
+@media(max-width:640px){.fm-pop{grid-template-columns:1fr 1fr}.fm .fr{display:none}}
 .pill{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;font:500 14px var(--sans);text-decoration:none;white-space:nowrap;border:1px solid var(--line2);color:var(--ink);background:var(--card);cursor:pointer;transition:transform .15s}
 .pill:hover{transform:translateY(-1px)}.pill.white{background:#fff;color:#000;border-color:#fff}
 .pill.holo-b{border:1px solid transparent;background:linear-gradient(rgba(10,10,11,.9),rgba(10,10,11,.9)) padding-box,var(--holo) border-box}
@@ -112,6 +117,7 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 .ticker .run{display:inline-flex;gap:18px;animation:tick 60s linear infinite;padding-left:18px}.ticker i{color:var(--faint);font-style:normal}
 @keyframes tick{to{transform:translateX(-50%)}}
 
+.subnav{border-bottom:1px solid var(--line);background:rgba(0,0,0,.72)}.subnav .wrap{display:flex;gap:4px;height:40px;align-items:center}.subnav a{font-size:13.5px;color:var(--muted);text-decoration:none;padding:5px 12px;border-radius:999px}.subnav a:hover{background:var(--card2);color:var(--ink)}
 .hero{position:relative;padding:88px 0 40px}
 .hero::before{content:"";position:absolute;inset:-120px -20% auto;height:720px;background:radial-gradient(ellipse 50% 45% at 30% 30%,rgba(66,92,255,.28),transparent 70%),radial-gradient(ellipse 35% 35% at 75% 55%,rgba(180,156,255,.16),transparent 70%);pointer-events:none;z-index:-1}
 .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
@@ -199,13 +205,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <script defer data-domain="gel.flisk.si" src="https://flisk.sh/a.js"></script>
 </head>
 <body>
-<nav><div class="wrap">
- <a class="brand" href="#top"><span>&gt;_</span> gel</a>
- <div class="links">
-  <a class="hide" href="#bench">Bench</a><a class="hide" href="#prs">Real PRs</a><a class="hide" href="#eval">Eval</a><a class="hide" href="#limits">Limits</a>
-  <a class="pill sm holo-b" href="https://github.com/flisk-sh/gel">GitHub</a><a class="pill sm white" href="#install">Install</a>
- </div>
-</div></nav>
+<script src="https://flisk.si/assets/bar.js" data-product="GEL" data-icon="gel" data-accent="#b49cff" data-siblings="Cilytics,Ranker" data-text="Five CI checks for AI-written pull requests." defer></script>
+<div class="subnav"><div class="wrap"><a href="#bench">Bench</a><a href="#prs">Real PRs</a><a href="#eval">Eval</a><a href="#limits">Limits</a></div></div>
 <div class="ticker" aria-hidden="true"><div class="run">${ticker}<i>/</i>${ticker}<i>/</i></div></div>
 
 <main id="top">
