@@ -33,10 +33,10 @@
   "ok": true
  },
  {
-  "guard": "workflow-timeouts",
-  "cases": 7,
-  "good": 4,
-  "bad": 3,
+  "guard": "frozen-install",
+  "cases": 16,
+  "good": 10,
+  "bad": 6,
   "recall": 1,
   "precision": 1,
   "falseBlocks": 0,
