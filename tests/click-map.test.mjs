@@ -124,3 +124,13 @@ test("measure sends GEL_CLICKS_TOKEN as a Bearer key to a click map that answers
     assert.deepEqual(seen, [null, "Bearer fa_wrong", "Bearer fa_test"]);
   } finally { server.close(); }
 });
+
+test("the key is never sent over plain http, except to this computer", async () => {
+  const { authHeaders, measure } = await import("../lib/click-map.mjs");
+  assert.throws(() => authHeaders("http://analytics.example/api/clicks", "fa_test"), /not https: GEL_CLICKS_TOKEN is not sent over plain http/);
+  assert.throws(() => authHeaders("ftp://analytics.example/api/clicks", "fa_test"), /not https/);
+  await assert.rejects(measure({ url: "http://analytics.example/api/clicks?site=x", token: "fa_test" }), /not https/);
+  assert.deepEqual(authHeaders("https://analytics.flisk.si/api/clicks", "k"), { authorization: "Bearer k" });
+  for (const u of ["http://localhost:8787/x", "http://127.0.0.1/x", "http://[::1]/x", "http://app.localhost/x"]) assert.deepEqual(authHeaders(u, "k"), { authorization: "Bearer k" });
+  assert.deepEqual(authHeaders("http://analytics.example/x", ""), {}); // no key, nothing to protect
+});
