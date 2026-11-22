@@ -24,7 +24,7 @@ const log = (s) => { console.log(s); if (process.env.GITHUB_STEP_SUMMARY) append
 
 log(`## GEL promote PR${dry ? " (dry run: GEL_PROMOTE_PR is not 1 or --dry-run)" : ""}`);
 if (isPaused(process.env.GEL_PAUSE)) { log("Paused: GEL_PAUSE is set, nothing was done."); process.exit(0); }
-const open = sh("gh", ["pr", "list", "-R", REPO, "--head", BRANCH, "--state", "open", "--json", "url", "-q", "length"]).trim() | 0;
+const open = Number(sh("gh", ["pr", "list", "-R", REPO, "--head", BRANCH, "--state", "open", "--json", "url", "-q", "length"]).trim());
 const { allow, why } = budget({ max: 1, wip: WIP, open });
 if (!allow) { log(`Stopped by the brake: ${why}.`); process.exit(0); }
 
@@ -34,7 +34,7 @@ const lines = [];
 for (const id of arts.slice(0, RUNS)) {
   try {
     const d = join(dir, String(id));
-    writeFileSync(join(dir, `${id}.zip`), execFileSync("gh", ["api", `repos/${REPO}/actions/artifacts/${id}/zip`], { maxBuffer: 1 << 27 }));
+    writeFileSync(join(dir, `${id}.zip`), sh("gh", ["api", `repos/${REPO}/actions/artifacts/${id}/zip`], { encoding: "buffer" }));
     sh("unzip", ["-q", "-o", join(dir, `${id}.zip`), "-d", d]);
     for (const f of readdirSync(d)) lines.push(readFileSync(join(d, f), "utf8").trim());
   } catch (e) { log(`- artifact ${id}: skipped (${String(e.stderr || e.message).split("\n")[0]})`); }
