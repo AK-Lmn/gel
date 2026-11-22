@@ -11,7 +11,7 @@ Add it as a step in a workflow you already have:
 ```yaml
 - uses: actions/checkout@v4   # pin it to a SHA; GEL will tell you
   with: { fetch-depth: 0 }
-- uses: flisk-sh/gel@v1.11.0
+- uses: flisk-sh/gel@v1.12.0
 ```
 
 Or run it on a folder, with no GitHub involved:
@@ -23,11 +23,11 @@ node bin/gel.mjs run --root /path/to/your/repo
 
 It prints a table with one row per guard (`pass` or findings, and its level), then the first findings of each guard that failed. Every guard is in `report` mode until you say otherwise, so the exit code stays 0.
 
-Pin to a tag or a commit, not `@v1`. The `v1` tag still points at an older commit that has 15 guards, not the 22 described here.
+Pin to a tag or a commit if you want a fixed version. `@v1` is a moving tag that follows `main`, so it picks up new guards without a change on your side.
 
 ### Other ways to run it
 
-**As a whole job**, `.github/workflows/gel.yml`. Pass `gel_ref` too: its default is the old `v1`.
+**As a whole job**, `.github/workflows/gel.yml`. Pass `gel_ref` as well, so the guards run from the same version as the workflow.
 
 ```yaml
 name: GEL
@@ -36,8 +36,8 @@ permissions: { contents: read }
 jobs:
   gel:
     permissions: { contents: read, checks: read, pull-requests: read }
-    uses: flisk-sh/gel/.github/workflows/gel.yml@v1.11.0
-    with: { gel_ref: v1.11.0 }
+    uses: flisk-sh/gel/.github/workflows/gel.yml@v1.12.0
+    with: { gel_ref: v1.12.0 }
 ```
 
 **Across an org**, one pull request per repo (needs `gh` signed in):
@@ -136,7 +136,7 @@ Each guard has `guards/<name>/cases.json`, labelled good and bad. `node bin/gel.
 
 ## Status
 
-Version v1.11.0, built and run by [flisk-sh](https://github.com/flisk-sh) on its own repos. It is not published to npm (`package.json` has `"private": true`); use it as an Action or from a clone. Releases: [GitHub releases](https://github.com/flisk-sh/gel/releases).
+Version v1.12.0, built and run by [flisk-sh](https://github.com/flisk-sh) on its own repos. It is not published to npm (`package.json` has `"private": true`); use it as an Action or from a clone. Releases: [GitHub releases](https://github.com/flisk-sh/gel/releases).
 
 ## License
 
